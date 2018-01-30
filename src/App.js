@@ -8,6 +8,7 @@ import TokenizerUI from "./components/tokenizer";
 import WordEmbedderUI from "./components/word-embedder";
 import NERUI from "./components/ner";
 import PosUI from "./components/pos";
+import NavBar from "./components/nav_bar";
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
@@ -16,55 +17,14 @@ const MenuItemGroup = Menu.ItemGroup;
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { width: 0, height: 0 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    
   }
 
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
 
   render() {
     return <BrowserRouter>
         <div>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light rounded clearfix z-depth-5">
-            <a class="navbar-brand float-left" href="#">
-              Thai NLP Platform
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" />
-            </button>
-
-            <div class="collapse navbar-collapse float-right" id="navbarsExample09">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">
-                    Download
-                    <span class="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    API
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    About
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+          <NavBar />
           <div class="container-fluid">
             <div class="row">
               <div class="col-12 mt-4 mb-4">
