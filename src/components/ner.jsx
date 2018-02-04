@@ -31,7 +31,6 @@ class NERUI extends Component {
                       This is <strong>Name Entity Recognizer</strong> explaination
                     </div>
                   </div>} />
-              
             </div>
             <div class="col-8">
               <div class="row">

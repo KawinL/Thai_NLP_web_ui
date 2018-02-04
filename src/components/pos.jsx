@@ -38,7 +38,7 @@ class PosUI extends Component {
                       This is <strong>Part of Speech Tagger</strong> explaination
                     </div>
                   </div>} />
-              <h1>Part of Speech Tagger</h1>
+              
             </div>
             <div class="col-8">
               <div class="row">

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { vectorizeWord } from "../action/index";
+import ExplainUI from "./explanation";
 
 class WordEmbedderUI extends Component{
 
