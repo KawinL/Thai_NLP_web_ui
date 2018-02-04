@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 
-import { Input, Form, Icon, Button, Checkbox } from "antd";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { vectorizeWord } from "../action/index";
 
-class NERUI extends Component {
+class PosUI extends Component {
   constructor(props) {
     super(props);
 
@@ -15,9 +14,15 @@ class NERUI extends Component {
     };
   }
 
+  onInputChange = (e) => {
+    const { value } = e.target;
+    this.setState({inputValue: value})
+    console.log(this.state.inputValue)
+  }
+
   handleSubmit = e => {
     e.preventDefault();
-    const { value } = e.target;
+    
     this.props.tokenizeWord(this.state.inputValue);
   };
 
@@ -26,10 +31,10 @@ class NERUI extends Component {
         <div class="container application">
           <div class="row">
             <div class="col-12">
-              <h1>Name Entity Recognizer</h1>
+              <h1>Part of Speech Tagger</h1>
               <div class="alert alert-success" role="alert">
                 <div class="text-dark">
-                  This is <strong>Name Entity Recognizer</strong> explaination
+                  This is <strong>Part of Speech Tagger</strong> explaination
                 </div>
               </div>
             </div>
@@ -39,7 +44,7 @@ class NERUI extends Component {
                   <h5>Input</h5>
                   <div class="input-group input-group-lg">
                     <div class="input-group-prepend" />
-                    <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+                    <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" onChange={this.onInputChange} />
                   </div>
                 </div>
 
@@ -68,23 +73,21 @@ class NERUI extends Component {
                 <div class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">
+                      <a class="nav-link active" >
                         Text
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" >
                         JSON
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div class="card-body">
-                  
-                    <p class="card-text">
-                        <mark class="bg-danger rounded">ฉัน</mark>|กิน|กล้วยบวชชี
-                    </p>
-                  
+                  <p class="card-text">
+                    <mark class="bg-danger rounded">ฉัน</mark>|กิน|กล้วยบวชชี
+                  </p>
                 </div>
               </div>
             </div>
@@ -102,4 +105,4 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ vectorizeWord }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NERUI);
+export default connect(mapStateToProps, mapDispatchToProps)(PosUI);

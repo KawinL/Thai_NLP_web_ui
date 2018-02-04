@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -49,56 +48,6 @@ class TokenizerUI extends Component{
     // generateExample(){
     //   return 
     // }
-
-    jsonResult(){
-        return (
-                  <div class="card text-center mt-4">
-                    
-                    <div class="card-header">
-                      <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                          <a class="nav-link " href="#" onClick={()=>this.setState({isTextFormat:true})}>
-                            Text
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#">
-                            JSON
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">{this.props.wordList.map((word)=>{return word+'|'})}</p>
-                    </div>
-                  </div>
-        )
-    }
-
-    textResult(){
-        return(
-                  <div class="card text-center mt-4">
-                    
-                    <div class="card-header">
-                      <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#" >
-                            Text
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#" onClick={()=>this.setState({isTextFormat:false})}>
-                            JSON
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">{this.props.wordList.map((word)=>{return word+'|'})}</p>
-                    </div>
-                  </div>
-        )
-    }
 
     render(){
         return <div class="col-9">

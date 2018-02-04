@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import { Input, Form, Icon, Button, Checkbox } from "antd";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
@@ -18,7 +17,6 @@ class WordEmbedderUI extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { value } = e.target;
         this.props.tokenizeWord(this.state.inputValue)
     }
 
@@ -71,10 +69,10 @@ class WordEmbedderUI extends Component{
                                 <div class="card-header">
                                     <ul class="nav nav-tabs card-header-tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">Text</a>
+                                            <a class="nav-link active" >Text</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">JSON</a>
+                                            <a class="nav-link" >JSON</a>
                                         </li>
                                     </ul>
                                 </div>

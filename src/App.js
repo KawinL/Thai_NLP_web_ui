@@ -2,25 +2,15 @@ import React, { Component } from "react";
 
 import "./App.css";
 
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import { Layout, Menu, Breadcrumb, Icon, Row, Col } from "antd";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import TokenizerUI from "./components/tokenizer";
 import WordEmbedderUI from "./components/word-embedder";
 import NERUI from "./components/ner";
 import PosUI from "./components/pos";
 import NavBar from "./components/nav_bar";
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider, Footer } = Layout;
-const MenuItemGroup = Menu.ItemGroup;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    
-  }
-
-
   render() {
     return <BrowserRouter>
         <div>
