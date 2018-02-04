@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 
 import { tokenizeWord } from "../action/index";
 import ResultUI from "./result";
+import ExplainUI from "./explanation";
 
 class TokenizerUI extends Component{
 
@@ -54,12 +55,12 @@ class TokenizerUI extends Component{
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <h1>Tokenizer</h1>
-                  <div class="alert alert-success" role="alert">
-                    <div class="text-dark">
-                      This is <strong>Tokenizer</strong> explanation
-                    </div>
-                  </div>
+                  <ExplainUI topic="Tokenizer" explanation={
+                      <div class="alert alert-success" role="alert">
+                        <div class="text-dark">
+                          This is <strong>Tokenizer</strong> explanation
+                        </div>
+                      </div>} />
                 </div>
                 <div class="col-8">
                   <div class="row">

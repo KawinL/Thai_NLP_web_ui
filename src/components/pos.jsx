@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { vectorizeWord } from "../action/index";
+import ExplainUI from "./explanation";
+
 
 class PosUI extends Component {
   constructor(props) {
@@ -31,12 +33,12 @@ class PosUI extends Component {
         <div class="container application">
           <div class="row">
             <div class="col-12">
+              <ExplainUI topic="Part of Speech Tagger" explanation={<div class="alert alert-success" role="alert">
+                    <div class="text-dark">
+                      This is <strong>Part of Speech Tagger</strong> explaination
+                    </div>
+                  </div>} />
               <h1>Part of Speech Tagger</h1>
-              <div class="alert alert-success" role="alert">
-                <div class="text-dark">
-                  This is <strong>Part of Speech Tagger</strong> explaination
-                </div>
-              </div>
             </div>
             <div class="col-8">
               <div class="row">
@@ -73,14 +75,10 @@ class PosUI extends Component {
                 <div class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" >
-                        Text
-                      </a>
+                      <a class="nav-link active">Text</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" >
-                        JSON
-                      </a>
+                      <a class="nav-link">JSON</a>
                     </li>
                   </ul>
                 </div>

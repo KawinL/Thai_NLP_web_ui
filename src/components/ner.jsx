@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { vectorizeWord } from "../action/index";
+import ExplainUI from "./explanation";
+
 
 class NERUI extends Component {
   constructor(props) {
@@ -24,12 +26,12 @@ class NERUI extends Component {
         <div class="container application">
           <div class="row">
             <div class="col-12">
-              <h1>Name Entity Recognizer</h1>
-              <div class="alert alert-success" role="alert">
-                <div class="text-dark">
-                  This is <strong>Name Entity Recognizer</strong> explaination
-                </div>
-              </div>
+              <ExplainUI topic="Name Entity Recognizer" explanation={<div class="alert alert-success" role="alert">
+                    <div class="text-dark">
+                      This is <strong>Name Entity Recognizer</strong> explaination
+                    </div>
+                  </div>} />
+              
             </div>
             <div class="col-8">
               <div class="row">
@@ -66,23 +68,17 @@ class NERUI extends Component {
                 <div class="card-header">
                   <ul class="nav nav-tabs card-header-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active"  >
-                        Text
-                      </a>
+                      <a class="nav-link active">Text</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link"  >
-                        JSON
-                      </a>
+                      <a class="nav-link">JSON</a>
                     </li>
                   </ul>
                 </div>
                 <div class="card-body">
-                  
-                    <p class="card-text">
-                        <mark class="bg-danger rounded">ฉัน</mark>|กิน|กล้วยบวชชี
-                    </p>
-                  
+                  <p class="card-text">
+                    <mark class="bg-danger rounded">ฉัน</mark>|กิน|กล้วยบวชชี
+                  </p>
                 </div>
               </div>
             </div>

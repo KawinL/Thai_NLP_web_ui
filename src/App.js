@@ -8,7 +8,7 @@ import WordEmbedderUI from "./components/word-embedder";
 import NERUI from "./components/ner";
 import PosUI from "./components/pos";
 import NavBar from "./components/nav_bar";
-
+import ExplainUI from "./components/explanation";
 
 class App extends Component {
   render() {
@@ -19,10 +19,19 @@ class App extends Component {
             <div class="row">
               <div class="col-12 mt-4 mb-4">
                 <div class="container-fluid">
-                  <h1>API DEMO</h1>
+                  <ExplainUI topic="API DEMO" explanation=
+                  {<p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Animi, alias. Dolor error sint nihil nemo
+                        commodi maxime excepturi tenetur quos atque,
+                        voluptates tempora corrupti recusandae minima
+                        asperiores? In, assumenda rerum.
+                  </p>} />
+                  {/* <h1>API DEMO</h1>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, alias. Dolor error sint nihil nemo commodi maxime excepturi tenetur quos atque, voluptates tempora corrupti recusandae minima asperiores? In, assumenda rerum.
-                  </p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, alias. Dolor error sint nihil nemo commodi maxime excepturi tenetur quos atque, voluptates tempora corrupti recusandae minima asperiores? In, assumenda rerum. 
+
+                  </p> */}
                 </div>
                 <hr />
               </div>
