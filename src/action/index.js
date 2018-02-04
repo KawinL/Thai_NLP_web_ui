@@ -6,8 +6,8 @@ const VECTORIZE_WORD = 'VECTORIZE_WORD'
 
 export function tokenizeWord(sentence) {
     console.log(sentence)
-    const url = "http://demo1079282.mockable.io/tokenizer";
-
+    // const url = "http://demo1079282.mockable.io/tokenizer";
+    const url = "/tokenize"
     const request = axios.post(url,{text: sentence});
     return { type: TOKENIZE_WORD, payload: request };
 }
