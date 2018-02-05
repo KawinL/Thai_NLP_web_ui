@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./App.css";
 
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 import TokenizerUI from "./components/tokenizer";
 import WordEmbedderUI from "./components/word-embedder";
 import NERUI from "./components/ner";
@@ -33,11 +33,10 @@ class App extends Component {
               <div class="col-lg-3 col-md-12">
                 <div class="container-fluid">
                   <MenuUI head="Foundation" detail={{ Tokenizer: "/tokenizer", "Word Embedder": "/word-embedder", "Name Entity Recognizer": "/ner", "Part of Speech Tagger": "/pos" }} />
-                  <MenuUI head="Application" detail={{ "Sentiment Analysis": "/", "Information Extraction": "/", "Keyword Expansion": "/", }} />
-                  
+                  <MenuUI head="Application" detail={{ "Sentiment Analysis": "/", "Information Extraction": "/", "Keyword Expansion": "/" }} />
                 </div>
               </div>
-              {/* <Redirect exact from='/' to='/tokenizer' /> */}
+              <Redirect exact from="/" to="/tokenizer" />
               <Route exact path="/tokenizer" component={TokenizerUI} />
               <Route exact path="/word-embedder" component={WordEmbedderUI} />
 
@@ -45,6 +44,9 @@ class App extends Component {
               <Route exact path="/pos" component={PosUI} />
             </div>
           </div>
+          <footer class="blog-footer">
+            
+          </footer>
         </div>
       </BrowserRouter>;
   }

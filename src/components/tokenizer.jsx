@@ -5,6 +5,8 @@ import { bindActionCreators } from "redux";
 import { tokenizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
+import InputUI from "./input";
+import ExampleUI from "./example";
 
 class TokenizerUI extends Component{
 
@@ -42,21 +44,16 @@ class TokenizerUI extends Component{
     }
 
     setInput(e){
-      // console.log(e.target.text())
-      // this.setState({inputValue: value});
+      console.log(e.target.innerText);
+      this.setState({ inputValue: e.target.innerText });
     }
-
-    // generateExample(){
-    //   return 
-    // }
 
     render(){
         return <div class="col-9">
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <ExplainUI topic="Tokenizer" explanation={
-                      <div class="alert alert-success" role="alert">
+                  <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
                         <div class="text-dark">
                           This is <strong>Tokenizer</strong> explanation
                         </div>
@@ -65,11 +62,7 @@ class TokenizerUI extends Component{
                 <div class="col-8">
                   <div class="row">
                     <div class="col-12">
-                      <h5>Input</h5>
-                      <div class="input-group input-group-lg">
-                        <div class="input-group-prepend" />
-                        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value={this.state.inputValue} onChange={this.onInputChange} />
-                      </div>
+                      <InputUI inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
                     </div>
 
                     <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
@@ -80,18 +73,7 @@ class TokenizerUI extends Component{
                   </div>
                 </div>
                 <div class="col-4">
-                  <div class="card" style={{ width: "18rem" }}>
-                    <div class="card-body">
-                      <h5 class="card-title">try this</h5>
-                      <ul class="card-text">
-                        {this.state.examples.map(example => <li>
-                            <button type="button" class="btn btn-link" onClick={this.setInput}>
-                              {example}
-                            </button>
-                          </li>)}
-                      </ul>
-                    </div>
-                  </div>
+                  <ExampleUI setInput={this.setInput} examples={this.state.examples} />
                 </div>
 
                 <div class="col-12">
