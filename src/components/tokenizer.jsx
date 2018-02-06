@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux";
 import { tokenizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
-import InputUI from "./input";
+import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
 class TokenizerUI extends Component{
@@ -24,9 +24,10 @@ class TokenizerUI extends Component{
               "เช้าวันนี้แดดลมสงบ",
               "ตากแดดตากลม",
               "ของที่อยากตัด"
-            ]
+            ],
+            inputType:"text"
         }
-
+        
         this.setInput  =this.setInput.bind(this);
     }
 
@@ -35,12 +36,15 @@ class TokenizerUI extends Component{
         e.preventDefault();
         console.log(this.state.inputValue)
         this.setState({isShowOutput:true})
-        this.props.tokenizeWord(this.state.inputValue)
+        this.setState({
+          inputType: typeOfInputValue(this.state.inputValue)
+        });
+        this.props.tokenizeWord(this.state.inputType, this.state.inputValue)
     }
 
     onInputChange = (e) => {
         const { value } = e.target;
-        this.setState({inputValue: value});
+        this.setState({ inputValue: value, inputType : typeOfInputValue(value)});
     }
 
     setInput(e){
