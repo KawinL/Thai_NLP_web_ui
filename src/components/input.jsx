@@ -19,7 +19,7 @@ export default class InputUI extends Component{
         return <div>
             <h5>
               Input <span class="badge badge-secondary">
-                {this.state.typeOfInput}
+                {this.props.inputType}
               </span>
             </h5>
             <div class="input-group input-group-lg">

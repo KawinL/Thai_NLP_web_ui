@@ -25,7 +25,7 @@ class TokenizerUI extends Component{
               "ตากแดดตากลม",
               "ของที่อยากตัด"
             ],
-            inputType:"text"
+            inputType:""
         }
         
         this.setInput =this.setInput.bind(this);
@@ -49,7 +49,10 @@ class TokenizerUI extends Component{
 
     setInput(e){
       console.log(e.target.innerText);
-      this.setState({ inputValue: e.target.innerText });
+      this.setState({
+        inputValue: e.target.innerText,
+        inputType: typeOfInputValue(e.target.innerText)
+      });
     }
 
     render(){
@@ -65,7 +68,7 @@ class TokenizerUI extends Component{
                 <div class="col-lg-8 col-sm-12">
                   <div class="row">
                     <div class="col-12">
-                      <InputUI inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                      <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
                     </div>
                   
                     <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
