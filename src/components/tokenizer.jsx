@@ -28,7 +28,7 @@ class TokenizerUI extends Component{
             inputType:"text"
         }
         
-        this.setInput  =this.setInput.bind(this);
+        this.setInput =this.setInput.bind(this);
     }
 
 
@@ -98,6 +98,7 @@ class TokenizerUI extends Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state.wordList);
     return { wordList: state.wordList };
 }
 

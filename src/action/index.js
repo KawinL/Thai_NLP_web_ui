@@ -14,6 +14,8 @@ export function tokenizeWord(type, text) {
     return { type: TOKENIZE_WORD, payload: request };
 }
 
+
+
 export function vectorizeWord(words){
     const url = "http://demo1079282.mockable.io/vectorize";
 
