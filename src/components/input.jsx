@@ -12,26 +12,7 @@ export default class InputUI extends Component{
     handleOnInputChange(e){
         this.props.onInputChange(e);
 
-        this.typeOfInputValue();
-    }
-
-    typeOfInputValue(){
-        const web_check_expression = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
-        const regex = new RegExp(web_check_expression);
-
-        if(this.props.inputValue=='') this.setState(
-                                        {
-                                          typeOfInput:
-                                            ""
-                                        }
-                                      );
-        else if(this.props.inputValue.match(regex))this.setState(
-                                                     {
-                                                       typeOfInput:
-                                                         "URL"
-                                                     }
-                                                   );
-        else this.setState({ typeOfInput: "TEXT" });
+        this.setState({typeOfInput:typeOfInputValue(this.props.inputValue)})
     }
 
     render(){
@@ -43,8 +24,18 @@ export default class InputUI extends Component{
             </h5>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend" />
-              <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value={this.props.inputValue} onChange={this.handleOnInputChange} />
+              <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} />
+              {/* <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value={this.props.inputValue} onChange={this.handleOnInputChange} /> */}
             </div>
           </div>;
     }
 }
+
+export const typeOfInputValue=(input)=>{
+        const web_check_expression = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
+        const regex = new RegExp(web_check_expression);
+
+        if (input == "") return "";
+        else if (input.match(regex)) return "URL";
+             else return "TEXT";
+    }
