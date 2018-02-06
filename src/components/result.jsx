@@ -12,7 +12,7 @@ class ResultUI extends Component {
 
   jsonResult() {
     return (
-      <div class="card text-center mt-4">
+      <div class="card text-center mt-4 md-6 pd-4">
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">

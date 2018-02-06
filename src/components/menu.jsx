@@ -17,7 +17,7 @@ export default class Menu extends Component{
 
     render(){
       return (
-        <div class="card" style={{ width: "18rem" }}>
+        <div class="card" style={{ width: "100%" }}>
           <div class="card-header text-success border-info">
             {this.props.head}
           </div>

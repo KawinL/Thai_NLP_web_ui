@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class ExampleUI extends Component {
 
   render() {
-    return <div class="card" style={{ width: "18rem" }}>
+    return <div class="card mt-4 md-4 pd-4" style={{ width: "100%" }}>
         <div class="card-body">
           <h5 class="card-title">try this</h5>
           <ul class="card-text">

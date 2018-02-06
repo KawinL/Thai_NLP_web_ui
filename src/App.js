@@ -18,8 +18,8 @@ class App extends Component {
           <NavBar />
           <div class="container-fluid">
             <div class="row">
-              <div class="col-12 mt-4 mb-4">
-                <div class="container-fluid">
+              <div class="container-fluid col-12 mt-4 mb-4">
+                <div class="mt-4 mb-4">
                   <ExplainUI topic="API DEMO" explanation={<p>
                         Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Animi, alias. Dolor error sint nihil nemo
@@ -30,23 +30,22 @@ class App extends Component {
                 </div>
                 <hr />
               </div>
-              <div class="col-lg-3 col-md-12">
-                <div class="container-fluid">
+              <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="container-fluid ">
                   <MenuUI head="Foundation" detail={{ Tokenizer: "/tokenizer", "Word Embedder": "/word-embedder", "Name Entity Recognizer": "/ner", "Part of Speech Tagger": "/pos" }} />
                   <MenuUI head="Application" detail={{ "Sentiment Analysis": "/", "Information Extraction": "/", "Keyword Expansion": "/" }} />
                 </div>
               </div>
-              <Redirect exact from="/" to="/tokenizer" />
-              <Route exact path="/tokenizer" component={TokenizerUI} />
-              <Route exact path="/word-embedder" component={WordEmbedderUI} />
+              <div class="container-fluid col-lg-9 col-md-9 col-sm-12">
+                <Redirect exact from="/" to="/tokenizer" />
+                <Route exact path="/tokenizer" component={TokenizerUI} />
+                <Route exact path="/word-embedder" component={WordEmbedderUI} />
 
-              <Route exact path="/ner" component={NERUI} />
-              <Route exact path="/pos" component={PosUI} />
+                <Route exact path="/ner" component={NERUI} />
+                <Route exact path="/pos" component={PosUI} />
+              </div>
             </div>
           </div>
-          <footer class="blog-footer">
-            
-          </footer>
         </div>
       </BrowserRouter>;
   }

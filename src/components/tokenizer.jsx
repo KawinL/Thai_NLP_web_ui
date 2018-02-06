@@ -49,8 +49,7 @@ class TokenizerUI extends Component{
     }
 
     render(){
-        return <div class="col-9">
-            <div class="container">
+        return <div class="container">
               <div class="row">
                 <div class="col-12">
                   <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
@@ -59,12 +58,12 @@ class TokenizerUI extends Component{
                         </div>
                       </div>} />
                 </div>
-                <div class="col-8">
+                <div class="col-lg-8 col-sm-12">
                   <div class="row">
                     <div class="col-12">
                       <InputUI inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
                     </div>
-
+                  
                     <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
                       <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
                         Analyze
@@ -72,7 +71,7 @@ class TokenizerUI extends Component{
                     </from>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-sm-12">
                   <ExampleUI setInput={this.setInput} examples={this.state.examples} />
                 </div>
 
@@ -90,8 +89,7 @@ class TokenizerUI extends Component{
                   )}
                 </div>
               </div>
-            </div>
-          </div>;
+            </div>;
     }
 }
 
