@@ -25,7 +25,7 @@ export default class InputUI extends Component{
             <div class="input-group input-group-lg">
               <div class="input-group-prepend" />
               <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} placeholder="Input text or url" />
-              {/* <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" value={this.props.inputValue} onChange={this.handleOnInputChange} /> */}
+               
             </div>
           </div>;
     }
