@@ -53,10 +53,12 @@ class ResultUI extends Component {
               </ul>
             </div>
             <div class="card-body">
-              <div class="clearfix">
-                <button data-clipboard-target="#foo" type="button" class="btn cpbtw float-right">
-                  Copy
-                </button>
+              <div class="clearfix mt-0 pt-0">
+                <CopyToClipboard text={this.props.textData}>
+                  <button type="button" class="btn  float-right">
+                    Copy
+                  </button>
+                </CopyToClipboard>
               </div>
               <p class="card-text">
                 <h6 id="foo">{this.props.textData}</h6>
