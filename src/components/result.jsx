@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import ReactJson from "react-json-view";
 
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class ResultUI extends Component {
   constructor(props) {
@@ -11,32 +13,27 @@ class ResultUI extends Component {
   }
 
   jsonResult() {
-    return (
-      <div class="card text-center mt-4 md-6 pd-4">
+    return <div class="card mt-4 md-6 pd-4">
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a
-                class="nav-link "
-                onClick={() => this.setState({ isTextFormat: true })}
-              >
+              <a class="nav-link " onClick={() => this.setState({
+                    isTextFormat: true
+                  })}>
                 Text
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" >
-                JSON
-              </a>
+              <a class="nav-link active">JSON</a>
             </li>
           </ul>
         </div>
         <div class="card-body">
           <p class="card-text">
-            {this.props.jsonData}
+            <ReactJson src={this.props.jsonData} />
           </p>
         </div>
-      </div>
-    );
+      </div>;
     }
 
     textResult(){
