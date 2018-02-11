@@ -1,7 +1,7 @@
 import { TOKENIZE_WORD } from "../action/index";
 
 
-export default function(state = [], action){
+export default function(state = {}, action){
     
     switch(action.type){
     case TOKENIZE_WORD:
@@ -11,5 +11,5 @@ export default function(state = [], action){
     default:
         return []
     }
-    return state;
+    return ['asdklfg','aserkgolhwesaiourg'];
 }
