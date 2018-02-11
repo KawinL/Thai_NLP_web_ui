@@ -57,7 +57,7 @@ class ResultUI extends Component {
             </div>
             <div class="card-body">
               <div class="clearfix">
-                <button data-clipboard-target="#foo" type="button" class="btn cpbtw float-right">
+                <button data-clipboard-target="#foo" type="button" class="btn-dark cpbtw rounded float-right">
                   Copy
                 </button>
               </div>

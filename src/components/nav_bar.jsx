@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import '../index.css'
 
 class NavBar extends Component {
   render() {
-      return <nav class="navbar-expand-lg navbar navbar-inverse bg-inverse">
-          <a class="navbar-brand float-left">Thai NLP Platform</a>
+      return <nav class="navbar navbar-expand-lg navbar-light c1">
+          <a class="navbar-brand float-left text-white">Thai NLP Platform</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon" />
           </button>
@@ -11,16 +12,16 @@ class NavBar extends Component {
           <div class="collapse navbar-collapse float-right" id="navbarsExample09">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link">Download</a>
+                <a class="nav-link text-white">Download</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">
+                <a class="nav-link text-white">
                   API
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">About</a>
+                <a class="nav-link text-white">About</a>
               </li>
             </ul>
           </div>

@@ -59,9 +59,9 @@ class TokenizerUI extends Component{
         return <div class="container">
               <div class="row">
                 <div class="col-12">
-                  <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
+                  <ExplainUI topic="Tokenizer" explanation={<div class="alert c3" role="alert">
                         <div class="text-dark">
-                          This is <strong>Tokenizer</strong> explanation
+                          Put <strong>Thai text</strong> or <strong>Website URL</strong> in the box below and hit <strong>Analyze</strong> button!
                         </div>
                       </div>} />
                 </div>
@@ -72,7 +72,7 @@ class TokenizerUI extends Component{
                     </div>
                   
                     <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
-                      <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
+                      <button type="button" class="btn c3 z-depth-5" onClick={this.handleSubmit}>
                         Analyze
                       </button>
                     </from>

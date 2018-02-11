@@ -10,7 +10,7 @@ import PosUI from "./components/pos";
 import NavBar from "./components/nav_bar";
 import ExplainUI from "./components/explanation";
 import MenuUI from "./components/menu";
-
+import "./index.css"
 class App extends Component {
   render() {
     return <BrowserRouter>
@@ -18,8 +18,8 @@ class App extends Component {
           <NavBar />
           <div class="container-fluid">
             <div class="row">
-              <div class="container-fluid col-12 mt-4 mb-4">
-                <div class="mt-4 mb-4">
+              <div class="container-fluid col-12">
+                <div class="mt-4 mb-4 ml-4 mr-4">
                   <ExplainUI topic="API DEMO" explanation={<p>
                         Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Animi, alias. Dolor error sint nihil nemo
@@ -30,13 +30,13 @@ class App extends Component {
                 </div>
                 <hr />
               </div>
-              <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="col-lg-3 col-md-3 col-sm-12 mt-4">
                 <div class="container-fluid ">
                   <MenuUI head="Foundation" detail={{ Tokenizer: "/tokenizer", "Word Embedder": "/word-embedder", "Name Entity Recognizer": "/ner", "Part of Speech Tagger": "/pos" }} />
                   <MenuUI head="Application" detail={{ "Sentiment Analysis": "/", "Information Extraction": "/", "Keyword Expansion": "/" }} />
                 </div>
               </div>
-              <div class="container-fluid col-lg-9 col-md-9 col-sm-12">
+              <div class="container-fluid col-lg-9 col-md-9 col-sm-12 mt-4">
                 <Redirect exact from="/" to="/tokenizer" />
                 <Route exact path="/tokenizer" component={TokenizerUI} />
                 <Route exact path="/word-embedder" component={WordEmbedderUI} />

@@ -3,3 +3,23 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.c1{
+	background-color: #005555;
+}
+.c2{
+	background-color: #32adad;
+}
+.c3{
+	background-color: #ffc125;
+}
+.c4{
+	background-color: #8b8878;
+}
+.c5{
+	background-color: #eeb4b4 !important;
+}
+
+.fade{
+	opacity: 0.5;
+}
