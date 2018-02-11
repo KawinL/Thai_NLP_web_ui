@@ -57,46 +57,47 @@ class TokenizerUI extends Component{
 
     render(){
         return <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
-                        <div class="text-dark">
-                          This is <strong>Tokenizer</strong> explanation
-                        </div>
-                      </div>} />
-                </div>
-                <div class="col-lg-8 col-sm-12">
-                  <div class="row">
-                    <div class="col-12">
-                      <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
-                    </div>
-                  
-                    <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
-                      <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
-                        Analyze
-                      </button>
-                    </from>
+            <div class="row">
+              <div class="col-12">
+                <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
+                      <div class="text-dark">
+                        This is <strong>Tokenizer</strong> explanation
+                      </div>
+                    </div>} />
+              </div>
+              <div class="col-lg-8 col-sm-12">
+                <div class="row">
+                  <div class="col-12">
+                    <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
                   </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                  <ExampleUI setInput={this.setInput} examples={this.state.examples} />
-                </div>
 
-                <div class="col-12">
-                  {this.state.isShowOutput ? (
-                    <ResultUI
-                      isTextFormat={true}
-                      textData={this.props.wordList.map(
-                        word => word + "|"
-                      )}
-                      jsonData={this.props.wordList}
-                    />
-                  ) : (
-                    <div />
-                  )}
+                  <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+                    <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
+                      Analyze
+                    </button>
+                  </from>
                 </div>
               </div>
-            </div>;
+              <div class="col-lg-4 col-sm-12">
+                <ExampleUI setInput={this.setInput} examples={this.state.examples} />
+              </div>
+
+              <div class="col-12">
+                {this.state.isShowOutput ? (
+                  <ResultUI
+                    isTextFormat={true}
+                    textData={this.props.wordList.map(
+                      word => word + "|"
+                    )}
+                    jsonData={this.props.wordList}
+                  />
+                ) : (
+                  <div />
+                )}
+              </div>
+            </div>
+            
+          </div>;
     }
 }
 
