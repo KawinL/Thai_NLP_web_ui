@@ -1,86 +1,113 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { vectorizeWord } from "../action/index";
+import { NER } from "../action/index";
+import ResultUI from "./result";
 import ExplainUI from "./explanation";
+import InputUI, { typeOfInputValue } from "./input";
+import ExampleUI from "./example";
 
 
-class NERUI extends Component {
+
+
+class NerUI extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      inputValue: ""
+      inputValue: "",
+      isShowOutput: false,
+      isTextFormat: true,
+      examples: [
+        "ผีกินกล้วย",
+        "ฉันอยากรู้จักเธอ",
+        "เช้าวันนี้แดดลมสงบ",
+        "ตากแดดตากลม",
+        "ของที่อยากตัด"
+      ],
+      inputType: ""
     };
+
+    this.setInput = this.setInput.bind(this);
   }
+
+  rawText(){
+    if (this.props.nerTagList.token_list) return this.props.nerTagList.token_list.map((w, i) => `${w}/${this.props.nerTagList.tag_list[i]} `).join("|");
+    else return "Loading" 
+    // if()
+    // return this.props.nerTagList.token_list[0]
+    // return "TODO: error like wordembeder"
+  }
+
+  textResultComponent(){
+    return <div>
+      </div>;
+  }
+
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.tokenizeWord(this.state.inputValue);
+    console.log(this.state.inputValue);
+    this.setState({ isShowOutput: true });
+    this.setState({
+      inputType: typeOfInputValue(this.state.inputValue)
+    });
+    this.props.NER(this.state.inputType, this.state.inputValue);
   };
 
-  render() {
-    return <div class="col-9">
-        <div class="container application">
-          <div class="row">
-            <div class="col-12">
-              <ExplainUI topic="Name Entity Recognizer" explanation={<div class="alert alert-success" role="alert">
-                    <div class="text-dark">
-                      This is <strong>Name Entity Recognizer</strong> explaination
-                    </div>
-                  </div>} />
-            </div>
-            <div class="col-8">
-              <div class="row">
-                <div class="col-12">
-                  <h5>Input</h5>
-                  <div class="input-group input-group-lg">
-                    <div class="input-group-prepend" />
-                    <input type="text" class="form-control rounded" aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
-                  </div>
-                </div>
+  onInputChange = e => {
+    const { value } = e.target;
+    this.setState({ inputValue: value, inputType: typeOfInputValue(value) });
+  };
 
-                <div class="col-12 mt-4 text-center">
-                  <button type="button" class="btn btn-outline-success">
-                    Success
-                  </button>
-                </div>
+  setInput(e) {
+    console.log(e.target.innerText);
+    this.setState({
+      inputValue: e.target.innerText,
+      inputType: typeOfInputValue(e.target.innerText)
+    });
+  }
+
+  render() {
+    return <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <ExplainUI topic="Name Entity Recognition" explanation={<div class="alert alert-success" role="alert">
+                  <div class="text-dark">
+                    This is <strong>Name Entity Recognition</strong> explanation
+                  </div>
+                </div>} />
+          </div>
+          <div class="col-lg-8 col-sm-12">
+            <div class="row">
+              <div class="col-12">
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
               </div>
+
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+                <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
+                  Analyze
+                </button>
+              </from>
             </div>
-            <div class="col-4">
-              <div class="card" style={{ width: "18rem" }}>
-                <div class="card-body">
-                  <h5 class="card-title">try this</h5>
-                  <ul class="card-text">
-                    <li>ผีกินกล้วย</li>
-                    <li>ผีกินกล้วย</li>
-                    <li>ผีกินกล้วย</li>
-                    <li>ผีกินกล้วย</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="card text-center mt-4">
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                      <a class="nav-link active">Text</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link">JSON</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">
-                    <mark class="bg-danger rounded">ฉัน</mark>|กิน|กล้วยบวชชี
-                  </p>
-                </div>
-              </div>
-            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12">
+            <ExampleUI setInput={this.setInput} examples={this.state.examples} />
+          </div>
+
+          <div class="col-12">
+            {this.state.isShowOutput ? (
+              <ResultUI
+                isTextFormat={true}
+                textData={this.rawText()}
+                // footer={this.textResultComponent()}
+                // {this.props.nerTagList.token_list.map((w,i) => `${w}/${this.props.nerTagList.tag_list[i]}`).join('|')}
+                jsonData={this.props.nerTagList}
+              />
+            ) : (
+              <div />
+            )}
           </div>
         </div>
       </div>;
@@ -88,11 +115,12 @@ class NERUI extends Component {
 }
 
 const mapStateToProps = state => {
-  return { wordList: state.similarMatrix };
+  console.log(state.wordList);
+  return { nerTagList: state.nerTagList };
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ vectorizeWord }, dispatch);
+  return bindActionCreators({ NER }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NERUI);
+export default connect(mapStateToProps, mapDispatchToProps)(NerUI);

@@ -15,19 +15,31 @@ export default class InputUI extends Component{
         this.setState({typeOfInput:typeOfInputValue(this.props.inputValue)})
     }
 
+    disable_span(text){
+        return(<span class="badge badge-secondary font-weight-light font-italic" style={{opacity:0.5}}>
+                {text}
+    </span>);
+    }
+
+    enable_span(text){
+        return(<span class="badge c2" style={{fontWeight: 600}}>
+                {text}
+            </span>);   
+    }
+
     render(){
-        return <div>
+        return (<div>
             <h5>
-              Input <span class="badge badge-secondary">
-                {this.props.inputType}
-              </span>
+              Input {this.props.inputType==='TEXT'?(this.enable_span('text')):(this.disable_span('text'))}
+              <span>  </span>
+              {this.props.inputType==='URL'?(this.enable_span('url')):(this.disable_span('url'))}
             </h5>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend" />
-              <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} placeholder="Input text or url" />
+              <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} placeholder='Enter text or url' />
                
             </div>
-          </div>;
+        </div>);
     }
 }
 

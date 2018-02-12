@@ -7,7 +7,7 @@ export default class Menu extends Component{
       let subMenu = []
       for (let i in this.props.detail) {
         subMenu.push(<Link to={this.props.detail[i]}>
-            <li class="list-group-item list-group-item-action border-bottom-0">
+            <li class="list-group-item list-group-item-action c1 text-white" >
               {i}
             </li>
           </Link>);
@@ -17,8 +17,8 @@ export default class Menu extends Component{
 
     render(){
       return (
-        <div class="card" style={{ width: "100%" }}>
-          <div class="card-header text-success border-info">
+        <div class="card c1 " style={{ width: "100%" }}>
+          <div class="card-header text-white border-info" style={{fontWeight: 700}}>
             {this.props.head}
           </div>
           <ul class="list-group list-group-flush">

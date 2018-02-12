@@ -38,7 +38,7 @@ class WordEmbedderUI extends Component {
       inputType: typeOfInputValue(this.state.inputValue)
     });
     console.log(this.state.inputValue);
-    this.props.vectorizeWord( this.state.inputValue);
+    this.props.vectorizeWord( `[${this.state.inputValue}]`);
   };
 
   onInputChange = e => {
@@ -56,29 +56,24 @@ class WordEmbedderUI extends Component {
 
   genTable(){
     const d = this.props.similarMatrix.distances;
-    console.log(d)
-    // return <ReactJson src={d} />;
-    return "TODO some unknown error"
-    
-      // return <table class="table table-bordered">
-      //     <thead>
-      //       <tr>
-      //         <th scope="col">Word 1</th>
-      //         <th scope="col">Word 2</th>
-      //         <th scope="col">Distance</th>
-      //       </tr>
-      //     </thead>
-      //     <tbody>
-      //       {this.props.similarMatrix.distances}
-      //       {/* .map(row => {
-      //           return <tr>
-      //               <td>{row.w1}</td>
-      //               <td>{row.w2}</td>
-      //               <td>{row.distance}</td>
-      //             </tr>;
-      //       }) } */}
-      //     </tbody>
-      //   </table>;
+    if(d) return <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Word 1</th>
+              <th scope="col">Word 2</th>
+              <th scope="col">Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.similarMatrix.distances.map(row => {
+                return <tr>
+                    <td>{row.w1}</td>
+                    <td>{row.w2}</td>
+                    <td>{row.distance}</td>
+                  </tr>;
+            })}
+          </tbody>
+        </table>;
   }
 
   render() {
@@ -98,7 +93,7 @@ class WordEmbedderUI extends Component {
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
-                <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
+                <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
               </from>

@@ -30,7 +30,7 @@ class ResultUI extends Component {
         </div>
         <div class="card-body">
           <p class="card-text">
-            <ReactJson src={this.props.jsonData} />
+            <ReactJson src={this.props.jsonData} displayDataTypes={false} collapsed={1} displayObjectSize={false}/>
           </p>
         </div>
       </div>;
@@ -64,6 +64,8 @@ class ResultUI extends Component {
                 <h6 id="foo">{this.props.textData}</h6>
               </p>
             </div>
+            {this.props.footer ? <div clsss="card-footer text-muted"> {this.props.footer}</div> : <div clsss="" />}
+            <div />
           </div>;
     }
 

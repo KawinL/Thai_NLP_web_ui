@@ -37,7 +37,7 @@ class App extends Component {
                 </div>
               </div>
               <div class="container-fluid col-lg-9 col-md-9 col-sm-12">
-                <Redirect exact from="/" to="/tokenizer" />
+                <Redirect exact from="/" to="/ner" />
                 <Route exact path="/tokenizer" component={TokenizerUI} />
                 <Route exact path="/word-embedder" component={WordEmbedderUI} />
 
@@ -48,13 +48,9 @@ class App extends Component {
           </div>
           <footer class="footer mt-4 pt-4">
             <div class="card text-center">
-              
               <div class="card-body bg-dark">
-                <h5 class="card-title"></h5>
-                
-                
+                <h5 class="card-title" />
               </div>
-              
             </div>
           </footer>
         </div>
