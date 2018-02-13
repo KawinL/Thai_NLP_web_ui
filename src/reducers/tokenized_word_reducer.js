@@ -11,5 +11,4 @@ export default function(state = {}, action){
     default:
         return []
     }
-    return ['asdklfg','aserkgolhwesaiourg'];
 }

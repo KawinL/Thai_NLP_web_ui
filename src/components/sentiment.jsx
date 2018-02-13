@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Bar } from 'react-chartjs-2';
 
 import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
@@ -8,7 +9,7 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
-class WordEmbedderUI extends Component {
+class SentimentUI extends Component {
   constructor(props) {
     super(props);
 
@@ -16,13 +17,7 @@ class WordEmbedderUI extends Component {
       inputValue: "",
       isShowOutput: false,
       isTextFormat: true,
-      examples: [
-        "แม่, พ่อ, พี่",
-        "กิน, นอน, รับประทาน",
-        "รัก, ชอบ, ตลก",
-        "หมู, นก, หมา",
-        "เร็ว, ช้า, สวย"
-      ],
+      examples: ["ยามาฮา", "เร่งไม่ขึ้น", "ช้า", "wave"],
       inputType: ""
     };
 
@@ -31,13 +26,11 @@ class WordEmbedderUI extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("similarMatrix ",this.props.similarMatrix);
     this.setState({ isShowOutput: true });
     this.setState({
       inputType: typeOfInputValue(this.state.inputValue)
     });
-    console.log(this.state.inputValue);
-    this.props.vectorizeWord( `[${this.state.inputValue}]`);
+
   };
 
   onInputChange = e => {
@@ -53,35 +46,40 @@ class WordEmbedderUI extends Component {
     });
   }
 
-  genTable(){
-    const d = this.props.similarMatrix.distances;
-    if(d) return <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Word 1</th>
-              <th scope="col">Word 2</th>
-              <th scope="col">Distance</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.similarMatrix.distances.map(row => {
-                return <tr>
-                    <td>{row.w1}</td>
-                    <td>{row.w2}</td>
-                    <td>{row.distance}</td>
-                  </tr>;
-            })}
-          </tbody>
-        </table>;
+  genGraph() {
+    const d = this.props.sentimentValue;
+    if (d){
+        const data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                label: 'My First dataset',
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: 'rgba(255,99,132,1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+                hoverBorderColor: 'rgba(255,99,132,1)',
+                data: [65, 59, 80, 81, 56, 55, 40]
+                }
+            ]
+        };
+        return <div>
+          <h2>Bar Example (custom size)</h2>
+          <Bar data={data} width={100} height={50} options={{ maintainAspectRatio: false }} />
+        </div>;
+    }
+    return (
+    <div />
+    );
   }
 
   render() {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Word embedder" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic="Sentiment Analysis" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Word embedder</strong> explanation
+                    This is <strong>Sentiment Analysis</strong> explanation
                   </div>
                 </div>} />
           </div>
@@ -106,8 +104,8 @@ class WordEmbedderUI extends Component {
             {this.state.isShowOutput ? (
               <ResultUI
                 isTextFormat={true}
-                textData={this.genTable()}
-                jsonData={this.props.similarMatrix}
+                textData={this.genGraph()}
+                jsonData={this.props.sentimentValue}
               />
             ) : (
               <div />
@@ -117,12 +115,8 @@ class WordEmbedderUI extends Component {
       </div>;
   }
 }
-const mapStateToProps = (state) => {
-    return { similarMatrix: state.similarMatrix };
-}
+const mapStateToProps = state => {
+  return { sentimentValue: state.sentimentValue };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({vectorizeWord}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WordEmbedderUI);
+export default connect(mapStateToProps)(SentimentUI);

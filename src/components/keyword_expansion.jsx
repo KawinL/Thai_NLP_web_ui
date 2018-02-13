@@ -8,7 +8,7 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
-class WordEmbedderUI extends Component {
+class KeywordExpansionUI extends Component {
   constructor(props) {
     super(props);
 
@@ -17,11 +17,10 @@ class WordEmbedderUI extends Component {
       isShowOutput: false,
       isTextFormat: true,
       examples: [
-        "แม่, พ่อ, พี่",
-        "กิน, นอน, รับประทาน",
-        "รัก, ชอบ, ตลก",
-        "หมู, นก, หมา",
-        "เร็ว, ช้า, สวย"
+        "ยามาฮา",
+        "เร่งไม่ขึ้น",
+        "ช้า",
+        "wave",
       ],
       inputType: ""
     };
@@ -31,13 +30,13 @@ class WordEmbedderUI extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("similarMatrix ",this.props.similarMatrix);
+    console.log("similarMatrix ", this.props.similarMatrix);
     this.setState({ isShowOutput: true });
     this.setState({
       inputType: typeOfInputValue(this.state.inputValue)
     });
     console.log(this.state.inputValue);
-    this.props.vectorizeWord( `[${this.state.inputValue}]`);
+    // this.props.vectorizeWord(`[${this.state.inputValue}]`);
   };
 
   onInputChange = e => {
@@ -53,23 +52,22 @@ class WordEmbedderUI extends Component {
     });
   }
 
-  genTable(){
-    const d = this.props.similarMatrix.distances;
-    if(d) return <table class="table table-bordered">
+  genTable() {
+    const d = this.props.expandedWord;
+    if (d)
+      return <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Word 1</th>
-              <th scope="col">Word 2</th>
+              <th scope="col">Expanded Keyword</th>
               <th scope="col">Distance</th>
             </tr>
           </thead>
           <tbody>
-            {this.props.similarMatrix.distances.map(row => {
-                return <tr>
-                    <td>{row.w1}</td>
-                    <td>{row.w2}</td>
-                    <td>{row.distance}</td>
-                  </tr>;
+            {this.props.expandedWord.map(row => {
+              return <tr>
+                  <td>{row.word}</td>
+                  <td>{row.distance}</td>
+                </tr>;
             })}
           </tbody>
         </table>;
@@ -79,9 +77,9 @@ class WordEmbedderUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Word embedder" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic="Keyword Expansion" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Word embedder</strong> explanation
+                    This is <strong>Keyword Expansion</strong> explanation
                   </div>
                 </div>} />
           </div>
@@ -107,7 +105,7 @@ class WordEmbedderUI extends Component {
               <ResultUI
                 isTextFormat={true}
                 textData={this.genTable()}
-                jsonData={this.props.similarMatrix}
+                jsonData={this.props.expandedWord}
               />
             ) : (
               <div />
@@ -117,12 +115,8 @@ class WordEmbedderUI extends Component {
       </div>;
   }
 }
-const mapStateToProps = (state) => {
-    return { similarMatrix: state.similarMatrix };
-}
+const mapStateToProps = state => {
+  return { expandedWord: state.expandedWord };
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({vectorizeWord}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WordEmbedderUI);
+export default connect(mapStateToProps)(KeywordExpansionUI);

@@ -11,6 +11,4 @@ export default function(state = {}, action) {
         return {};
   }
 
-  return { token_list: ["ตำรวจ", "พบ", "ผู้", "ต้อง", "สงสัย", "ที่", "สถานี"], tag_list: ["ABB_LOC_B", "O", "ABB_PER_B", "O", "TRM_I", "O", "O"] };
-
 }
