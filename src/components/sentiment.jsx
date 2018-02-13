@@ -64,13 +64,10 @@ class SentimentUI extends Component {
             ]
         };
         return <div>
-          <h2>Bar Example (custom size)</h2>
-          <Bar data={data} width={100} height={50} options={{ maintainAspectRatio: false }} />
+          <h2>TO DO Chart</h2>
+
         </div>;
     }
-    return (
-    <div />
-    );
   }
 
   render() {

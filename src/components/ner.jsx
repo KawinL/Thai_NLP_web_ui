@@ -73,9 +73,9 @@ class NerUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Name Entity Recognition" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic="Named Entity Recognition" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Name Entity Recognition</strong> explanation
+                    This is <strong>Named Entity Recognition</strong> explanation
                   </div>
                 </div>} />
           </div>
