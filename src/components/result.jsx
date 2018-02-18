@@ -54,7 +54,7 @@ class ResultUI extends Component {
             </div>
             <div class="card-body">
               <div class="clearfix mt-0 pt-0">
-                <CopyToClipboard text={this.props.textData}>
+                <CopyToClipboard text={this.props.dataForCopy}>
                   <button type="button" class="btn  float-right">
                     Copy
                   </button>
