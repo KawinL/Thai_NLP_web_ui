@@ -54,17 +54,21 @@ class ResultUI extends Component {
             </div>
             <div class="card-body">
               <div class="clearfix mt-0 pt-0">
-                <CopyToClipboard text={this.props.dataForCopy}>
+                {this.props.dataForCopy?<CopyToClipboard text={this.props.dataForCopy}>
                   <button type="button" class="btn  float-right">
                     Copy
                   </button>
-                </CopyToClipboard>
+                </CopyToClipboard>:<div/>}
+                
               </div>
               <p class="card-text">
                 <h6 id="foo">{this.props.textData}</h6>
               </p>
             </div>
-            {this.props.footer ? <div clsss="card-footer text-muted"> {this.props.footer}</div> : <div clsss="" />}
+            {this.props.footer ? <div clsss="card-footer text-muted">
+                {" "}
+                {this.props.footer}
+              </div> : <div clsss="" />}
             <div />
           </div>;
     }

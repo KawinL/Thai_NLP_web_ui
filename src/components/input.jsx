@@ -27,12 +27,16 @@ export default class InputUI extends Component{
             </span>);   
     }
 
+    genTypeCheckEnable(){
+        if (this.props.enableTypeCheck === false) {
+          return <div />;
+        } else return(<span>{this.props.inputType === "TEXT" ? this.enable_span("text") : this.disable_span("text")}<span> </span>{this.props.inputType === "URL" ? this.enable_span("url") : this.disable_span("url")}</span>)
+    }
+
     render(){
         return (<div>
             <h5>
-              Input {this.props.inputType==='TEXT'?(this.enable_span('text')):(this.disable_span('text'))}
-              <span>  </span>
-              {this.props.inputType==='URL'?(this.enable_span('url')):(this.disable_span('url'))}
+              Input {this.genTypeCheckEnable()}
             </h5>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend" />

@@ -12,6 +12,8 @@ class WordEmbedderUI extends Component {
   constructor(props) {
     super(props);
 
+    const explanationText = <div>This is <strong>Word Embedding</strong> explanation </div>;
+
     this.state = {
       inputValue: "",
       isShowOutput: false,
@@ -23,7 +25,8 @@ class WordEmbedderUI extends Component {
         "หมู, นก, หมา",
         "เร็ว, ช้า, สวย"
       ],
-      inputType: ""
+      inputType: "",
+      explanationText : <div>This is <strong>Word Embedding</strong> explanation </div>
     };
 
     this.setInput = this.setInput.bind(this);
@@ -79,16 +82,16 @@ class WordEmbedderUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Word embedder" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic="Word Embedding" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Word embedder</strong> explanation
+                    {this.state.explanationText}
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
