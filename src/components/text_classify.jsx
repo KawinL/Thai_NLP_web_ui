@@ -108,7 +108,7 @@ class TextClassifierUI extends Component {
           <div class="col-12">
             {this.state.isShowOutput ? (
               <ResultUI
-                isTextFormat={true}
+                isTextFormat={false}
                 textData={this.genGraph()}
                 jsonData={this.props.textClasses}
               />
