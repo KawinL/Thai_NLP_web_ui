@@ -12,19 +12,7 @@ class PosUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      inputValue: "",
-      isShowOutput: false,
-      isTextFormat: true,
-      examples: [
-        "ผีกินกล้วย",
-        "ฉันอยากรู้จักเธอ",
-        "เช้าวันนี้แดดลมสงบ",
-        "ตากแดดตากลม",
-        "ของที่อยากตัด"
-      ],
-      inputType: ""
-    };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
