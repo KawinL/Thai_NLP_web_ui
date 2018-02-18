@@ -103,7 +103,7 @@ class KeywordExpansionUI extends Component {
           <div class="col-12">
             {this.state.isShowOutput ? (
               <ResultUI
-                isTextFormat={true}
+                isTextFormat={false}
                 textData={this.genTable()}
                 jsonData={this.props.expandedWord}
               />
