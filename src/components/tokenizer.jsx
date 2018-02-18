@@ -14,19 +14,7 @@ class TokenizerUI extends Component{
         super(props);
 
 
-        this.state = {
-            inputValue: '',
-            isShowOutput: false,
-            isTextFormat: true,
-            examples: [
-              "ผีกินกล้วย",
-              "ฉันอยากรู้จักเธอ",
-              "เช้าวันนี้แดดลมสงบ",
-              "ตากแดดตากลม",
-              "ของที่อยากตัด"
-            ],
-            inputType:""
-        }
+        this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" , old_output: null};
         
         this.setInput =this.setInput.bind(this);
     }
@@ -34,12 +22,45 @@ class TokenizerUI extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
+
         console.log(this.state.inputValue)
         this.setState({isShowOutput:true})
         this.setState({
           inputType: typeOfInputValue(this.state.inputValue)
         });
         this.props.tokenizeWord(this.state.inputType, this.state.inputValue)
+
+    }
+
+    genDataForCopy(){
+      if (this.props.wordList.string_list)return this.props.wordList.string_list.join('|');
+    }
+
+    genTextData(){
+      if (this.props.wordList.string_list){
+        return <div style={{ lineHeight: "200%" }}>
+            {this.props.wordList.string_list.map(word => (
+              <span
+                style={{
+                  borderStyle: "solid",
+                  wordWrap: "normal",
+                  marginLeft: "7px",
+                  borderWidth: "thin",
+                  borderColor: "#F46881",
+                  paddingTop: "0px"
+                }}
+              >
+                {word}
+              </span>
+            ))}
+          </div>;
+      }
+      else return "Loading"
+    }
+
+    genJSONData(){
+      if(this.props.wordList) return this.props.wordList
+      else return {};
     }
 
     onInputChange = (e) => {
@@ -59,9 +80,9 @@ class TokenizerUI extends Component{
         return <div class="container">
             <div class="row">
               <div class="col-12">
-                <ExplainUI topic="Tokenizer" explanation={<div class="alert alert-success" role="alert">
+                <ExplainUI topic="Word Tokenization" explanation={<div class="alert alert-success" role="alert">
                       <div class="text-dark">
-                        This is <strong>Tokenizer</strong> explanation
+                        Enter text or url  
                       </div>
                     </div>} />
               </div>
@@ -85,18 +106,16 @@ class TokenizerUI extends Component{
               <div class="col-12">
                 {this.state.isShowOutput ? (
                   <ResultUI
+                    dataForCopy={this.genDataForCopy()}
                     isTextFormat={true}
-                    textData={this.props.wordList.map(
-                      word => word + "|"
-                    )}
-                    jsonData={this.props.wordList}
+                    textData={this.genTextData()}
+                    jsonData={this.genJSONData()}
                   />
                 ) : (
                   <div />
                 )}
               </div>
             </div>
-            
           </div>;
     }
 }

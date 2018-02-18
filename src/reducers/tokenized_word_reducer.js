@@ -7,7 +7,7 @@ export default function(state = {}, action){
     case TOKENIZE_WORD:
         if (action.payload.data) console.log(action.payload.data);
         if (!action.payload.data) return ["something","wrong"];
-        return action.payload.data.string_list;
+        return action.payload.data;
     default:
         return []
     }
