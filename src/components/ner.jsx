@@ -15,19 +15,7 @@ class NerUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      inputValue: "",
-      isShowOutput: false,
-      isTextFormat: true,
-      examples: [
-        "ผีกินกล้วย",
-        "ฉันอยากรู้จักเธอ",
-        "เช้าวันนี้แดดลมสงบ",
-        "ตากแดดตากลม",
-        "ของที่อยากตัด"
-      ],
-      inputType: ""
-    };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -35,9 +23,6 @@ class NerUI extends Component {
   rawText(){
     if (this.props.nerTagList.token_list) return this.props.nerTagList.token_list.map((w, i) => `${w}/${this.props.nerTagList.tag_list[i]} `).join("|");
     else return "Loading" 
-    // if()
-    // return this.props.nerTagList.token_list[0]
-    // return "TODO: error like wordembeder"
   }
 
   textResultComponent(){
@@ -124,3 +109,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NerUI);
+
+
+
