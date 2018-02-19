@@ -5,7 +5,7 @@ const TOKENIZE_WORD = 'TOKENIZE_WORD';
 const VECTORIZE_WORD = 'VECTORIZE_WORD'; 
 const NER_CONSTANCE = "NER_CONSTANCE";
 const POS_CONSTANCE = 'POS_CONSTANCE';
-
+const MOCK_DATA = 'MOCK_DATA'
 
 export function tokenizeWord(type, text) {
     // const url = "http://demo1079282.mockable.io/tokenizer";
@@ -32,6 +32,11 @@ export function vectorizeWord(word_list){
 
 export function NER(type, text) {
   // const url = "http://demo1079282.mockable.io/tokenizer";
+  if(text==="https://www.mockups.com/best"){
+    return {
+      type: MOCK_DATA,
+    }
+  }
   const url = "/ner";
   const mapping = { TEXT: "raw_text", URL: "webpage" };
   let data = { type: mapping[type], url: text, text };
@@ -63,5 +68,6 @@ export {
     TOKENIZE_WORD, 
     VECTORIZE_WORD,
     NER_CONSTANCE,
-    POS_CONSTANCE
+    POS_CONSTANCE,
+    MOCK_DATA
 };

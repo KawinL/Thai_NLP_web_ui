@@ -79,17 +79,17 @@ class KeywordExpansionUI extends Component {
           <div class="col-12">
             <ExplainUI topic="Keyword Expansion" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Keyword Expansion</strong> explanation
+                    Put <strong>Thai words</strong>in the box below and hit <strong> Analyze </strong> buttom to see how close those word is!
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี, ลองดู, สิ"/>
               </div>
 
-              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
                 <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>

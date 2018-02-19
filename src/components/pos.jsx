@@ -12,7 +12,7 @@ class PosUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -69,14 +69,20 @@ class PosUI extends Component {
           <div class="col-12">
             <ExplainUI topic="Part of Speech tagger" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Part of Speech tagger</strong> explanation
+                    Put <strong>Thai Text</strong> or <strong>
+                      {" "}
+                      Website URL{" "}
+                    </strong> in the box below and hit <strong>
+                      {" "}
+                      Analyze{" "}
+                    </strong>buttom !
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url"/>
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
@@ -91,9 +97,16 @@ class PosUI extends Component {
           </div>
 
           <div class="col-12">
-            {this.state.isShowOutput ? <ResultUI isTextFormat={true} textData={this.textResultComponent()} 
-            dataForCopy={this.rawText()}
-                jsonData={this.props.posTagList} /> : <div />}
+            {this.state.isShowOutput ? (
+              <ResultUI
+                isTextFormat={true}
+                textData={this.textResultComponent()}
+                dataForCopy={this.rawText()}
+                jsonData={this.props.posTagList}
+              />
+            ) : (
+              <div />
+            )}
           </div>
         </div>
       </div>;

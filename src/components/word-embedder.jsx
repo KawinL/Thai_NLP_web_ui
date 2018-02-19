@@ -12,7 +12,6 @@ class WordEmbedderUI extends Component {
   constructor(props) {
     super(props);
 
-    const explanationText = <div>This is <strong>Word Embedding</strong> explanation </div>;
 
     this.state = {
       inputValue: "",
@@ -21,12 +20,11 @@ class WordEmbedderUI extends Component {
       examples: [
         "แม่, พ่อ, พี่",
         "กิน, นอน, รับประทาน",
-        "รัก, ชอบ, ตลก",
         "หมู, นก, หมา",
         "เร็ว, ช้า, สวย"
       ],
       inputType: "",
-      explanationText : <div>This is <strong>Word Embedding</strong> explanation </div>
+      explanationText : <div>Put <strong>Thai words</strong> in the box below and hit <strong> Analyze </strong> buttom to see the similarity of the words!</div>
     };
 
     this.setInput = this.setInput.bind(this);
@@ -63,7 +61,7 @@ class WordEmbedderUI extends Component {
             <tr>
               <th scope="col">Word 1</th>
               <th scope="col">Word 2</th>
-              <th scope="col">Distance</th>
+              <th scope="col">Similarity</th>
             </tr>
           </thead>
           <tbody>
@@ -91,7 +89,7 @@ class WordEmbedderUI extends Component {
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี, ลองดู, สิ"/>
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">

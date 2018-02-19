@@ -82,18 +82,18 @@ class TokenizerUI extends Component{
               <div class="col-12">
                 <ExplainUI topic="Word Tokenization" explanation={<div class="alert alert-success" role="alert">
                       <div class="text-dark">
-                        Enter text or url  
+                        Put <strong>Thai Text</strong> or <strong> Website URL </strong> in the box below and hit <strong> Analyze </strong>buttom !    
                       </div>
                     </div>} />
               </div>
               <div class="col-lg-8 col-sm-12">
                 <div class="row">
                   <div class="col-12">
-                    <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                    <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url" />
                   </div>
 
-                  <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
-                    <button type="button" class="btn btn-outline-success z-depth-5" onClick={this.handleSubmit}>
+                  <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
+                    <button type="button" class="btn btn-success c2" onClick={this.handleSubmit}>
                       Analyze
                     </button>
                   </from>

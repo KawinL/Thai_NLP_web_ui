@@ -47,10 +47,8 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <footer class="footer mt-4 pt-4">
-            <div class="card">
-              <div class="card-body bg-dark" />
-            </div>
+          <footer class="footer mt-4 pt-4 c1">
+            
           </footer>
         </div>
       </BrowserRouter>;

@@ -40,7 +40,7 @@ export default class InputUI extends Component{
             </h5>
             <div class="input-group input-group-lg">
               <div class="input-group-prepend" />
-              <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} placeholder={this.props.placehoder} />
+              <textarea class="form-control rounded" id="exampleTextarea" rows="3" value={this.props.inputValue} onChange={this.handleOnInputChange} placeholder={this.props.placeholder} />
                
             </div>
         </div>);
