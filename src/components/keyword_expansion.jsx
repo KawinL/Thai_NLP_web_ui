@@ -7,7 +7,7 @@ import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
-
+import DropdownUI from "./dropdown";
 class KeywordExpansionUI extends Component {
   constructor(props) {
     super(props);
@@ -77,16 +77,18 @@ class KeywordExpansionUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Keyword Expansion" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic={<div>
+                  Keyword Expansion <DropdownUI />
+                </div>} explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    Put <strong>Thai words</strong>in the box below and hit <strong> Analyze </strong> buttom to see how close those word is!
+                    Put <strong>Thai word </strong>in the box below and hit <strong> Analyze </strong> buttom!
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี, ลองดู, สิ"/>
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี"/>
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
@@ -103,7 +105,7 @@ class KeywordExpansionUI extends Component {
           <div class="col-12">
             {this.state.isShowOutput ? (
               <ResultUI
-                isTextFormat={false}
+                isTextFormat={true}
                 textData={this.genTable()}
                 jsonData={this.props.expandedWord}
               />

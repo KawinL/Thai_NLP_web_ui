@@ -51,6 +51,9 @@ export function NER(type, text) {
 }
 
 export function POS(type, text) {
+  if (text === "https://www.mockups.com/best") {
+    return { type: MOCK_DATA };
+  }
   const url = "/pos";
   const mapping = { TEXT: "raw_text", URL: "webpage" };
   let data = { type: mapping[type], url: text, text };

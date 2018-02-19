@@ -22,14 +22,14 @@ import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
-
+import DropdownUI from "./dropdown";
 class SentimentUI extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       inputValue: "",
-      isShowOutput: true,
+      isShowOutput: false,
       isTextFormat: true,
       examples: ["ยามาฮา", "เร่งไม่ขึ้น", "ช้า", "wave"],
       inputType: "",
@@ -95,16 +95,24 @@ class SentimentUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic="Sentiment Analysis" explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI topic={<div>
+                  Sentiment Analysis <DropdownUI />
+                </div>} explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    This is <strong>Sentiment Analysis</strong> explanation
+                    Put <strong>Thai Text</strong> or <strong>
+                      {" "}
+                      Website URL{" "}
+                    </strong> in the box below and hit <strong>
+                      {" "}
+                      Analyze{" "}
+                    </strong>buttom !
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} />
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url"/>
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
