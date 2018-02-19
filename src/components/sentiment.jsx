@@ -16,15 +16,12 @@ import {
   ComposedChart,
   Area
 } from "recharts";
-import { scaleOrdinal, schemeCategory10 } from "d3-scale";
 
 import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
-
-const colors = scaleOrdinal(schemeCategory10).range();
 
 class SentimentUI extends Component {
   constructor(props) {
@@ -78,11 +75,11 @@ class SentimentUI extends Component {
             <Tooltip />
             <CartesianGrid vertical={false} />
             <Bar yAxisId="a" dataKey="value">
-              {/* {data.map((entry, index) => ( */}
-                <Cell key="cell-1" fill={colors[2]} />
-                <Cell key="cell-2" fill={colors[0]} />
-                <Cell key="cell-3" fill={colors[3]} />
-              {/* ))} */}
+
+              <Cell key="cell-1" fill="#41f47f" />
+              <Cell key="cell-2" fill="#41a3f4" /> 
+              <Cell key="cell-3" fill="#f44242" />
+
             </Bar>
           </BarChart>
         </ResponsiveContainer>;

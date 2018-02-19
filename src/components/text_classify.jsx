@@ -15,7 +15,7 @@ import {
   ComposedChart,
   Area
 } from "recharts";
-import { scaleOrdinal, schemeCategory10 } from "d3-scale";
+
 
 import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
@@ -24,7 +24,7 @@ import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
 
-const colors = scaleOrdinal(schemeCategory10).range();
+
 class TextClassifierUI extends Component {
   constructor(props) {
     super(props);
@@ -76,9 +76,10 @@ class TextClassifierUI extends Component {
             <Tooltip />
             <CartesianGrid vertical={false} />
             <Bar yAxisId="a" dataKey="value">
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index+2 % 20]} />
-              ))}
+              
+              <Cell key="cell-1" fill="#fff888" />
+              <Cell key="cell-2" fill="#fa8475" />
+              
             </Bar>
           </BarChart>
         </ResponsiveContainer>;
