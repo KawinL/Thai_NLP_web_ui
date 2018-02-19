@@ -23,13 +23,21 @@ class PosUI extends Component {
         .map((w, i) => `${w}/${this.props.posTagList.tag_list[i]} `)
         .join("|");
     else return "Loading";
-    // if()
-    // return this.props.posTagList.token_list[0]
-    // return "TODO: error like wordembeder"
   }
 
   textResultComponent() {
-    return <div />;
+    if (this.props.posTagList.token_list)
+      return <div style={{ lineHeight: "200%" }}>
+          {this.props.posTagList.token_list.map((w, i) => <span>
+            <span>{w}</span>
+            <span style={{ color: "red" }}>/</span>
+            <span class="postag">
+              {this.props.posTagList.tag_list[i]}
+            </span>
+            <span> </span>
+          </span>)}
+        </div>;
+    else return "Loading";
   }
 
   handleSubmit = e => {
@@ -83,8 +91,8 @@ class PosUI extends Component {
           </div>
 
           <div class="col-12">
-            {this.state.isShowOutput ? <ResultUI isTextFormat={true} textData={this.rawText()} // footer={this.textResultComponent()}
-                // {this.props.posTagList.token_list.map((w,i) => `${w}/${this.props.posTagList.tag_list[i]}`).join('|')}
+            {this.state.isShowOutput ? <ResultUI isTextFormat={true} textData={this.textResultComponent()} 
+            dataForCopy={this.rawText()}
                 jsonData={this.props.posTagList} /> : <div />}
           </div>
         </div>
