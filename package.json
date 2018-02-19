@@ -9,6 +9,7 @@
     "bootstrap": "^4.0.0",
     "chart.js": "^1.1.1",
     "clipboard": "^1.7.1",
+    "d3-scale": "^2.0.0",
     "react": "^16.2.0",
     "react-chartjs": "^1.2.0",
     "react-chartjs-2": "^2.7.0",
@@ -20,6 +21,7 @@
     "react-scripts": "1.1.0",
     "react-window-size": "^1.0.1",
     "reactstrap": "^5.0.0-alpha.4",
+    "recharts": "^1.0.0-beta.10",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3"
   },

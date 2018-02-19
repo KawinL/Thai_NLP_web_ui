@@ -1,7 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Bar } from 'react-chartjs-2';
+
+import {
+  Bar,
+  BarChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Line,
+  CartesianGrid,
+  ResponsiveContainer,
+  Cell,
+  ComposedChart,
+  Area
+} from "recharts";
+import { scaleOrdinal, schemeCategory10 } from "d3-scale";
 
 import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
@@ -9,16 +24,18 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
+const colors = scaleOrdinal(schemeCategory10).range();
+
 class SentimentUI extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       inputValue: "",
-      isShowOutput: false,
+      isShowOutput: true,
       isTextFormat: true,
       examples: ["ยามาฮา", "เร่งไม่ขึ้น", "ช้า", "wave"],
-      inputType: ""
+      inputType: "",
     };
 
     this.setInput = this.setInput.bind(this);
@@ -47,27 +64,34 @@ class SentimentUI extends Component {
   }
 
   genGraph() {
-    const d = this.props.sentimentValue;
-    if (d){
-        const data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                label: 'My First dataset',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: [65, 59, 80, 81, 56, 55, 40]
-                }
-            ]
-        };
-        return <div>
-          <h2>TO DO Chart</h2>
+    if (this.props.sentimentValue){
+      let sentimentValue = this.props.sentimentValue;
+      let data = [{key:'positive',value:sentimentValue.positive},
+                  {key:'neutral',value:sentimentValue.neutral},
+                  {key:'negative',value:sentimentValue.negative}
+                  ];
+      return <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={data}>
+            <XAxis dataKey="key" />
+            <YAxis yAxisId="a" dataKey="value" type="number" domain={[0, 1]} />
 
-        </div>;
+            <Tooltip />
+            <CartesianGrid vertical={false} />
+            <Bar yAxisId="a" dataKey="value">
+              {/* {data.map((entry, index) => ( */}
+                <Cell key="cell-1" fill={colors[2]} />
+                <Cell key="cell-2" fill={colors[0]} />
+                <Cell key="cell-3" fill={colors[3]} />
+              {/* ))} */}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>;
     }
+    return 'Loading'
+   
+
+    
+    
   }
 
   render() {
@@ -100,7 +124,7 @@ class SentimentUI extends Component {
           <div class="col-12">
             {this.state.isShowOutput ? (
               <ResultUI
-                isTextFormat={false}
+                isTextFormat={true}
                 textData={this.genGraph()}
                 jsonData={this.props.sentimentValue}
               />
