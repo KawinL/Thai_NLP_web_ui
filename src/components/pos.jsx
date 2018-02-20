@@ -7,12 +7,12 @@ import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
-
+import PosResultUI from "./posresult";
 class PosUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "" };
+    this.state = { inputValue: "", isShowOutput: true, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -26,17 +26,20 @@ class PosUI extends Component {
   }
 
   textResultComponent() {
+
     if (this.props.posTagList.token_list)
-      return <div style={{ lineHeight: "200%" }}>
-          {this.props.posTagList.token_list.map((w, i) => <span>
-            <span>{w}</span>
-            <span style={{ color: "red" }}>/</span>
-            <span class="postag">
-              {this.props.posTagList.tag_list[i]}
-            </span>
-            <span> </span>
-          </span>)}
-        </div>;
+      return <PosResultUI pos={this.props.posTagList} />;
+    // if (this.props.posTagList.token_list)
+    //   return <div style={{ lineHeight: "200%" }}>
+    //       {this.props.posTagList.token_list.map((w, i) => <span>
+    //         <span>{w}</span>
+    //         <span style={{ color: "red" }}>/</span>
+    //         <span class="postag">
+    //           {this.props.posTagList.tag_list[i]}
+    //         </span>
+    //         <span> </span>
+    //       </span>)}
+    //     </div>;
     else return "Loading";
   }
 

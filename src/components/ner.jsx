@@ -16,7 +16,7 @@ class NerUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "", tagList: [["DTM_I", "DES_I", "TRM_I", "DES_B"], ["BRN_I", "ABB_ORG_I", "BRN_B", "ORG_I"], ["PER_B", "LOC_B", "ABB_TTL_B", "ABB_DES_I"], ["TTL_B", "MEA_B", "NUM_B", "TRM_B"], ["MEA_I", "NUM_I", "ABB_B", "TTL_I"], ["ABB_LOC_B", "PER_I", "LOC_I", "ABB_LOC_I"], ["ABB_ORG_B", "O", "NAME_B", "ABB_DES_B"], ["DTM_B", "ORG_B", "ABB_TTL_I", "__"], ["X", "ABB_I", "ABB_PER_B", "MEA_BI"], ["PER_I"]] };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "", tagList: ["DTM_I", "DES_I", "TRM_I", "DES_B", "BRN_I", "ABB_ORG_I", "BRN_B", "ORG_I", "PER_B", "LOC_B", "ABB_TTL_B", "ABB_DES_I", "TTL_B", "MEA_B", "NUM_B", "TRM_B", "MEA_I", "NUM_I", "ABB_B", "TTL_I", "ABB_LOC_B", "PER_I", "LOC_I", "ABB_LOC_I", "ABB_ORG_B", "O", "NAME_B", "ABB_DES_B", "DTM_B", "ORG_B", "ABB_TTL_I", "__","X", "ABB_I", "ABB_PER_B", "MEA_BI", "PER_I"] };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -54,16 +54,13 @@ class NerUI extends Component {
           </div>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
-              <table class="table border-0">
-                
-                <tbody>
-                  {this.state.tagList.map(row=>{
-                    return <tr>
-                      {row.map(ele=><td><span class={ele + " rounded"}>{ele}</span></td>)}
-                    </tr>
+              <div class="row">
+               
+                  {this.state.tagList.map(e => {
+                    return <div class={e + " rounded col-2 mt-1 mb-1 mr-1 ml-1"}>{e}</div>     
                   })}
-                </tbody>
-              </table>
+                
+              </div>
             </div>
           </div>
         </div>
