@@ -81,18 +81,16 @@ class WordEmbedderUI extends Component {
         <div class="row">
           <div class="col-12">
             <ExplainUI topic="Word Embedding" explanation={<div class="alert alert-success" role="alert">
-                  <div class="text-dark">
-                    {this.state.explanationText}
-                  </div>
+                  <div class="text-dark">{this.state.explanationText}</div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี, ลองดู, สิ"/>
+                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี, ลองดู, สิ" />
               </div>
 
-              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
                 <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>

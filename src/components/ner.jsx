@@ -97,22 +97,26 @@ class NerUI extends Component {
           <div class="col-12">
             <ExplainUI topic="Named Entity Recognition" explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    Put <strong>Thai Text</strong> or <strong> Website URL </strong> in the box below and hit <strong> Analyze </strong>buttom !  
+                    Put <strong>Thai Text</strong> or <strong>
+                      {" "}
+                      Website URL{" "}
+                    </strong> in the box below and hit <strong>
+                      {" "}
+                      Analyze{" "}
+                    </strong>buttom !
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url"/>
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url" />
               </div>
 
-              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
                 <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
-
-                
               </from>
             </div>
           </div>
@@ -127,7 +131,6 @@ class NerUI extends Component {
                 dataForCopy={this.rawText()}
                 textData={this.showTextResult()}
                 footer={this.textResultComponent()}
-                
                 jsonData={this.props.nerTagList}
               />
             ) : (

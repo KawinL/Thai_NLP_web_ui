@@ -27,13 +27,7 @@ class SentimentUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      inputValue: "",
-      isShowOutput: false,
-      isTextFormat: true,
-      examples: ["ยามาฮา", "เร่งไม่ขึ้น", "ช้า", "wave"],
-      inputType: "",
-    };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["https://pantip.com/topic/37393081", "https://pantip.com/topic/37392967", "https://pantip.com/topic/37396578", "https://pantip.com/topic/37395554"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -112,10 +106,10 @@ class SentimentUI extends Component {
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url"/>
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url" />
               </div>
 
-              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
                 <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>

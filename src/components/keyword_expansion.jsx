@@ -59,7 +59,7 @@ class KeywordExpansionUI extends Component {
           <thead>
             <tr>
               <th scope="col">Expanded Keyword</th>
-              <th scope="col">Distance</th>
+              <th scope="col">Similarity</th>
             </tr>
           </thead>
           <tbody>
@@ -81,14 +81,18 @@ class KeywordExpansionUI extends Component {
                   Keyword Expansion <DropdownUI />
                 </div>} explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
-                    Put <strong>Thai word </strong>in the box below and hit <strong> Analyze </strong> buttom!
+                    Put <strong>Thai word </strong>in the box below and hit <strong
+                    >
+                      {" "}
+                      Analyze{" "}
+                    </strong> buttom!
                   </div>
                 </div>} />
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี"/>
+                <InputUI enableTypeCheck={false} inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Ex: สวัสดี" />
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">

@@ -20,7 +20,7 @@ class ResultUI extends Component {
               <a class="nav-link " onClick={() => this.setState({
                     isTextFormat: true
                   })}>
-                Text
+                RESULT
               </a>
             </li>
             <li class="nav-item">
@@ -41,7 +41,7 @@ class ResultUI extends Component {
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active">Text</a>
+                  <a class="nav-link active">RESULT</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" onClick={() => this.setState({
@@ -54,12 +54,11 @@ class ResultUI extends Component {
             </div>
             <div class="card-body">
               <div class="clearfix mt-0 pt-0">
-                {this.props.dataForCopy?<CopyToClipboard text={this.props.dataForCopy}>
-                  <button type="button" class="btn  float-right">
-                    Copy
-                  </button>
-                </CopyToClipboard>:<div/>}
-                
+                {this.props.dataForCopy ? <CopyToClipboard text={this.props.dataForCopy}>
+                    <button type="button" class="btn  float-right">
+                      Copy
+                    </button>
+                  </CopyToClipboard> : <div />}
               </div>
               <p class="card-text">
                 <h6 id="foo">{this.props.textData}</h6>

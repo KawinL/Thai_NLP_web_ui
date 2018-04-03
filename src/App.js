@@ -15,6 +15,17 @@ import SentimentUI from "./components/sentiment";
 import TextClassifyUI from "./components/text_classify";
 
 class App extends Component {
+
+  footer(){
+    return <div>
+        <div style={{ display: "block", padding: "20px", height: "60px", width: "100%" }} />
+        <div class="footer c1 mt-4" style={{ borderTop: "1px solid #E7E7E7", textAlign: "center", padding: "20px", position: "fixed", left: "0", bottom: "0", height: "60px", width: "100%" }}>
+          
+        </div>
+      </div>; 
+
+  }
+
   render() {
     return <BrowserRouter>
         <div>
@@ -47,9 +58,7 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <footer class="footer mt-4 pt-4 c1">
-            
-          </footer>
+          {this.footer()}
         </div>
       </BrowserRouter>;
   }

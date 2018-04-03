@@ -12,7 +12,7 @@ class PosUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: true, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "" };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "" };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -85,10 +85,10 @@ class PosUI extends Component {
           <div class="col-lg-8 col-sm-12">
             <div class="row">
               <div class="col-12">
-                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url"/>
+                <InputUI inputType={this.state.inputType} inputValue={this.state.inputValue} onInputChange={this.onInputChange} placeholder="Enter text or website url" />
               </div>
 
-              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center">
+              <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
                 <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
