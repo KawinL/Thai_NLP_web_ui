@@ -24,7 +24,7 @@ class WordEmbedderUI extends Component {
         "เร็ว, ช้า, สวย"
       ],
       inputType: "",
-      explanationText : <div>Put <strong>Thai words</strong> in the box below and hit <strong> Analyze </strong> buttom to see the similarity of the words!</div>
+      explanationText : <div>Put <strong>Thai words</strong> in the box below and hit <strong> Analyze </strong> button to see the similarity of the words!</div>
     };
 
     this.setInput = this.setInput.bind(this);
@@ -91,7 +91,7 @@ class WordEmbedderUI extends Component {
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
-                <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
+                <button type="button" class="btn c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
               </from>

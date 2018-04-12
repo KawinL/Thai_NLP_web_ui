@@ -85,7 +85,7 @@ class KeywordExpansionUI extends Component {
                     >
                       {" "}
                       Analyze{" "}
-                    </strong> buttom!
+                    </strong> button!
                   </div>
                 </div>} />
           </div>
@@ -96,7 +96,7 @@ class KeywordExpansionUI extends Component {
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
-                <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
+                <button type="button" class="btn c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
               </from>

@@ -10,18 +10,54 @@
 }
 
 .c1 {
-  background-color: #2f4050 !important 
-}
-
-.c2{
-  background-color:  #1ab394 !important ;
+  background-color: #222222 !important ;
   color: #ffffff !important;
 }
 
+.c2{
+  background-color:  #2BD1A3 !important ;
+  color: #ffffff !important;
+}
+body{
+  font-family: 'Roboto' !important;
+  font-weight: 300;
+}
 .c2opa{
   background-color:  rgba(26, 179, 148, .2) !important ;
 }
+/*html,body,.container {
+    height:100%;
+    width: 100%;
+}
+.container {
+    display:table;
+    width: 100%;
+    margin-top: -50px;
+    padding: 50px 0 0 0; set left/right padding according to needs
+    box-sizing: border-box;
+}
 
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+}*/
+body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.navbar-brand{
+  padding-left: 20px;
+}
+.col-md-2 {
+    padding-bottom: 100%;
+    margin-bottom: -100%;
+}
 .DTM_I{
   background-color:rgba(78, 116, 177, 0.7);
 }

@@ -1,31 +1,28 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class Menu extends Component{
 
     generateSubMenu(){
-      let subMenu = []
-      for (let i in this.props.detail) {
-        subMenu.push(<Link to={this.props.detail[i]}>
-            <li class="list-group-item list-group-item-action c1 text-white" >
-              {i}
-            </li>
-          </Link>);
-      }
-      return subMenu;
+        let subMenu = []
+        subMenu.push(<div class="w3-bar w3-block w3-padding-large">
+            <span style={{'font-weight':'500'}}>
+            <i class="fa fa-wrench w3-large" style={{'padding-right':'10px'}}></i> 
+            {this.props.head} 
+            </span>
+            </div>);
+        for (let i in this.props.detail) {
+            subMenu.push(<a class="w3-btn w3-block w3-hover-teal w3-padding-large c1" href={this.props.detail[i]}> {i} </a>);
+        }
+        return subMenu;
     }
 
+
     render(){
-      return (
-        <div class="card c1 " style={{ width: "100%" }}>
-          <div class="card-header text-white border-info" style={{fontWeight: 700}}>
-            {this.props.head}
-          </div>
-          <ul class="list-group list-group-flush">
-            {this.generateSubMenu()}
-          </ul>
-        </div>
-        )
-        
+      return(//<a href="#" data-activates="slide-out" class="btn btn-primary p-3 button-collapse"><i class="fa fa-bars"></i></a>
+
+    <div class="c1" style={{width : '100%'}}> 
+        {this.generateSubMenu()}
+    </div>);
     }
+
 }

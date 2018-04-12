@@ -27,25 +27,20 @@ class App extends Component {
   }
 
   render() {
-    return <BrowserRouter>
+    return (
+      <BrowserRouter>
         <div>
-          <NavBar />
-          <div class="container-fluid">
-            <div class="row">
-              <div class="container-fluid col-12 mt-4 mb-4">
-                <div class="mt-4 mb-4">
-                  <ExplainUI topic="API DEMO" explanation={<p />} />
-                </div>
-                <hr />
-              </div>
-              <div class="col-lg-3 col-md-3 col-sm-12">
-                <div class="container-fluid ">
-                  <MenuUI head="Foundation" detail={{ "Word Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Name Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" }} />
-                  <MenuUI head="Application" detail={{ "Sentiment Analysis": "/sentiment-analyser", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }} />
-                </div>
-              </div>
-              <div class="container-fluid col-lg-9 col-md-9 col-sm-12">
-                <Redirect exact from="/" to="/pos" />
+          <div class="row">
+            <div class="col-md-12">
+              <NavBar />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-md-2 c1" style={{'padding-right' : '0'}}>
+              <MenuUI head="Foundation" detail={{ "Word Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Name Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" }} />
+              <MenuUI head="Application" detail={{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }} />
+            </div>
+            <div class="col-xs-14 col-sm-6 col-md-10">.
                 <Route exact path="/tokenization" component={TokenizerUI} />
                 <Route exact path="/word-embedding" component={WordEmbedderUI} />
 
@@ -54,13 +49,19 @@ class App extends Component {
 
                 <Route exact path="/keyword-expansion" component={KeywordExpansionUI} />
                 <Route exact path="/text-categorization" component={TextClassifyUI} />
-                <Route exact path="/sentiment-analyser" component={SentimentUI} />
-              </div>
+                <Route exact path="/sentiment-analyzer" component={SentimentUI} />
             </div>
           </div>
-          {this.footer()}
+          <div class="row">
+            <div class="col-xs-4 col-md-2 c1">
+
+            </div>
+            <div class="col-xs-14 col-sm-6 col-md-10">.
+
+            </div>
+          </div>  
         </div>
-      </BrowserRouter>;
+      </BrowserRouter>);
   }
 }
 

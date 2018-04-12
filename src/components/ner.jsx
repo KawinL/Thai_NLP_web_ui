@@ -9,6 +9,7 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 
+import "./style.css";
 
 
 
@@ -96,7 +97,7 @@ class NerUI extends Component {
         <div class="row">
           <div class="col-12">
             <ExplainUI topic="Named Entity Recognition" explanation={<div class="alert alert-success" role="alert">
-                  <div class="text-dark">
+                  <div class="text-dark font-light">
                     Put <strong>Thai Text</strong> or <strong>
                       {" "}
                       Website URL{" "}
@@ -114,7 +115,7 @@ class NerUI extends Component {
               </div>
 
               <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
-                <button type="button" class="btn btn-outline-success c2" onClick={this.handleSubmit}>
+                <button type="button" class="btn c2" onClick={this.handleSubmit}>
                   Analyze
                 </button>
               </from>

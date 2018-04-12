@@ -1,26 +1,40 @@
 import React, { Component } from "react";
+import "./style.css";
+
 
 class NavBar extends Component {
   render() {
-      return <nav class="navbar navbar-expand-lg navbar-light c1 text-white">
-          <a class="navbar-brand float-left">Thai NLP Platform</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" />
-          </button>
+      return <nav class="navbar navbar-expand-lg navbar-dark text-white justify-content-between" style={{'background':'#545454'}}>
+          
+          <a class="navbar-brand">
+          <i class="fa fa-leaf w3-large d-inline-block align-top" style={{'color':'#2BD1A3', 'padding-right':'20px'}}></i> 
+          Bailarn Library</a>
 
-          <div class="collapse navbar-collapse float-right text-white" id="navbarsExample09">
+          <div class="collapse navbar-collapse float-right text-white " id="navbarsExample09">
             <ul class="navbar-nav mr-auto ">
-              <li class="nav-item active">
-                <a class="nav-link text-white">Download</a>
-              </li>
+              
               <li class="nav-item">
-                <a class="nav-link text-white">
-                  API
+                <a class="nav-link">
+                  <i class="fa fa-cloud-download w3-large"></i> 
+                  <span class="pad-left">Download</span>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link">
+                  <i class="fa fa-book w3-large"></i> 
+                  <span class="pad-left">API</span>
                   <span class="sr-only ">(current)</span>
                 </a>
               </li>
+              
+
               <li class="nav-item">
-                <a class="nav-link text-white">About</a>
+                <a class="nav-link">
+                  <i class="fa fa-comments w3-large"></i> 
+
+                  <span class="pad-left">About</span>
+                </a>
               </li>
             </ul>
           </div>

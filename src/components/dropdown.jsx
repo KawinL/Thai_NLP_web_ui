@@ -5,9 +5,13 @@ class DropdownUI extends Component {
     constructor(props){
         super(props)
 
-        this.state = { selected: "motorcycle", selectable: ["motorcycle","General"] };
+        this.state = { selected: "food", selectable: ["motorcycle","General"] };
     }
 
+setSelected(word){
+  // this.setState({selected: word});
+  // ReactDOM.render()
+  }
 
   render() {
     return <span class="dropdown show">
@@ -16,7 +20,8 @@ class DropdownUI extends Component {
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item">motorcycle</a>
+          <a class="dropdown-item" onCLick={this.setSelected('motorcycle')}>motorcycle</a>
+          <a class="dropdown-item" onCLick={this.setSelected('food')}>food</a>
         </div>
       </span>;
   }

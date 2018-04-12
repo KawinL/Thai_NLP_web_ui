@@ -44,10 +44,9 @@ class TokenizerUI extends Component{
                 style={{
                   borderStyle: "solid",
                   wordWrap: "normal",
-                  marginLeft: "7px",
-                  borderWidth: "thin",
                   borderColor: "#F46881",
-                  paddingTop: "0px"
+                  padding: "0px 5px",
+                  borderWidth: "0 1px 0 0"
                 }}
               >
                 {word}
@@ -82,7 +81,7 @@ class TokenizerUI extends Component{
               <div class="col-12">
                 <ExplainUI topic="Word Tokenization" explanation={<div class="alert alert-success" role="alert">
                       <div class="text-dark">
-                        Put <strong>Thai Text</strong> or <strong> Website URL </strong> in the box below and hit <strong> Analyze </strong>buttom !    
+                        Put <strong>Thai Text</strong> or <strong> Website URL </strong> in the box below and hit <strong> Analyze </strong>button !    
                       </div>
                     </div>} />
               </div>
@@ -93,7 +92,7 @@ class TokenizerUI extends Component{
                   </div>
 
                   <from onSubmit={this.handleSubmit} class="col-12 mt-4 text-center mb-4">
-                    <button type="button" class="btn btn-success c2" onClick={this.handleSubmit}>
+                    <button type="button" class="btn c2" onClick={this.handleSubmit}>
                       Analyze
                     </button>
                   </from>
