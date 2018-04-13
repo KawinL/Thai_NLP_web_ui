@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import ReactLoading from "react-loading";
+
 
 import { tokenizeWord } from "../action/index";
 import ResultUI from "./result";
@@ -14,7 +16,7 @@ class TokenizerUI extends Component{
         super(props);
 
 
-        this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" , old_output: null};
+        this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" , old_output: null, outputStatus: 1};
         
         this.setInput =this.setInput.bind(this);
     }
@@ -24,11 +26,19 @@ class TokenizerUI extends Component{
         e.preventDefault();
 
         console.log(this.state.inputValue)
-        this.setState({isShowOutput:true})
+        
         this.setState({
           inputType: typeOfInputValue(this.state.inputValue)
         });
-        this.props.tokenizeWord(this.state.inputType, this.state.inputValue)
+        this.setState({
+          outputStatus: 1
+        })
+        console.log(this.state.outputStatus);
+        if (this.state.inputValue!=""){
+           this.props.tokenizeWord(this.state.inputType, this.state.inputValue);
+           this.setState({isShowOutput:true})
+        };
+        
 
     }
 
@@ -37,24 +47,31 @@ class TokenizerUI extends Component{
     }
 
     genTextData(){
-      if (this.props.wordList.string_list){
-        return <div style={{ lineHeight: "200%" }}>
-            {this.props.wordList.string_list.map(word => (
-              <span
-                style={{
-                  borderStyle: "solid",
-                  wordWrap: "normal",
-                  borderColor: "#F46881",
-                  padding: "0px 5px",
-                  borderWidth: "0 1px 0 0"
-                }}
-              >
-                {word}
-              </span>
-            ))}
-          </div>;
-      }
-      else return "Loading"
+      const status = this.props.wordList.status;
+      const data = this.props.wordList.data;
+      if (status =='OK') {
+        if (this.state.old_output != data.string_list) this.setState({
+            old_output: data.string_list
+          });
+          return <div style={{ lineHeight: "200%" }}>
+              {data.string_list.map(word => (
+                <span
+                  style={{
+                    borderStyle: "solid",
+                    wordWrap: "normal",
+                    borderColor: "#F46881",
+                    padding: "0px 5px",
+                    borderWidth: "0 1px 0 0"
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>;
+        } else if(status == 'ERROR'){
+          console.log(this.state.outputStatus);
+          return (<h1> ERROR {data}</h1>)
+        }
     }
 
     genJSONData(){
@@ -73,6 +90,20 @@ class TokenizerUI extends Component{
         inputValue: e.target.innerText,
         inputType: typeOfInputValue(e.target.innerText)
       });
+    }
+
+    loading(){
+      const status = this.props.wordList.status;
+      if(this.props.wordList.status){
+        console.log(status)
+        if (this.state.old_output != this.props.wordList.data.string_list) {
+          console.log(this.state.old_output);
+          console.log(this.props.wordList.data);
+          this.setState({ outputStatus: 2 });
+          console.log(this.state.outputStatus);
+        }
+      }
+      return 'loading'
     }
 
     render(){
@@ -107,7 +138,7 @@ class TokenizerUI extends Component{
                   <ResultUI
                     dataForCopy={this.genDataForCopy()}
                     isTextFormat={true}
-                    textData={this.genTextData()}
+                    textData={this.state.outputStatus == 1 ? this.loading():this.genTextData() }
                     jsonData={this.genJSONData()}
                   />
                 ) : (
