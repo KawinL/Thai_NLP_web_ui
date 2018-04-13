@@ -61,7 +61,7 @@ class ResultUI extends Component {
                   </CopyToClipboard> : <div />}
               </div>
               <p class="card-text">
-                <h6 id="foo">{this.props.textData}</h6>
+                <div id="foo">{this.props.textData}</div>
               </p>
             </div>
             {this.props.footer ? <div clsss="card-footer text-muted">

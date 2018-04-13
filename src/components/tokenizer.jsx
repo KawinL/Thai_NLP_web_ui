@@ -103,7 +103,7 @@ class TokenizerUI extends Component{
           console.log(this.state.outputStatus);
         }
       }
-      return 'loading'
+      return 'loading...'
     }
 
     render(){
