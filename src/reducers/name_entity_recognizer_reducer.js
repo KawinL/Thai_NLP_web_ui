@@ -3,12 +3,14 @@ import { NER_CONSTANCE, MOCK_DATA } from "../action/index";
 export default function(state = {}, action) {
     switch (action.type) {
     case NER_CONSTANCE:
-        if (action.payload) console.log("patload", action.payload);
-        if (!action.payload) return ["something", "wrong"];
-        console.log(action.payload);
-        return action.payload;
+        console.log(action);
+        if(action.payload.request.status){
+          if (action.payload.request.status === 200) return { status: "OK", data: action.payload.data };
+          else return { status: "ERROR", data: action.payload.request.statusText };
+        }
+        return { status: "LOADING", data: "Loading" };
     case MOCK_DATA:
-        return {
+        return {status: "OK",data:{
             token_list:['สุรยุทธ์',
                         'ยัน',
                         'ปฏิเสธ',
@@ -807,7 +809,7 @@ export default function(state = {}, action) {
                         'O',
                         'O',
                         'O']
-        }
+        }}
     default:
         return {};
   }

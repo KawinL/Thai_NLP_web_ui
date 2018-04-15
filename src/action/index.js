@@ -39,12 +39,8 @@ export function NER(type, text) {
   let data = { type: mapping[type], url: text, text };
   console.log(data);
   const request = axios.post(url, data);
-  const payload = request.then(data => {
-    console.log("data", data);
-    console.log("data.data", data.data);
-    return data.data;
-  });
-  return { type: NER_CONSTANCE, payload };
+  
+  return { type: NER_CONSTANCE, payload: request };
 }
 
 export function POS(type, text) {
