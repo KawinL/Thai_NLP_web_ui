@@ -52,12 +52,7 @@ export function POS(type, text) {
   let data = { type: mapping[type], url: text, text };
   console.log(data);
   const request = axios.post(url, data);
-  const payload = request.then(data => {
-    console.log("data", data);
-    console.log("data.data", data.data);
-    return data.data;
-  });
-  return { type: POS_CONSTANCE, payload };
+  return { type: POS_CONSTANCE, payload: request };
 }
 
 export {
