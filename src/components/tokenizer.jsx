@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import ReactLoading from "react-loading";
 import Loading from "react-loading-components";
 
 import { tokenizeWord } from "../action/index";
