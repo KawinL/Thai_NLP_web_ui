@@ -15,7 +15,6 @@ class TokenizerUI extends Component{
     constructor(props){
         super(props);
 
-        const loadingIcon = <ReactLoading type="spin" color="#f55" />;
         this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" , old_output: null, outputStatus: 1};
         
         this.setInput =this.setInput.bind(this);

@@ -23,11 +23,8 @@ export function vectorizeWord(word_list){
     const url = "/vector_distance";
     let data = { word_list };
     const request = axios.post(url, data);
-    const payload = request.then((data) =>{
-        return data.data;
-    });
     // const request = axios.post(url,{text: words});
-    return { type: VECTORIZE_WORD, payload }
+    return { type: VECTORIZE_WORD, payload: request }
 }
 
 export function NER(type, text) {
