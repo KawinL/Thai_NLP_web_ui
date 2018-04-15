@@ -200,7 +200,7 @@ class NerUI extends Component {
                     : this.showTextResult()
                 }
                 footer={this.textResultComponent()}
-                jsonData={this.props.nerTagList}
+                jsonData={this.props.nerTagList.data}
               />
             ) : (
               <div />

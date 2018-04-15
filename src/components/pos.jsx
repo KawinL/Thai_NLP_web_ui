@@ -162,7 +162,7 @@ class PosUI extends Component {
                     ? this.loading()
                     : this.textResultComponent()}
                 dataForCopy={this.rawText()}
-                jsonData={this.props.posTagList}
+                jsonData={this.props.posTagList.data}
               />
             ) : (
               <div />

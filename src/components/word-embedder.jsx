@@ -172,7 +172,7 @@ class WordEmbedderUI extends Component {
                     ? this.loading()
                     : this.genTable()
                 }
-                jsonData={this.props.similarMatrix}
+                jsonData={this.props.similarMatrix.data}
               />
             ) : (
               <div />

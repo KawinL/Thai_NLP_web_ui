@@ -84,7 +84,7 @@ class TokenizerUI extends Component{
     }
 
     genJSONData(){
-      if(this.props.wordList) return this.props.wordList
+      if(this.props.wordList.status=="OK") return this.props.wordList.data
       else return {};
     }
 
