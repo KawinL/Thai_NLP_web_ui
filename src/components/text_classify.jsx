@@ -15,8 +15,9 @@ import {
   ComposedChart,
   Area
 } from "recharts";
+import Loading from "react-loading-components";
 
-
+import { classify } from "../action/index";
 import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
@@ -29,18 +30,35 @@ class TextClassifierUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["https://pantip.com/topic/37393081", "https://pantip.com/topic/37392967", "https://pantip.com/topic/37396578", "https://pantip.com/topic/37395554",
-    ], inputType: "" };
+    this.state = {
+      inputValue: "",
+      isShowOutput: false,
+      isTextFormat: true,
+      examples: [
+        "https://pantip.com/topic/37393081",
+        "https://pantip.com/topic/37392967",
+        "https://pantip.com/topic/37396578",
+        "https://pantip.com/topic/37395554"
+      ],
+      inputType: "",
+      old_output: null,
+      outputStatus: 1
+    };
 
     this.setInput = this.setInput.bind(this);
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ isShowOutput: true });
+
     this.setState({
       inputType: typeOfInputValue(this.state.inputValue)
     });
+    this.setState({ outputStatus: 1 });
+    if (this.state.inputValue != "") {
+      this.props.classify(this.state.inputType, this.state.inputValue);
+      this.setState({ isShowOutput: true });
+    }
   };
 
   onInputChange = e => {
@@ -57,12 +75,14 @@ class TextClassifierUI extends Component {
   }
 
   genGraph() {
-    if (this.props.textClasses) {
+    const status = this.props.textClasses.status;
+    const data = this.props.textClasses.data;
+    if (status == "OK") {
+      if (this.state.old_output != data) this.setState({
+          old_output: data
+        });
       let sentimentValue = this.props.textClasses;
-      let data = [
-        { key: "problem", value: sentimentValue.problem },
-        { key: "Not problem", value: sentimentValue.notProblem },
-      ];
+      let data = [{ key: "problem", value: sentimentValue.problem }, { key: "Not problem", value: sentimentValue.notProblem }];
       return <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data}>
             <XAxis dataKey="key" />
@@ -71,15 +91,35 @@ class TextClassifierUI extends Component {
             <Tooltip />
             <CartesianGrid vertical={false} />
             <Bar yAxisId="a" dataKey="value">
-              
               <Cell key="cell-1" fill="#fff888" />
               <Cell key="cell-2" fill="#fa8475" />
-              
             </Bar>
           </BarChart>
         </ResponsiveContainer>;
+    } else if (status == "ERROR") {
+      if (this.state.old_output != data) this.setState({
+          old_output: data
+        });
+      console.log(this.state.outputStatus);
+      return <h1> ERROR {data}</h1>;
     }
-    return "Loading";
+  }
+
+  loading() {
+    const status = this.props.textClasses.status;
+    if (this.props.textClasses.status) {
+      console.log(status);
+      console.log(this.state.old_output);
+      if (this.state.old_output != this.props.textClasses.data) {
+        console.log(this.state.old_output);
+        console.log(this.props.textClasses.data);
+        this.setState({ outputStatus: 2 });
+        console.log(this.state.outputStatus);
+      }
+    }
+    return (
+      <Loading type="ball_triangle" width={100} height={100} fill="#f44242" />
+    );
   }
 
   render() {
@@ -121,7 +161,11 @@ class TextClassifierUI extends Component {
             {this.state.isShowOutput ? (
               <ResultUI
                 isTextFormat={true}
-                textData={this.genGraph()}
+                textData={
+                  this.state.outputStatus == 1
+                    ? this.loading()
+                    : this.genGraph()
+                }
                 jsonData={this.props.textClasses}
               />
             ) : (
@@ -133,7 +177,13 @@ class TextClassifierUI extends Component {
   }
 }
 const mapStateToProps = state => {
+  console.log(state)
   return { textClasses: state.textClasses };
 };
 
-export default connect(mapStateToProps)(TextClassifierUI);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ classify }, dispatch);
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TextClassifierUI);
