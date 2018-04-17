@@ -5,8 +5,10 @@ const TOKENIZE_WORD = 'TOKENIZE_WORD';
 const VECTORIZE_WORD = 'VECTORIZE_WORD'; 
 const NER_CONSTANCE = "NER_CONSTANCE";
 const POS_CONSTANCE = 'POS_CONSTANCE';
-const MOCK_DATA = 'MOCK_DATA'
-
+const MOCK_DATA = 'MOCK_DATA';
+const SENTIMENT = "SENTIMENT";
+const EXPAND = "EXPAND";
+const CATEGORIZE = "CATEGORIZE";
 export function tokenizeWord(type, text) {
     // const url = "http://demo1079282.mockable.io/tokenizer";
     const url = "/tokenize"
@@ -17,17 +19,12 @@ export function tokenizeWord(type, text) {
     return { type: TOKENIZE_WORD, payload: request };
 }
 
-
-
 export function vectorizeWord(word_list){
     const url = "/vector_distance";
     let data = { word_list };
     const request = axios.post(url, data);
-    const payload = request.then((data) =>{
-        return data.data;
-    });
     // const request = axios.post(url,{text: words});
-    return { type: VECTORIZE_WORD, payload }
+    return { type: VECTORIZE_WORD, payload: request }
 }
 
 export function NER(type, text) {
@@ -42,12 +39,8 @@ export function NER(type, text) {
   let data = { type: mapping[type], url: text, text };
   console.log(data);
   const request = axios.post(url, data);
-  const payload = request.then(data => {
-    console.log("data", data);
-    console.log("data.data", data.data);
-    return data.data;
-  });
-  return { type: NER_CONSTANCE, payload };
+  
+  return { type: NER_CONSTANCE, payload: request };
 }
 
 export function POS(type, text) {
@@ -59,18 +52,46 @@ export function POS(type, text) {
   let data = { type: mapping[type], url: text, text };
   console.log(data);
   const request = axios.post(url, data);
-  const payload = request.then(data => {
-    console.log("data", data);
-    console.log("data.data", data.data);
-    return data.data;
-  });
-  return { type: POS_CONSTANCE, payload };
+  return { type: POS_CONSTANCE, payload: request };
+}
+
+export function sentiment(type, text, model){
+  
+  const url = "/sentiment";
+  const mapping = { TEXT: "raw_text", URL: "webpage" };
+  let data = { type: mapping[type], url: text, text };
+  console.log(data);
+  const request = axios.post(url, data);
+  return { type: SENTIMENT, payload: request };
+}
+
+export function keywordExpand(type, text, model){
+  
+  const url = "/keyword_expansion";
+  const mapping = { TEXT: "raw_text", URL: "webpage" };
+  let data = { type: mapping[type], url: text, text };
+  console.log(data);
+  const request = axios.post(url, data);
+  return { type: EXPAND, payload: request };
+}
+
+export function classify(type, text, model){
+  
+  const url = "/categorization";
+  const mapping = { TEXT: "raw_text", URL: "webpage" };
+  let data = { type: mapping[type], url: text, text };
+  console.log(data);
+  const request = axios.post(url, data);
+  return { type: CATEGORIZE, payload: request };
 }
 
 export {
-    TOKENIZE_WORD, 
-    VECTORIZE_WORD,
-    NER_CONSTANCE,
-    POS_CONSTANCE,
-    MOCK_DATA
+  TOKENIZE_WORD,
+  VECTORIZE_WORD,
+  NER_CONSTANCE,
+  POS_CONSTANCE,
+  MOCK_DATA,
+  SENTIMENT,
+  EXPAND,
+  CATEGORIZE,
 };

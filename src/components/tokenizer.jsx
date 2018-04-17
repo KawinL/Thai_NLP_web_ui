@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import ReactLoading from "react-loading";
-
+import Loading from "react-loading-components";
 
 import { tokenizeWord } from "../action/index";
 import ResultUI from "./result";
@@ -15,7 +14,6 @@ class TokenizerUI extends Component{
     constructor(props){
         super(props);
 
-
         this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "ตากแดดตากลม", "https://www.thairath.co.th/content/1033805"], inputType: "" , old_output: null, outputStatus: 1};
         
         this.setInput =this.setInput.bind(this);
@@ -24,7 +22,7 @@ class TokenizerUI extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log('hit');
         console.log(this.state.inputValue)
         
         this.setState({
@@ -34,6 +32,7 @@ class TokenizerUI extends Component{
           outputStatus: 1
         })
         console.log(this.state.outputStatus);
+        console.log(this.props.wordList.status);
         if (this.state.inputValue!=""){
            this.props.tokenizeWord(this.state.inputType, this.state.inputValue);
            this.setState({isShowOutput:true})
@@ -43,18 +42,25 @@ class TokenizerUI extends Component{
     }
 
     genDataForCopy(){
-      if (this.props.wordList.string_list)return this.props.wordList.string_list.join('|');
+      if (this.props.wordList.status){
+        if (this.props.wordList.status=="OK" && this.state.outputStatus==2)
+            return this.props.wordList.data.join("|");
+      
+      }
+      return ""
+
+      
     }
 
     genTextData(){
       const status = this.props.wordList.status;
       const data = this.props.wordList.data;
       if (status =='OK') {
-        if (this.state.old_output != data.string_list) this.setState({
-            old_output: data.string_list
+        if (this.state.old_output != data) this.setState({
+            old_output: data
           });
           return <div style={{ lineHeight: "200%" }}>
-              {data.string_list.map(word => (
+              {data.map(word => (
                 <span
                   style={{
                     borderStyle: "solid",
@@ -69,13 +75,16 @@ class TokenizerUI extends Component{
               ))}
             </div>;
         } else if(status == 'ERROR'){
+          if (this.state.old_output != data) this.setState({
+              old_output: data
+            });
           console.log(this.state.outputStatus);
           return (<h1> ERROR {data}</h1>)
         }
     }
 
     genJSONData(){
-      if(this.props.wordList) return this.props.wordList
+      if(this.props.wordList.status=="OK") return this.props.wordList.data
       else return {};
     }
 
@@ -96,14 +105,15 @@ class TokenizerUI extends Component{
       const status = this.props.wordList.status;
       if(this.props.wordList.status){
         console.log(status)
-        if (this.state.old_output != this.props.wordList.data.string_list) {
+        console.log(this.state.old_output)
+        if (this.state.old_output != this.props.wordList.data) {
           console.log(this.state.old_output);
           console.log(this.props.wordList.data);
           this.setState({ outputStatus: 2 });
           console.log(this.state.outputStatus);
         }
       }
-      return 'loading...'
+      return <Loading type="ball_triangle" width={100} height={100} fill="#f44242" />;
     }
 
     render(){

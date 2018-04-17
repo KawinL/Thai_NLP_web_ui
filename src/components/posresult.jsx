@@ -148,6 +148,7 @@ export default class PosResultUI extends Component{
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                       <div class="card-body">
                         <div class="row container">
+
                           {this.state.tagList.map((e, index) => (
                             <div className="form-check form-check-inline col-2">
                               <input

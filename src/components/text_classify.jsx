@@ -7,17 +7,18 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  Line,
   CartesianGrid,
   ResponsiveContainer,
   Cell,
-  ComposedChart,
-  Area
+
+
+
+
 } from "recharts";
+import Loading from "react-loading-components";
 
+import { classify } from "../action/index";
 
-import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
@@ -29,18 +30,35 @@ class TextClassifierUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["https://pantip.com/topic/37393081", "https://pantip.com/topic/37392967", "https://pantip.com/topic/37396578", "https://pantip.com/topic/37395554",
-    ], inputType: "" };
+    this.state = {
+      inputValue: "",
+      isShowOutput: false,
+      isTextFormat: true,
+      examples: [
+        "https://pantip.com/topic/37393081",
+        "https://pantip.com/topic/37392967",
+        "https://pantip.com/topic/37396578",
+        "https://pantip.com/topic/37395554"
+      ],
+      inputType: "",
+      old_output: null,
+      outputStatus: 1
+    };
 
     this.setInput = this.setInput.bind(this);
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ isShowOutput: true });
+
     this.setState({
       inputType: typeOfInputValue(this.state.inputValue)
     });
+    this.setState({ outputStatus: 1 });
+    if (this.state.inputValue !== "") {
+      this.props.classify(this.state.inputType, this.state.inputValue);
+      this.setState({ isShowOutput: true });
+    }
   };
 
   onInputChange = e => {
@@ -57,29 +75,65 @@ class TextClassifierUI extends Component {
   }
 
   genGraph() {
-    if (this.props.textClasses) {
-      let sentimentValue = this.props.textClasses;
-      let data = [
-        { key: "problem", value: sentimentValue.problem },
-        { key: "Not problem", value: sentimentValue.notProblem },
-      ];
-      return <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data}>
-            <XAxis dataKey="key" />
-            <YAxis yAxisId="a" dataKey="value" type="number" domain={[0, 1]} />
-
-            <Tooltip />
-            <CartesianGrid vertical={false} />
-            <Bar yAxisId="a" dataKey="value">
-              
-              <Cell key="cell-1" fill="#fff888" />
-              <Cell key="cell-2" fill="#fa8475" />
-              
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>;
+    const status = this.props.textClasses.status;
+    const datao = this.props.textClasses.data;
+    let data = []
+    if (status === "OK") {
+      if (this.state.old_output !== datao) this.setState({
+          old_output: datao
+        });
+      console.log(datao.string_list.length);
+      for (var i = 0; i < datao.string_list.length; i++) {
+        console.log({
+          word: datao.string_list[i],
+          similarity: datao.similarity_list[i]
+        });
+        data.push({
+          word: datao.string_list[i],
+          similarity: Number(datao.similarity_list[i].toFixed(4))
+        });
+      }
+      console.log(data);
+      return <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Expanded Keyword</th>
+              <th scope="col">Similarity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map(row => {
+              return <tr>
+                  <td>{row.word}</td>
+                  <td>{row.similarity}</td>
+                </tr>;
+            })}
+          </tbody>
+        </table>;
+    } else if (status == "ERROR") {
+      if (this.state.old_output != data) this.setState({
+          old_output: data
+        });
+      console.log(this.state.outputStatus);
+      return <h1> ERROR {data}</h1>;
     }
-    return "Loading";
+  }
+
+  loading() {
+    const status = this.props.textClasses.status;
+    if (this.props.textClasses.status) {
+      console.log(status);
+      console.log(this.state.old_output);
+      if (this.state.old_output != this.props.textClasses.data) {
+        console.log(this.state.old_output);
+        console.log(this.props.textClasses.data);
+        this.setState({ outputStatus: 2 });
+        console.log(this.state.outputStatus);
+      }
+    }
+    return (
+      <Loading type="ball_triangle" width={100} height={100} fill="#f44242" />
+    );
   }
 
   render() {
@@ -121,8 +175,12 @@ class TextClassifierUI extends Component {
             {this.state.isShowOutput ? (
               <ResultUI
                 isTextFormat={true}
-                textData={this.genGraph()}
-                jsonData={this.props.textClasses}
+                textData={
+                  this.state.outputStatus == 1
+                    ? this.loading()
+                    : this.genGraph()
+                }
+                jsonData={this.props.textClasses.data}
               />
             ) : (
               <div />
@@ -133,7 +191,13 @@ class TextClassifierUI extends Component {
   }
 }
 const mapStateToProps = state => {
+  console.log(state)
   return { textClasses: state.textClasses };
 };
 
-export default connect(mapStateToProps)(TextClassifierUI);
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ classify }, dispatch);
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TextClassifierUI);

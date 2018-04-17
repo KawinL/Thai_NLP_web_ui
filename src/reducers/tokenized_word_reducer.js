@@ -9,7 +9,7 @@ export default function(state = {}, action){
         console.log(action);
         if(action.payload.request.status){
             
-            if (action.payload.request.status === 200) return { status: "OK", data: action.payload.data }
+            if (action.payload.request.status === 200) return { status: "OK", data: action.payload.data.string_list }
             else return { status: "ERROR", data: action.payload.request.statusText };
         }
         return { status: "LOADING", data: "Loading" };

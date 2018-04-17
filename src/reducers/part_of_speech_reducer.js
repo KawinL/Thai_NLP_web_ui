@@ -3,12 +3,14 @@ import { POS_CONSTANCE, MOCK_DATA } from "../action/index";
 export default function(state = {}, action) {
   switch (action.type) {
     case POS_CONSTANCE:
-      if (action.payload) console.log("patload", action.payload);
-      if (!action.payload) return ["something", "wrong"];
-      console.log(action.payload);
-      return action.payload;
+      console.log(action);
+        if(action.payload.request.status){
+          if (action.payload.request.status === 200) return { status: "OK", data: action.payload.data };
+          else return { status: "ERROR", data: action.payload.request.statusText };
+        }
+        return { status: "LOADING", data: "Loading" };
     case MOCK_DATA:
-      return {'tag_list': ['NR',
+      return {status: "OK",data:{'tag_list': ['NR',
   'VV',
   'VV',
   'VV',
@@ -805,7 +807,7 @@ export default function(state = {}, action) {
   '-',
   'นัก',
   'การ',
-  'เมือง']}
+  'เมือง']}}
     default:
       return {};
   }

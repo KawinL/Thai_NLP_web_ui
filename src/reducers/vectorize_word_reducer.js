@@ -4,10 +4,11 @@ export default function(state={}, action){
 
     switch (action.type) {
       case VECTORIZE_WORD:
-        if (action.payload) console.log('patload',action.payload);
-        if (!action.payload) return ["something", "wrong"];
-        console.log(action.payload);
-        return action.payload;
+        if(action.payload.request.status){
+          if (action.payload.request.status === 200) return { status: "OK", data: action.payload.data };
+          else return { status: "ERROR", data: action.payload.request.statusText };
+        }
+        return { status: "LOADING", data: "Loading" };
       default:
         return {};
     }
