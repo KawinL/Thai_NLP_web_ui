@@ -56,7 +56,7 @@ class NavBar extends Component {
               
 
               <li className={classes2} onClick={() => this.setAboutActive()}>
-                <a class="nav-link">
+                <a class="nav-link" href="/about">
                   <i class="fa fa-comments w3-large"></i> 
 
                   <span class="pad-left">About</span>

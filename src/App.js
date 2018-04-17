@@ -13,7 +13,7 @@ import MenuUI from "./components/menu";
 import KeywordExpansionUI from "./components/keyword_expansion";
 import SentimentUI from "./components/sentiment";
 import TextClassifyUI from "./components/text_classify";
-import DownloadUI from "./components/download";
+import AboutUI from "./components/about";
 
 class App extends Component {
 
@@ -52,7 +52,7 @@ class App extends Component {
                 <Route exact path="/text-categorization" component={TextClassifyUI} />
                 <Route exact path="/sentiment-analyzer" component={SentimentUI} />
 
-                <Route exact path="/download" component={DownloadUI} />
+                <Route exact path="/about" component={AboutUI} />
             </div>
           </div>
           <div class="row">
