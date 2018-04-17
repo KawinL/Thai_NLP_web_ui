@@ -13,6 +13,7 @@ import MenuUI from "./components/menu";
 import KeywordExpansionUI from "./components/keyword_expansion";
 import SentimentUI from "./components/sentiment";
 import TextClassifyUI from "./components/text_classify";
+import AboutUI from "./components/about";
 
 class App extends Component {
 
@@ -36,7 +37,7 @@ class App extends Component {
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-4 col-md-2 c1" style={{'padding-right' : '0'}}>
+            <div class="col-xs-4 col-md-2 c1">
               <MenuUI head="Foundation" detail={{ "Word Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Name Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" }} />
               <MenuUI head="Application" detail={{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }} />
             </div>
@@ -50,6 +51,8 @@ class App extends Component {
                 <Route exact path="/keyword-expansion" component={KeywordExpansionUI} />
                 <Route exact path="/text-categorization" component={TextClassifyUI} />
                 <Route exact path="/sentiment-analyzer" component={SentimentUI} />
+
+                <Route exact path="/about" component={AboutUI} />
             </div>
           </div>
           <div class="row">
