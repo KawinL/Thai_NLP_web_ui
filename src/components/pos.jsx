@@ -15,7 +15,7 @@ class PosUI extends Component {
 
     this.state = {
       inputValue: "",
-      isShowOutput: false,
+      isShowOutput: true,
       isTextFormat: true,
       examples: [
         "สตีฟกินกล้วย",
