@@ -82,9 +82,15 @@ class SentimentUI extends Component {
           old_output: data
         });
       let sentimentValue = this.props.sentimentValue.data;
-      let data = [{ key: "positive", value: sentimentValue.positive }, { key: "neutral", value: sentimentValue.neutral }, { key: "negative", value: sentimentValue.negative }];
+      let datao = [{ 
+        key: "positive", 
+        value: Number(data.similarity_list[1].toFixed(4)) }, 
+        { key: "neutral", 
+        value: Number(data.similarity_list[2].toFixed(4)) }, 
+        { key: "negative", 
+        value: Number(data.similarity_list[0].toFixed(4)) }];
       return <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={data}>
+          <BarChart data={datao}>
             <XAxis dataKey="key" />
             <YAxis yAxisId="a" dataKey="value" type="number" domain={[0, 1]} />
 
@@ -187,7 +193,7 @@ class SentimentUI extends Component {
                     ? this.loading()
                     : this.genGraph()
                 }
-                jsonData={this.props.sentimentValue}
+                jsonData={this.props.sentimentValue.data}
               />
             ) : (
               <div />

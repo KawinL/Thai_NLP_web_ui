@@ -71,7 +71,7 @@ class KeywordExpansionUI extends Component {
         });
         data.push({
           word: datao.string_list[i],
-          similarity: datao.similarity_list[i] });
+          similarity: Number(datao.similarity_list[i].toFixed(4)) });
       }
       console.log(data)
       return <table class="table table-bordered">
@@ -158,7 +158,7 @@ class KeywordExpansionUI extends Component {
                     ? this.loading()
                     : this.genTable()
                 }
-                jsonData={this.props.expandedWord}
+                jsonData={this.props.expandedWord.data}
               />
             ) : (
               <div />
