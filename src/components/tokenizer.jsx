@@ -120,7 +120,10 @@ class TokenizerUI extends Component{
         return <div class="container">
             <div class="row">
               <div class="col-12">
-                <ExplainUI topic="Word Tokenization" explanation={<div class="alert alert-success" role="alert">
+                <ExplainUI topic="Word Tokenization" 
+                model_description="Segment a sentence into words"
+                explanation={
+                  <div class="alert alert-success" role="alert">    
                       <div class="text-dark">
                         Put <strong>Thai Text</strong> or <strong> Website URL </strong> in the box below and hit <strong> Analyze </strong>button !    
                       </div>

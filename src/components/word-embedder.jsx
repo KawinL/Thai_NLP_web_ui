@@ -123,6 +123,7 @@ class WordEmbedderUI extends Component {
           <div class="col-12">
             <ExplainUI
               topic="Word Embedding"
+              model_description="Represent a word with a vector."
               explanation={
                 <div class="alert alert-success" role="alert">
                   <div class="text-dark">{this.state.explanationText}</div>

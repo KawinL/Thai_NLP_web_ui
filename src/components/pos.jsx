@@ -111,6 +111,7 @@ class PosUI extends Component {
           <div class="col-12">
             <ExplainUI
               topic="Part of Speech tagger"
+              model_description="Predict Part-of-Speech of each words in a sentence"
               explanation={
                 <div class="alert alert-success" role="alert">
                   <div class="text-dark">

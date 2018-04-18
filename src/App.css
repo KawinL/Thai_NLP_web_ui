@@ -58,118 +58,6 @@ body {
     padding-bottom: 100%;
     margin-bottom: -100%;
 }
-.DTM_I{
-  background-color:rgba(78, 116, 177, 0.7);
-}
-.DES_I{
-  background-color:rgba(223, 25, 25, 0.7);
-}
-.TRM_I{
-  background-color:rgba(98, 218, 30, 0.7);
-}
-.DES_B{
-  background-color:rgba(247, 117, 229, 0.7);
-}
-.BRN_I{
-  background-color:rgba(41, 238, 252, 0.7);
-}
-.ABB_ORG_I{
-  background-color:rgba(15, 172, 41, 0.7);
-}
-.BRN_B{
-  background-color:rgba(44, 98, 214, 0.7);
-}
-.ORG_I{
-  background-color:rgba(223, 191, 52, 0.7);
-}
-.PER_B{
-  background-color:rgba(202, 58, 58, 0.7);
-}
-.LOC_B{
-  background-color:rgba(119, 110, 196, 0.7);
-}
-.ABB_TTL_B{
-  background-color:rgba(255, 0, 0, 0.7);
-}
-.ABB_DES_I{
-  background-color:rgba(255, 123, 0, 0.7);
-}
-.TTL_B{
-  background-color:rgba(255, 238, 0, 0.7);
-}
-.MEA_B{
-  background-color:rgba(200, 255, 0, 0.7);
-}
-.NUM_B{
-  background-color:rgba(166, 255, 2, 0.7);
-}
-.TRM_B{
-  background-color:rgba(0, 255, 76, 0.7);
-}
-.MEA_I{
-  background-color:rgba(0, 238, 255, 0.7);
-}
-.NUM_I{
-  background-color:rgba(0, 174, 255, 0.7);
-}
-.ABB_B{
-  background-color:rgba(255, 0, 170, 0.7);
-}
-.TTL_I{
-  background-color:rgba(0, 26, 255, 0.7);
-}
-.ABB_LOC_B{
-  background-color:rgba(246, 255, 122, 0.7);
-}
-.PER_I{
-  background-color:rgba(122, 179, 255, 0.7);
-}
-.LOC_I{
-  background-color:rgba(188, 117, 255, 0.7);
-}
-.ABB_LOC_I{
-  background-color:rgba(131, 139, 255, 0.7);
-}
-.ABB_ORG_B{
-  background-color:rgba(251, 122, 255, 0.7);
-}
-.O{
-  background-color:rgba(0, 0, 0, 0.0);
-}
-.NAME_B{
-  background-color:rgba(67, 255, 77, 0.7);
-}
-.ABB_DES_B{
-  background-color:rgba(83, 0, 131, 0.7);
-}
-.DTM_B{
-  background-color:rgba(0, 39, 124, 0.7);
-}
-.ORG_B{
-  background-color:rgba(2, 175, 2, 0.7);
-}
-.ABB_TTL_I{
-  background-color:rgba(87, 57, 255, 0.7);
-}
-.__{
-  background-color:rgba(38, 104, 24, 0.7);
-}
-.X{
-  background-color:rgba(199, 124, 124, 0.7);
-}
-.ABB_I{
-  background-color:rgba(40, 182, 99, 0.7);
-}
-.ABB_PER_B{
-  background-color:rgba(114, 141, 17, 0.7);
-}
-.MEA_BI{
-  background-color:rgba(40, 192, 20, 0.7);
-}
-.PER_I{
-  background-color:rgba(18, 15, 196, 0.7);
-}
-
 
 .postag{
   background-color:rgba(46, 125, 179, 0.7);
@@ -184,3 +72,101 @@ body {
     line-height: 60px;
     background-color: #f5f5f5;
 }
+
+.DTM_B{
+background-color:rgba(238,64,53);
+}
+.DTM_I{
+background-color:rgba(238,64,53,0.7);
+}
+.DES_B{
+background-color:rgba(243,119,54);
+}
+.DES_I{
+background-color:rgba(243,119,54,0.7);
+}
+.TTL_B{
+background-color:rgba(253,244,152);
+}
+.TTL_I{
+background-color:rgba(253,244,152,0.7);
+}
+.BRN_B{
+background-color:rgba(123,192,67);
+}
+.BRN_I{
+background-color:rgba(123,192,67,0.7);
+}
+.PER_B{
+background-color:rgba(3,146,207);
+}
+.PER_I{
+background-color:rgba(3,146,207,0.7);
+}
+.MEA_B{
+background-color:rgba(19,126,168);
+}
+.MEA_I{
+background-color:rgba(19,126,168,0.7);
+}
+.NUM_B{
+background-color:rgba(252,74,20);
+}
+.NUM_I{
+background-color:rgba(252,74,20,0.7);
+}
+.LOC_B{
+background-color:rgba(0,120,73);
+}
+.LOC_I{
+background-color:rgba(0,120,73,0.7);
+}
+.TRM_B{
+background-color:rgba(1,149,131);
+}
+.TRM_I{
+background-color:rgba(1,149,131,0.7);
+}
+.ORG_B{
+background-color:rgba(229,54,109);
+}
+.ORG_I{
+background-color:rgba(229,54,109,0.7);
+}
+.ABB_ORG_B{
+background-color:rgba(64,224,208);
+}
+.ABB_ORG_I{
+background-color:rgba(64,224,208,0.7);
+}
+.ABB_LOC_B{
+background-color:rgba(124,59,124)
+}
+.ABB_LOC_I{
+background-color:rgba(124,59,124,0.7)
+}
+.ABB_DES_B{
+background-color:rgba(219,227,88);
+}
+.ABB_DES_I{
+background-color:rgba(219,227,88,0.7);
+}
+.ABB_PER_B{
+background-color:rgba(255,214,214);
+}
+.ABB_PER_I{
+background-color:rgba(255,214,214,0.7);
+}
+.ABB_TTL_B{
+background-color:rgba(255,206,0);
+}
+.ABB_TTL_I{
+background-color:rgba(255,206,0,0.7);
+}
+.ABB_B{
+background-color:rgba(255,165,220);
+}
+.ABB_I{
+background-color:rgba(255,165,220,0.7);
+}
+.O{}

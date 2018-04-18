@@ -141,6 +141,7 @@ class SentimentUI extends Component {
                   Sentiment Analysis <DropdownUI />
                 </div>
               }
+              model_description="Predict the Sentiment of sentences including Positive, Neutral and Negative. The model returns probabilities of each sentiment class."
               explanation={
                 <div class="alert alert-success" role="alert">
                   <div class="text-dark">

@@ -26,7 +26,7 @@ class ExampleUI extends Component {
         subMenu.push(<div class="w3-bar w3-block w3-padding-large">
             <span style={{'font-weight':'500'}}>
             <i class="fa fa-info-circle w3-large" style={{'padding-right':'10px'}}></i> 
-            Example Input 
+            Example Input (Click the button below)
             </span>
             </div>);
         for (let i in this.props.examples) {

@@ -9,16 +9,22 @@ import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
-
-import "./style.css";
-
+import "./style.css"
+import {ner_tag_list} from "./ner_tag_list";
 
 
 class NerUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], inputType: "", tagList: ["DTM_I", "DES_I", "TRM_I", "DES_B", "BRN_I", "ABB_ORG_I", "BRN_B", "ORG_I", "PER_B", "LOC_B", "ABB_TTL_B", "ABB_DES_I", "TTL_B", "MEA_B", "NUM_B", "TRM_B", "MEA_I", "NUM_I", "ABB_B", "TTL_I", "ABB_LOC_B", "PER_I", "LOC_I", "ABB_LOC_I", "ABB_ORG_B", "O", "NAME_B", "ABB_DES_B", "DTM_B", "ORG_B", "ABB_TTL_I", "__", "X", "ABB_I", "ABB_PER_B", "MEA_BI", "PER_I"], old_output: null, outputStatus: 1 };
+    this.state = { inputValue: "", 
+    isShowOutput: false, 
+    isTextFormat: true, 
+    examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], 
+    inputType: "", 
+    tagList: ['DTM_B','DTM_I','DES_B','DES_I','TTL_B','TTL_I','BRN_B','BRN_I','PER_B','PER_I','MEA_B','MEA_I','NUM_B','NUM_I','LOC_B','LOC_I','TRM_B','TRM_I','ORG_B','ORG_I','ABB_ORG_B','ABB_ORG_I','ABB_LOC_B','ABB_LOC_I','ABB_DES_B','ABB_DES_I','ABB_PER_B','ABB_PER_I','ABB_TTL_B','ABB_TTL_I','ABB_B','ABB_I'], 
+    old_output: null, 
+    outputStatus: 1 };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -146,6 +152,7 @@ class NerUI extends Component {
           <div class="col-12">
             <ExplainUI
               topic="Named Entity Recognition"
+              model_description="Predict Named entity of each words in a sentence"
               explanation={
                 <div class="alert alert-success" role="alert">
                   <div class="text-dark font-light">
