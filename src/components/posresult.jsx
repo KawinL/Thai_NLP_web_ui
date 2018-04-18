@@ -5,6 +5,41 @@ import { posColor } from "./pos_color";
 export default class PosResultUI extends Component{
     constructor(props){
         super(props)
+        const description = {
+          NN:"Non-proper nouns",
+          NR:"Proper nouns",
+          PPER:"Personal pronoun",
+          PINT:"Interrogative pronouns in non-determiner usage",
+          PDEM:"Demonstrative pronoun as heads",
+          DPER:"Same list as PPER words, but modifying head nouns typically as possessives",
+          DINT:"Items in PINT which are used as determiners to Nouns",
+          DDEM:"The most common determiners, usually demonstratives",
+          PDT:"Quantifier determiners, and pre-modifiers of quantifier spreceding classifier words",
+          REFX:"Reflexive words",
+          VV:"Main verbs in clauses, verb–form",
+          VA:"Main adjective element in verb-less clauses",
+          AUX:"Auxiliary verbs indicating modality/aspect/tense/passive etc.",
+          JJA:"Adjective form words in noun modifying positions",
+          JJV:"Verb form words directly modifying nouns in same noun phrase",
+          ADV:"Adverbs modifying Verb/Adj/other adverbs",
+          NEG:"Negative word",
+          PAR:"Polite/question/emphasis particles usually in clause–end",
+          CL:"Common noun that functions as classifier units, plus true classifiers",
+          CD:"Numbers as cardinals, quantifiers",
+          OD:"Numbers as ordinals, and non-quantifiers",
+          FXN:"Noun-type prefix",
+          FXG:"Group type prefix",
+          FXAV:"Adverb type prefix",
+          FXAJ:"Adjective type prefix",
+          COMP:"Complementizers",
+          CNJ:"Coordinators and clause conjunctions",
+          P:"Prepositions",
+          IJ:"Interjections",
+          PU:"Regular and Thai - character punctuations",
+          FWN:"Non-proper Noun word written in non-thai script",
+          FWV:"Verb written in non-thai script",
+          FWA:"Adjective written in non-thai script",
+        } 
         const tagList = ["NN",
         "NR",
         "PPER",
@@ -42,9 +77,8 @@ export default class PosResultUI extends Component{
         const colorList = ["rgba(145,213,110, 0.7)", "rgba(7,111,66, 0.7)", "rgba(201,200,244, 0.7)", "rgba(162,48,94, 0.7)", "rgba(163,29,153, 0.7)", "rgba(64,55,191, 0.7)", "rgba(173,223,15, 0.7)", "rgba(67,117,132, 0.7)", "rgba(9,98,79, 0.7)", "rgba(244,62,144, 0.7)", "rgba(130,168,28, 0.7)", "rgba(169,14,164, 0.7)", "rgba(86,27,166, 0.7)", "rgba(126,239,163, 0.7)", "rgba(49,119,21, 0.7)", "rgba(130,19,154, 0.7)", "rgba(163,27,16, 0.7)", "rgba(13,174,39, 0.7)", "rgba(132,93,254, 0.7)", "rgba(191,199,223, 0.7)", "rgba(218,98,6, 0.7)", "rgba(227,9,23, 0.7)", "rgba(34,170,235, 0.7)", "rgba(47,154,192, 0.7)", "rgba(37,239,237, 0.7)", "rgba(97,145,70, 0.7)", "rgba(199,57,53, 0.7)", "rgba(138,67,71, 0.7)", "rgba(89,31,183, 0.7)", "rgba(98,138,222, 0.7)", "rgba(101,24,205, 0.7)", "rgba(214,247,46, 0.7)", "rgba(149,112,247, 0.7)", "rgba(154,59,81, 0.7)", "rgba(66,202,6, 0.7)"];
         
         const selectedCheckboxes = new Set([' '])
-        console.log('hula')
         this.state={
-            "NN":false,
+            "NN":true,
             "NR":false,
             "PPER":false,
             "PINT":false,
@@ -80,14 +114,33 @@ export default class PosResultUI extends Component{
             "FWX":false,
             selectedCheckboxes,
             tagList,
-            colorList
+            colorList,
+            description,
+            "toggleAll": false
         }
         this.toggleCheckbox = this.toggleCheckbox.bind(this);
+        this.toggleAll = this.toggleAll.bind(this);
+    }
+    toggleAll(e){
+      let { value } = e.target;
+      console.log(e.target);
+      if(value!=="Toggle All"){
+        return 
+      }
+      value = !this.state.toggleAll
+      console.log('all')
+      let update = this.state
+      for (let i = 0;i<this.state.tagList.length;i++){
+        update[this.state.tagList[i]] = value;
+      }
+      console.log(update)
+      this.setState(update);
+      this.setState({toggleAll:value})
     }
 
     toggleCheckbox(e) {
         const { value } = e.target;
-        console.log(value)
+        console.log(e.target);
         let update = this.state
         update[value] = !this.state[value];
         console.log(this.state[value]);
@@ -124,7 +177,8 @@ export default class PosResultUI extends Component{
     genPOSShow(){
         return <div style={{ lineHeight: "200%" }}>
             {this.props.pos.token_list.map((w, i) => (
-              <span data-tip={this.props.pos.tag_list[i]}>
+              <span 
+              data-tip={this.props.pos.tag_list[i]}>
                 {this.getWord(w, this.props.pos.tag_list[i])}{" "}
               </span>
             ))} <ReactTooltip effect="solid" />
@@ -148,13 +202,27 @@ export default class PosResultUI extends Component{
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                       <div class="card-body">
                         <div class="row container">
-
+                          <div className="form-check form-check-inline col-2">
+                            <input class="form-check-input" 
+                            type="checkbox" 
+                            id="inlineCheckbox1" 
+                            checked={this.state["toggleAll"]} 
+                            value="Toggle All" 
+                            onClick={this.toggleAll} />
+                            <label class="form-check-label rounded" for="inlineCheckbox1">
+                              Toggle All
+                            </label>
+                          </div>
                           {this.state.tagList.map((e, index) => (
-                            <div className="form-check form-check-inline col-2">
+                            <div
+                              className="form-check form-check-inline col-2"
+                              data-tip={this.state.description[e]}
+                            >
                               <input
                                 class="form-check-input"
                                 type="checkbox"
                                 id="inlineCheckbox1"
+                                checked={this.state[e]}
                                 value={e}
                                 onClick={this.toggleCheckbox}
                               />
@@ -171,6 +239,7 @@ export default class PosResultUI extends Component{
                               </label>
                             </div>
                           ))}
+                          <ReactTooltip effect="solid" />
                         </div>
                       </div>
                     </div>
@@ -179,9 +248,7 @@ export default class PosResultUI extends Component{
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <div>
-                        {this.genPOSShow()}
-                    </div>
+                  <div>{this.genPOSShow()}</div>
                 </li>
               </ul>
             </div>
