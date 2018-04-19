@@ -81,14 +81,16 @@ class SentimentUI extends Component {
       if (this.state.old_output != data) this.setState({
           old_output: data
         });
-      let sentimentValue = this.props.sentimentValue.data;
+
+      let sentimentValue = this.props.sentimentValue.data.confidence_tag_list;
+      console.log(sentimentValue[0]);
       let datao = [{ 
         key: "positive", 
-        value: Number(data.similarity_list[1].toFixed(4)) }, 
+        value: Number(sentimentValue[1].confidence.toFixed(4)) }, 
         { key: "neutral", 
-        value: Number(data.similarity_list[2].toFixed(4)) }, 
+        value: Number(sentimentValue[2].confidence.toFixed(4)) }, 
         { key: "negative", 
-        value: Number(data.similarity_list[0].toFixed(4)) }];
+        value: Number(sentimentValue[0].confidence.toFixed(4)) }];
       return <ResponsiveContainer width="100%" height={300}>
           <BarChart data={datao}>
             <XAxis dataKey="key" />

@@ -78,23 +78,12 @@ class TextClassifierUI extends Component {
 
   genGraph() {
     const status = this.props.textClasses.status;
-    const datao = this.props.textClasses.data;
-    let data = []
+    let data = this.props.textClasses.data;
     if (status === "OK") {
-      if (this.state.old_output !== datao) this.setState({
-          old_output: datao
+      if (this.state.old_output !== data) this.setState({
+          old_output: data
         });
-      console.log(datao.string_list.length);
-      for (var i = 0; i < datao.string_list.length; i++) {
-        console.log({
-          word: datao.string_list[i],
-          similarity: datao.similarity_list[i]
-        });
-        data.push({
-          word: datao.string_list[i],
-          similarity: Number(datao.similarity_list[i].toFixed(4))
-        });
-      }
+      data = data.confidence_tag_list;
       console.log(data);
       return <table class="table table-bordered">
           <thead>
@@ -106,8 +95,8 @@ class TextClassifierUI extends Component {
           <tbody>
             {data.map(row => {
               return <tr>
-                  <td>{row.word}</td>
-                  <td>{row.similarity}</td>
+                  <td>{row.tag}</td>
+                  <td>{ Number(row.confidence.toFixed(4))}</td>
                 </tr>;
             })}
           </tbody>

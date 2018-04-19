@@ -86,7 +86,7 @@ class WordEmbedderUI extends Component {
               return <tr>
                   <td>{row.w1}</td>
                   <td>{row.w2}</td>
-                  <td>{row.distance}</td>
+                  <td>{row.distance.toFixed(4)}</td>
                 </tr>;
             })}
           </tbody>

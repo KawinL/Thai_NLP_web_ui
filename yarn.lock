@@ -3491,6 +3491,10 @@ inquirer@3.3.0, inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
+install@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.11.0.tgz#e539d3c7db572ab5081d3780de20796dd3cc842e"
+
 internal-ip@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/internal-ip/-/internal-ip-1.2.0.tgz#ae9fbf93b984878785d50a8de1b356956058cf5c"
@@ -5946,6 +5950,12 @@ react-dom@^16.2.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react-dropdown@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-dropdown/-/react-dropdown-1.4.0.tgz#ea88d4846e9b6da249784107b0f9135248fa88a3"
+  dependencies:
+    classnames "^2.2.3"
 
 react-error-overlay@^4.0.0:
   version "4.0.0"
