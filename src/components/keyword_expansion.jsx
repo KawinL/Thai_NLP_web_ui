@@ -120,7 +120,9 @@ class KeywordExpansionUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic={<div>
+            <ExplainUI 
+                  model_description="The process of finding the related words from the vocabulary to the query word."
+                  topic={<div>
                   Keyword Expansion <DropdownUI />
                 </div>} explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">

@@ -119,7 +119,7 @@ class SentimentUI extends Component {
 	        	</div>
 	        	<div>
 	        	<p style={{"padding-left":"50px"}}>
-	        		&nbsp;&nbsp;&nbsp;&nbsp; Segment a sentence into words<br/>
+	        		&nbsp;&nbsp;&nbsp;&nbsp; Find the related words from the vocabulary to the query word.<br/>
 	        	</p>
 	        	</div>
 	        </div>
