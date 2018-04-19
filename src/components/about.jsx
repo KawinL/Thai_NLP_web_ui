@@ -6,6 +6,8 @@ import can from "../images/can.jpg"
 import kawin from "../images/kawin.jpg"
 import ammarin from "../images/ammarin.jpg"
 import chavisa from "../images/chavisa.jpg"
+import prachya from "../images/prachya.jpg"
+
 import nectec_logo from "../images/nectec_logo.jpg"
 class SentimentUI extends Component {
 
@@ -57,6 +59,7 @@ class SentimentUI extends Component {
 			        </div>
 			    </div>
 			    <div class = "col-md-4 text-center">
+			    	<img class="rounded-circle" src={prachya} width ="200px" height ="200px"/>
 			    	<div style={{"padding-top":"10px"}}>
 			        <p class="text-center"><b>Prachya Boonkwan, Ph.D.</b><br />
 			        <i>Language and Semantic Technology Lab (LST),<br />
