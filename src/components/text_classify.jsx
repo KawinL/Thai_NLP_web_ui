@@ -18,6 +18,8 @@ import {
 import Loading from "react-loading-components";
 
 import { classify } from "../action/index";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
 
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
@@ -141,7 +143,7 @@ class TextClassifierUI extends Component {
         <div class="row">
           <div class="col-12">
             <ExplainUI topic={<div>
-                  Text Categorization <DropdownUI />
+                  Text Categorization <DropdownUI option={["mobile"]}/>
                 </div>} explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
                     Put <strong>Thai Text</strong> or <strong>

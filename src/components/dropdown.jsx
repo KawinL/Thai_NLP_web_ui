@@ -5,12 +5,14 @@ class DropdownUI extends Component {
     constructor(props){
         super(props)
 
-        this.state = { selected: "food", selectable: ["motorcycle","General"] };
+        this.state = { selected: this.props.option[0], selectable: this.props.option };
     }
 
-setSelected(word){
-  // this.setState({selected: word});
-  // ReactDOM.render()
+  setSelected(e){
+    const {value} = e.target
+    console.log(value)
+    // this.setState({selected: word});
+    // ReactDOM.render()
   }
 
   render() {
@@ -20,8 +22,12 @@ setSelected(word){
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" onCLick={this.setSelected('motorcycle')}>motorcycle</a>
-          <a class="dropdown-item" onCLick={this.setSelected('food')}>food</a>
+          <button class="dropdown-item" onCLick={this.setSelected} value="motorcycle">
+            mobile
+          </button>
+          <button class="dropdown-item" onCLick={this.setSelected} value="food">
+            food
+          </button>
         </div>
       </span>;
   }
