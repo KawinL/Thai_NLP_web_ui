@@ -1,6 +1,18 @@
 export const ner_tag_list = ['X','DTM_B','DTM_I','DES_B','DES_I','TTL_B','TTL_I','BRN_B','BRN_I','PER_B','PER_I','MEA_B','MEA_I','NUM_B','NUM_I','LOC_B','LOC_I','TRM_B','TRM_I','ORG_B','ORG_I','ABB_ORG_B','ABB_ORG_I','ABB_LOC_B','ABB_LOC_I','ABB_DES_B','ABB_DES_I','ABB_PER_B','ABB_PER_I','ABB_TTL_B','ABB_TTL_I','ABB_B','ABB_I','ABB','DDEM','NAME_B','__','O','UNK']
 
 export const ner_des = {
+    X:"ไม่ใช้",
+    DTM_B:"Date/Time",
+    DTM_I:"Date/Time",
+    DES_B:"Designation",
+    DES_I:"Designation",
+    TTL_B:"Title",
+    TTL_I:"Title",
+    BRN_B:"Brand",
+    BRN_I:"Brand",
+    PER_B:"Person name",
+    PER_I:"Person name",
+    MEA_B:"Measurement",
     MEA_I:"Measurement",
     NUM_B:"Number",
     NUM_I:"Number",

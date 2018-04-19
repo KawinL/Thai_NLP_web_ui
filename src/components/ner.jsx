@@ -10,7 +10,7 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 import "./style.css"
-import {ner_tag_list} from "./ner_tag_list";
+import {ner_tag_list, ner_des} from "./ner_tag_list";
 
 
 class NerUI extends Component {
@@ -24,7 +24,8 @@ class NerUI extends Component {
     inputType: "", 
     tagList: ['DTM_B','DTM_I','DES_B','DES_I','TTL_B','TTL_I','BRN_B','BRN_I','PER_B','PER_I','MEA_B','MEA_I','NUM_B','NUM_I','LOC_B','LOC_I','TRM_B','TRM_I','ORG_B','ORG_I','ABB_ORG_B','ABB_ORG_I','ABB_LOC_B','ABB_LOC_I','ABB_DES_B','ABB_DES_I','ABB_PER_B','ABB_PER_I','ABB_TTL_B','ABB_TTL_I','ABB_B','ABB_I'], 
     old_output: null, 
-    outputStatus: 1 };
+    outputStatus: 1
+  };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -62,43 +63,29 @@ class NerUI extends Component {
   }
 
   textResultComponent() {
-    return (
-      <div id="accordion">
+    return <div id="accordion">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-              <button
-                class="btn btn-link"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 Colors mapping
               </button>
             </h5>
           </div>
-          <div
-            id="collapseOne"
-            class="collapse"
-            aria-labelledby="headingOne"
-            data-parent="#accordion"
-          >
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
               <div class="row">
                 {this.state.tagList.map(e => {
-                  return (
-                    <div class={e + " rounded col-2 mt-1 mb-1 mr-1 ml-1"}>
+                  return <div class={e + " rounded col-2 mt-1 mb-1 mr-1 ml-1"} data-tip={ner_des[e]}>
                       {e}
-                    </div>
-                  );
+                    </div>;
                 })}
+               
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 
   handleSubmit = e => {
