@@ -151,7 +151,7 @@ export default class PosResultUI extends Component{
 
     highlightWord(word, tag){
         return (
-            <span 
+            <span class="rounded"
                 style={{
                     backgroundColor: posColor[tag],
                     // padding: "0 5px",
@@ -232,7 +232,7 @@ export default class PosResultUI extends Component{
                               <b>SELECT ALL</b>
                             </label>
                           </div>
-                          <ReactTooltip effect="solid" />
+
                         </div>
                       </div>
                     </div>
