@@ -9,46 +9,66 @@ import DropdownUI from "./dropdown";
 
 import lab_logo from "../images/datamind.png"
 import cpcu_logo from "../images/cpcu.png"
+import can from "../images/can.jpg"
+import kawin from "../images/kawin.jpg"
+import ammarin from "../images/ammarin.jpg"
+import chavisa from "../images/chavisa.jpg"
 
 class SentimentUI extends Component {
 
   render() {
-    return (<div class="container">
+    return (<div class="container" style={{"margin-left":"0px"}}>
         <h1> About Bailarn Library </h1>
         <h2> Project developers </h2>
 	        <div class="row">
-	        	<div class = "col-md-4">
-			        <p><b>Ammarin Jetthakun</b><br />
+	        	<div class = "col-md-4 text-center">
+	        		<img class="rounded-circle" src={ammarin} width ="200px" height ="200px"/>
+	        		<div style={{"padding-top":"10px"}}>
+			        <p class="text-center" ><b>Ammarin Jetthakun</b><br />
 			        <i>Department of Computer Engineering,<br />
 			        Chulalongkorn University</i></p>
+			        </div>
 			    </div>
-			    <div class = "col-md-4">
-			        <p><b>Chavisa Thamjarat</b><br />
+			    <div class = "col-md-4 text-center">
+			    	<img class="rounded-circle" src={chavisa} width ="200px" height ="200px"/>
+			    	<div style={{"padding-top":"10px"}}>
+			        <p class="text-center" ><b>Chavisa Thamjarat</b><br />
 			        <i>Department of Computer Engineering,<br />
 			        Chulalongkorn University</i></p>
+			        </div>
 			    </div>
-			    <div class = "col-md-4">
-			        <p><b>Kawin Liaowongphuthorn</b><br />
+			    <div class = "col-md-4 text-center">
+			    	<img class="rounded-circle" src={kawin} width ="200px" height ="200px"/>
+			    	<div style={{"padding-top":"10px"}}>
+			        <p class="text-center" ><b>Kawin Liaowongphuthorn</b><br />
 			        <i>Department of Computer Engineering,<br />
 			        Chulalongkorn University</i></p>
+			        </div>
 			    </div>
 	        </div>
         <h2> Advisors </h2>
 	        <div class="row">
-	        	<div class = "col-md-4">
-			        <p><b>Asst. Prof. Peerapon Vateekul, Ph.D.</b><br />
+	        	<div class = "col-md-4 text-center">
+	        		<div style={{"padding-top":"10px"}}>
+				        <p class="text-center"><b>Asst. Prof. Peerapon Vateekul, Ph.D.</b><br />
+				        <i>Department of Computer Engineering,<br />
+				        Chulalongkorn University</i></p>
+			        </div>
+			    </div>
+			    <div class = "col-md-4 text-center">
+			    	<img class="rounded-circle" src={can} width ="200px" height ="200px"/>
+			    	<div style={{"padding-top":"10px"}}>
+			        <p class="text-center"><b>Can Udomcharoenchaikit</b><br />
 			        <i>Department of Computer Engineering,<br />
 			        Chulalongkorn University</i></p>
+			        </div>
 			    </div>
-			    <div class = "col-md-4">
-			        <p><b>Can Udomcharoenchaikit</b><br />
-			        <i>Department of Computer Engineering,<br />
-			        Chulalongkorn University</i></p>
-			    </div>
-			    <div class = "col-md-4">
-			        <p><b>Prachya Boonkwan, Ph.D.</b><br />
+			    <div class = "col-md-4 text-center">
+			    	<div style={{"padding-top":"10px"}}>
+			        <p class="text-center"><b>Prachya Boonkwan, Ph.D.</b><br />
 			        <i>Language and Semantic Technology Lab (LST),<br />
 			        NECTEC </i></p>
+			        </div>
 			    </div>
 	        </div>
         <h2> Organizations </h2>

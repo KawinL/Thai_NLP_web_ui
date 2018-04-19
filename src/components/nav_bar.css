@@ -5,3 +5,16 @@
 color: #ff0000; /* <—– change your color here*/
 background-color: transparent;
 }
+
+.right{
+	position: absolute;
+    right: 0px;
+    width: 300px;
+    padding: 10px;
+}
+
+.navbar-brand {
+    padding-left: 5px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./nav_bar.css";
 import classNames from 'classnames';
-
+import logo from "../images/logo.png"
 
 class NavBar extends Component {
 
@@ -31,12 +31,13 @@ class NavBar extends Component {
         active: this.state.active_about, // only add this class if the state says so
         });
       return <nav class="navbar navbar-expand-lg navbar-dark text-white justify-content-between" style={{'background':'#545454'}}>
-          
+          <div style={{'padding-left': '5px'}}>
+          <img src={logo} height="32" width="32"/>
           <a class="navbar-brand">
-          <i class="fa fa-leaf w3-large d-inline-block align-top" style={{'color':'#2BD1A3'}}></i> 
-          Bailarn Library</a>
-
-          <div class="collapse navbar-collapse float-right text-white " id="navbarsExample09">
+          Bailarn Library
+          </a>
+          </div>
+          <div class="collapse navbar-collapse float-right text-white right">
             <ul class="navbar-nav mr-auto ">
               
               <li class="nav-item">
