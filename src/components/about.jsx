@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 
-import { vectorizeWord } from "../action/index";
-import ResultUI from "./result";
-import ExplainUI from "./explanation";
-import InputUI, { typeOfInputValue } from "./input";
-import ExampleUI from "./example";
-import DropdownUI from "./dropdown";
-
 import lab_logo from "../images/datamind.png"
 import cpcu_logo from "../images/cpcu.png"
 import can from "../images/can.jpg"
 import kawin from "../images/kawin.jpg"
 import ammarin from "../images/ammarin.jpg"
 import chavisa from "../images/chavisa.jpg"
-
+import nectec_logo from "../images/nectec_logo.jpg"
 class SentimentUI extends Component {
 
   render() {
@@ -74,10 +67,15 @@ class SentimentUI extends Component {
         <h2> Organizations </h2>
         <div class="row">
         	<div class = "col-md-4">
-        		<img src = {lab_logo} height="80" width="250"/>
+        		<img src = {lab_logo} height="140" width="320"/>
         	</div>
         	<div class = "col-md-4">
-        		<img src = {cpcu_logo} height="80" width="500"/>
+        		<img src = {nectec_logo} height="140" width="489"/>
+        	</div>
+        </div>
+        <div class="row">
+            <div class = "col-md-8">
+        		<img src = {cpcu_logo} height="140" width="960"/>
         	</div>
         </div>
     </div>)

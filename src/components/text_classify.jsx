@@ -152,7 +152,8 @@ class TextClassifierUI extends Component {
                       Analyze{" "}
                     </strong>button !
                   </div>
-                </div>} />
+                </div>} 
+                model_description = "Predict the pre-defined classes of sentences on the specific domain. The model returns the confidence of each class"/>
           </div>
           <div class="col-lg-8 col-sm-12">
             <div class="row">

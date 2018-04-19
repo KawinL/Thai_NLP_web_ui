@@ -194,7 +194,7 @@ export default class PosResultUI extends Component{
                     <div class="card-header" id="headingOne">
                       <h5 class="mb-0">
                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Tag selection
+                          Tag Filter
                         </button>
                       </h5>
                     </div>
@@ -210,7 +210,7 @@ export default class PosResultUI extends Component{
                             value="Toggle All" 
                             onClick={this.toggleAll} />
                             <label class="form-check-label rounded" for="inlineCheckbox1">
-                              Toggle All
+                              <b>SELECT ALL</b>
                             </label>
                           </div>
                           {this.state.tagList.map((e, index) => (

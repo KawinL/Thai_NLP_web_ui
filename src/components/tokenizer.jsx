@@ -120,8 +120,8 @@ class TokenizerUI extends Component{
         return <div class="container">
             <div class="row">
               <div class="col-12">
-                <ExplainUI topic="Word Tokenization" 
-                model_description="Segment a sentence into words"
+                <ExplainUI topic="Tokenization" 
+                model_description="The process of identifying the boundaries between texts in natural languages to divide these texts into the meaningful unit as word."
                 explanation={
                   <div class="alert alert-success" role="alert">    
                       <div class="text-dark">

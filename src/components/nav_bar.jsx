@@ -33,11 +33,11 @@ class NavBar extends Component {
       return <nav class="navbar navbar-expand-lg navbar-dark text-white justify-content-between" style={{'background':'#545454'}}>
           <div style={{'padding-left': '5px'}}>
           <img src={logo} height="32" width="32"/>
-          <a class="navbar-brand">
+          <a class="navbar-brand" href="/home">
           Bailarn Library
           </a>
           </div>
-          <div class="collapse navbar-collapse float-right text-white right">
+          <div class="collapse navbar-collapse text-white right">
             <ul class="navbar-nav mr-auto ">
               
               <li class="nav-item">
@@ -50,7 +50,7 @@ class NavBar extends Component {
               <li className={classes} onClick={() => this.setAPIActive()}>
                 <a class="nav-link">
                   <i class="fa fa-book w3-large"></i> 
-                  <span class="pad-left">API</span>
+                  <span class="pad-left">Documentation</span>
                   <span class="sr-only ">(current)</span>
                 </a>
               </li>
@@ -60,7 +60,7 @@ class NavBar extends Component {
                 <a class="nav-link" href="/about">
                   <i class="fa fa-comments w3-large"></i> 
 
-                  <span class="pad-left">About</span>
+                  <span class="pad-left">About Us</span>
                 </a>
               </li>
             </ul>

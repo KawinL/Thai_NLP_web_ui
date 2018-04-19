@@ -6,7 +6,7 @@ export default class ExplanationUI extends Component{
         return (
             <div>
                 <h1> {this.props.topic} </h1>
-                <p> {this.props.model_description} </p>
+                <p><b> {this.props.model_description} </b></p>
                 <div className="explanation" >
                     {this.props.explanation}
                 </div> 
