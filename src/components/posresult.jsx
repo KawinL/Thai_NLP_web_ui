@@ -154,7 +154,7 @@ export default class PosResultUI extends Component{
             <span 
                 style={{
                     backgroundColor: posColor[tag],
-                    padding: "0 5px",
+                    // padding: "0 5px",
                     margin: "0"
                 }}>
                 {word}
@@ -202,22 +202,8 @@ export default class PosResultUI extends Component{
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                       <div class="card-body">
                         <div class="row container">
-                          <div className="form-check form-check-inline col-2">
-                            <input class="form-check-input" 
-                            type="checkbox" 
-                            id="inlineCheckbox1" 
-                            checked={this.state["toggleAll"]} 
-                            value="Toggle All" 
-                            onClick={this.toggleAll} />
-                            <label class="form-check-label rounded" for="inlineCheckbox1">
-                              <b>SELECT ALL</b>
-                            </label>
-                          </div>
                           {this.state.tagList.map((e, index) => (
-                            <div
-                              className="form-check form-check-inline col-2"
-                              data-tip={this.state.description[e]}
-                            >
+                            <div className="form-check form-check-inline col-2">
                               <input
                                 class="form-check-input"
                                 type="checkbox"
@@ -229,6 +215,7 @@ export default class PosResultUI extends Component{
                               <label
                                 class="form-check-label rounded"
                                 for="inlineCheckbox1"
+                                data-tip={this.state.description[e]}
                                 style={{
                                   backgroundColor: this.state.colorList[
                                     index
@@ -239,6 +226,12 @@ export default class PosResultUI extends Component{
                               </label>
                             </div>
                           ))}
+                          <div className="form-check form-check-inline col-2">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" checked={this.state["toggleAll"]} value="Toggle All" onClick={this.toggleAll} />
+                            <label class="form-check-label rounded" for="inlineCheckbox1">
+                              <b>SELECT ALL</b>
+                            </label>
+                          </div>
                           <ReactTooltip effect="solid" />
                         </div>
                       </div>
