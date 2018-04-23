@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 
 export default class Menu extends Component{
 
@@ -13,6 +14,7 @@ export default class Menu extends Component{
                     </li>);
         for (let i in this.props.detail[idx]) {
             subMenu.push(<li class="active focus" style={{"width":"100%"}}><a  href={this.props.detail[idx][i]}> {i} </a></li>);
+            // subMenu.push(<Link to={this.props.detail[idx][i]} activeClassName={"active"} className={"nav-link"}><a> {i} </a></Link>)
         }
         return subMenu;
     }

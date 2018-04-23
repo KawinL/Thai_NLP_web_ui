@@ -55,7 +55,7 @@ class App extends Component {
 
                 <Route exact path="/about" component={AboutUI} />
                 <Route exact path="/home" component={HomeUI} />
-                
+                <Route exact path="/" component={HomeUI} />
             </div>
           </div>
           

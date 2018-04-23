@@ -131,9 +131,12 @@ class TextClassifierUI extends Component {
     return <div class="container">
         <div class="row">
           <div class="col-12">
-            <ExplainUI topic={<div>
-                  Text Categorization <DropdownUI option={["mobile"]}/>
-                </div>} explanation={<div class="alert alert-success" role="alert">
+            <ExplainUI 
+                topic={<div>
+                  Text Categorization
+                  </div>} 
+                dropdown={<DropdownUI style={{'width':'150px'}}options={['mobile','food']} />}
+                explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
                     Put <strong>Thai Text</strong> or <strong>
                       {" "}

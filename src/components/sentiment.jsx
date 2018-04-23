@@ -140,9 +140,10 @@ class SentimentUI extends Component {
             <ExplainUI
               topic={
                 <div>
-                  Sentiment Analysis <DropdownUI option={['Food','Mobile']}/>
+                  Sentiment Analysis
                 </div>
               }
+              dropdown={<DropdownUI style={{'width':'150px'}}options={['food','mobile']} />}
               model_description="Predict the Sentiment of a document including Positive, Neutral and Negative sentiment. The model returns the probabilities of each sentiment class."
               explanation={
                 <div class="alert alert-success" role="alert">

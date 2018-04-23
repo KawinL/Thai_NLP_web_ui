@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./nav_bar.css";
 import classNames from 'classnames';
 import logo from "../images/logo.png"
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
 
@@ -51,7 +52,7 @@ class NavBar extends Component {
               </li>
 
               <li className={classes} onClick={() => this.setAPIActive()}>
-                <a class="nav-link">
+                <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/documents">
                   <i class="fa fa-book w3-large"></i>
                   <span class="pad-left">Documentation</span>
                   <span class="sr-only ">(current)</span>
@@ -60,11 +61,12 @@ class NavBar extends Component {
 
 
               <li className={classes2} onClick={() => this.setAboutActive()}>
-                <a class="nav-link" href="/about">
+                <Link to={"/about"} activeClassName={"active"} className={"nav-link"}>
+
                   <i class="fa fa-comments w3-large"></i>
 
                   <span class="pad-left">About Us</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
