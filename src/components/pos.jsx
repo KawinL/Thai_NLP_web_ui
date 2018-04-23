@@ -3,12 +3,15 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Loading from "react-loading-components";
 
+
 import { POS } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 import PosResultUI from "./posresult";
+
+
 class PosUI extends Component {
   constructor(props) {
     super(props);
