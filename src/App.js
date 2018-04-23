@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import "./App.css";
+import "./simple-sidebar.css";
 
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import TokenizerUI from "./components/tokenizer";
@@ -28,6 +29,8 @@ class App extends Component {
 
   }
 
+
+
   render() {
     return (
       <BrowserRouter>
@@ -37,12 +40,9 @@ class App extends Component {
               <NavBar />
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-4 col-md-2 c1" style={{"padding-right":"0px"}} >
-              <MenuUI head="Foundation" detail={{ "Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Named Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" }} />
-              <MenuUI head="Application" detail={{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }} />
-            </div>
-            <div class="col-xs-14 col-sm-6 col-md-10">.
+          <div class="row" id="wrapper">
+              <MenuUI head={["Foundation","Application"]} detail={[{ "Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Named Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" },{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }]}/>
+            <div class="col">.
                 <Route exact path="/tokenization" component={TokenizerUI} />
                 <Route exact path="/word-embedding" component={WordEmbedderUI} />
 
@@ -55,16 +55,10 @@ class App extends Component {
 
                 <Route exact path="/about" component={AboutUI} />
                 <Route exact path="/home" component={HomeUI} />
+                
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-4 col-md-2 c1">
-
-            </div>
-            <div class="col-xs-14 col-sm-6 col-md-10">.
-
-            </div>
-          </div>  
+          
         </div>
       </BrowserRouter>);
   }

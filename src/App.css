@@ -54,10 +54,10 @@ body {
 .navbar-brand{
   padding-left: 20px;
 }
-.col-md-2 {
+/*.col-md-2 {
     padding-bottom: 100%;
     margin-bottom: -100%;
-}
+}*/
 
 .postag{
   background-color:rgba(46, 125, 179, 0.7);
