@@ -183,6 +183,13 @@ class SentimentUI extends Component {
             arXiv:1605.07891 (2016).
           </p>
         </div>
+        <div class="row" style={{ "padding-left": "50px" }}>
+          <p>
+            P. Vateekul, and T. Koomsubha. "A study of sentiment analysis using 
+            deep learning techniques on Thai Twitter data." Computer Science and 
+            Software Engineering (JCSSE), 2016 13th International Joint Conference on. IEEE, 2016.
+          </p>
+        </div>
       </div>;
   }
 }
