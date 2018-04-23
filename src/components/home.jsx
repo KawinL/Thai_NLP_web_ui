@@ -154,6 +154,35 @@ class SentimentUI extends Component {
             models for sequence tagging. arXiv preprint arXiv:1508.01991.
           </p>
         </div>
+        <div class="row" style={{ "padding-left": "50px" }}>
+          <p>
+            W. Phuriphatwatthana, Synthai: Thai Word Segmentation and
+            Part-of-Speech Tagging with Deep Learning. [Online]. Available:
+            https://github.com/KenjiroAI/SynThai.
+          </p>
+        </div>
+        <div class="row" style={{ "padding-left": "50px" }}>
+          <p>
+            T. Mikolov, K. Chen, G. Corrado and J. Dean. "Efficient
+            estimation of word representations in vector space." arXiv
+            preprint arXiv:1301.3781(2013).
+          </p>
+        </div>
+        <div class="row" style={{ "padding-left": "50px" }}>
+          <p>
+            J. Liu, C. Wei-Cheng, W. Yuexin, and Y. Yiming. "Deep Learning
+            for Extreme Multi-label Text Classification." In Proceedings of
+            the 40th International ACM SIGIR Conference on Research and
+            Development in Information Retrieval, pp. 115-124. ACM, 2017.
+          </p>
+        </div>
+        <div class="row" style={{ "padding-left": "50px" }}>
+          <p>
+            Diaz, Fernando, Bhaskar Mitra, and Nick Craswell. "Query
+            expansion with locally-trained word embeddings." arXiv preprint
+            arXiv:1605.07891 (2016).
+          </p>
+        </div>
       </div>;
   }
 }
