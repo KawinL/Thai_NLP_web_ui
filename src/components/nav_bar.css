@@ -2,10 +2,12 @@
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-color: #ff0000; /* <—– change your color here*/
+color: #fff; /* <—– change your color here*/
 background-color: transparent;
 }
-
+.nav-item .nav-link > .active > a:hover{
+	color: #fff;
+}
 .right{
 	position: absolute;
     right: 0px;

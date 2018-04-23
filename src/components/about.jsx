@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import lab_logo from "../images/datamind.png"
 import cpcu_logo from "../images/cpcu.png"
+import peerapon from"../images/peerapon.png"
 import can from "../images/can.jpg"
 import kawin from "../images/kawin.jpg"
 import ammarin from "../images/ammarin.jpg"
@@ -44,6 +45,7 @@ class SentimentUI extends Component {
         <h2> Advisors </h2>
 	        <div class="row">
 	        	<div class = "col-md-4 text-center">
+	        		<img class="rounded-circle" src={peerapon} width ="200px" height ="200px"/>
 	        		<div style={{"padding-top":"10px"}}>
 				        <p class="text-center"><b>Asst. Prof. Peerapon Vateekul, Ph.D.</b><br />
 				        <i>Department of Computer Engineering,<br />

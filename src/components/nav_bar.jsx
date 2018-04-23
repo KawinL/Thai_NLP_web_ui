@@ -30,42 +30,46 @@ class NavBar extends Component {
         "nav-item":true,
         active: this.state.active_about, // only add this class if the state says so
         });
-      return <nav class="navbar navbar-expand-lg navbar-dark text-white justify-content-between" style={{'background':'#545454'}}>
+      return (
+        <nav class="navbar navbar-expand-lg navbar-dark text-white" style={{'background':'#545454'}}>
           <div style={{'padding-left': '5px'}}>
           <img src={logo} height="32" width="32"/>
           <a class="navbar-brand" href="/home">
-          Bailarn Library
+            Bailarn Library
+          </a>
+          <a href="#menu-toggle" class="btn" style={{'background':'#545454','color':'#fff'}} id="menu-toggle">
+            <i class="fa fa-bars w3-large"></i> 
           </a>
           </div>
-          <div class="collapse navbar-collapse text-white right">
-            <ul class="navbar-nav mr-auto ">
-              
+          <div class="text-white right">
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/">
-                  <i class="fa fa-cloud-download w3-large"></i> 
+                  <i class="fa fa-cloud-download w3-large"></i>
                   <span class="pad-left">Download</span>
                 </a>
               </li>
-              
+
               <li className={classes} onClick={() => this.setAPIActive()}>
                 <a class="nav-link">
-                  <i class="fa fa-book w3-large"></i> 
+                  <i class="fa fa-book w3-large"></i>
                   <span class="pad-left">Documentation</span>
                   <span class="sr-only ">(current)</span>
                 </a>
               </li>
-              
+
 
               <li className={classes2} onClick={() => this.setAboutActive()}>
                 <a class="nav-link" href="/about">
-                  <i class="fa fa-comments w3-large"></i> 
+                  <i class="fa fa-comments w3-large"></i>
 
                   <span class="pad-left">About Us</span>
                 </a>
               </li>
             </ul>
           </div>
-        </nav>;
+        </nav>
+      );
   }
 }
 

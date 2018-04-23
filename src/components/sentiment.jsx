@@ -87,8 +87,8 @@ class SentimentUI extends Component {
       let datao = [{ 
         key: "positive", 
         value: Number(sentimentValue[1].confidence.toFixed(4)) }, 
-        { key: "neutral", 
-        value: Number(sentimentValue[2].confidence.toFixed(4)) }, 
+        // { key: "neutral", 
+        // value: Number(sentimentValue[2].confidence.toFixed(4)) }, 
         { key: "negative", 
         value: Number(sentimentValue[0].confidence.toFixed(4)) }];
       return <ResponsiveContainer width="100%" height={300}>
@@ -100,7 +100,7 @@ class SentimentUI extends Component {
             <CartesianGrid vertical={false} />
             <Bar yAxisId="a" dataKey="value">
               <Cell key="cell-1" fill="#41f47f" />
-              <Cell key="cell-2" fill="#41a3f4" />
+              <Cell key="cell-2" fill="#f44242" />
               <Cell key="cell-3" fill="#f44242" />
             </Bar>
           </BarChart>
