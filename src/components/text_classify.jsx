@@ -37,7 +37,7 @@ class TextClassifierUI extends Component {
       isShowOutput: false,
       isTextFormat: true,
       examples: [
-        "https://pantip.com/topic/37393081",
+        "สัญญาณมือถือเอไอเอสไม่ค่อยดีเลย",
         "https://pantip.com/topic/37392967",
         "https://pantip.com/topic/37396578",
         "https://pantip.com/topic/37395554"
