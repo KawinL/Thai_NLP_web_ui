@@ -78,7 +78,7 @@ export default class PosResultUI extends Component{
         
         const selectedCheckboxes = new Set([' '])
         this.state={
-            "NN":true,
+            "NN":false,
             "NR":false,
             "PPER":false,
             "PINT":false,
