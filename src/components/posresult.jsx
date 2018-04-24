@@ -176,8 +176,13 @@ export default class PosResultUI extends Component{
     genPOSShow(){
         return <div style={{ lineHeight: "200%" }}>
             {this.props.pos.token_list.map((w, i) => (
-              <span 
-              data-tip={this.props.pos.tag_list[i]}>
+              <span
+                data-tip={
+                  this.state.description[this.props.pos.tag_list[i]] +
+                  " (" +
+                  this.props.pos.tag_list[i]+")"
+                }
+              >
                 {this.getWord(w, this.props.pos.tag_list[i])}{" "}
               </span>
             ))} <ReactTooltip effect="solid" />

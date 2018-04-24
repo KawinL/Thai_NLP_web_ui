@@ -55,8 +55,8 @@ class PosUI extends Component {
         });
       return <PosResultUI pos={this.props.posTagList.data} />;
     } else if (status == "ERROR") {
-      if (this.state.old_output != data) this.setState({
-          old_output: data
+      if (this.state.old_output != data+this.state.inputValue) this.setState({
+          old_output: data+this.state.inputValue
         });
       console.log(this.state.outputStatus);
       return <h1> ERROR {data}</h1>;
