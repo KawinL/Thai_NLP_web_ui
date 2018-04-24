@@ -72,25 +72,30 @@ class WordEmbedderUI extends Component {
       if (this.state.old_output != data) this.setState({
           old_output: data
         });
-      console.log(data)
-      return <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">Word 1</th>
-              <th scope="col">Word 2</th>
-              <th scope="col">Similarity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.distances.map(row => {
-              return <tr>
-                  <td>{row.w1}</td>
-                  <td>{row.w2}</td>
-                  <td>{row.distance.toFixed(4)}</td>
-                </tr>;
-            })}
-          </tbody>
-        </table>;
+      console.log(data.distances.length);
+      return <div>
+          {data.distances.length > 20 ? <h3>
+              show only top 20
+            </h3> : <div></div>}
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Word 1</th>
+                <th scope="col">Word 2</th>
+                <th scope="col">Similarity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.distances.slice(0, 20).map(row => {
+                return <tr>
+                    <td>{row.w1}</td>
+                    <td>{row.w2}</td>
+                    <td>{row.distance.toFixed(4)}</td>
+                  </tr>;
+              })}
+            </tbody>
+          </table>
+        </div>;
     } else if (status == "ERROR") {
       if (this.state.old_output != data) this.setState({
           old_output: data
