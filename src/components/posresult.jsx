@@ -74,7 +74,7 @@ export default class PosResultUI extends Component{
         "FWV",
         "FWA",
         "FWX"];
-        const colorList = ["rgba(145,213,110, 0.7)", "rgba(7,111,66, 0.7)", "rgba(201,200,244, 0.7)", "rgba(162,48,94, 0.7)", "rgba(163,29,153, 0.7)", "rgba(64,55,191, 0.7)", "rgba(173,223,15, 0.7)", "rgba(67,117,132, 0.7)", "rgba(9,98,79, 0.7)", "rgba(244,62,144, 0.7)", "rgba(130,168,28, 0.7)", "rgba(169,14,164, 0.7)", "rgba(86,27,166, 0.7)", "rgba(126,239,163, 0.7)", "rgba(49,119,21, 0.7)", "rgba(130,19,154, 0.7)", "rgba(163,27,16, 0.7)", "rgba(13,174,39, 0.7)", "rgba(132,93,254, 0.7)", "rgba(191,199,223, 0.7)", "rgba(218,98,6, 0.7)", "rgba(227,9,23, 0.7)", "rgba(34,170,235, 0.7)", "rgba(47,154,192, 0.7)", "rgba(37,239,237, 0.7)", "rgba(97,145,70, 0.7)", "rgba(199,57,53, 0.7)", "rgba(138,67,71, 0.7)", "rgba(89,31,183, 0.7)", "rgba(98,138,222, 0.7)", "rgba(101,24,205, 0.7)", "rgba(214,247,46, 0.7)", "rgba(149,112,247, 0.7)", "rgba(154,59,81, 0.7)", "rgba(66,202,6, 0.7)"];
+        
         
         const selectedCheckboxes = new Set([' '])
         this.state={
@@ -114,7 +114,6 @@ export default class PosResultUI extends Component{
             "FWX":false,
             selectedCheckboxes,
             tagList,
-            colorList,
             description,
             "toggleAll": false
         }
@@ -140,7 +139,7 @@ export default class PosResultUI extends Component{
 
     toggleCheckbox(e) {
         const { value } = e.target;
-        console.log(e.target);
+        console.log(e);
         let update = this.state
         update[value] = !this.state[value];
         console.log(this.state[value]);
@@ -203,23 +202,21 @@ export default class PosResultUI extends Component{
                       <div class="card-body">
                         <div class="row container">
                           {this.state.tagList.map((e, index) => (
-                            <div className="form-check form-check-inline col-2">
+                            <div className="form-check form-check-inline col-4 col-lg-2">
                               <input
                                 class="form-check-input"
                                 type="checkbox"
-                                id="inlineCheckbox1"
+                                id={"inlineCheckbox" + e}
                                 checked={this.state[e]}
                                 value={e}
                                 onClick={this.toggleCheckbox}
                               />
                               <label
                                 class="form-check-label rounded"
-                                for="inlineCheckbox1"
+                                for={"inlineCheckbox" + e}
                                 data-tip={this.state.description[e]}
                                 style={{
-                                  backgroundColor: this.state.colorList[
-                                    index
-                                  ]
+                                  backgroundColor: posColor[e]
                                 }}
                               >
                                 {e}
@@ -232,7 +229,6 @@ export default class PosResultUI extends Component{
                               <b>SELECT ALL</b>
                             </label>
                           </div>
-
                         </div>
                       </div>
                     </div>
