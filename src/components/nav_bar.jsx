@@ -32,17 +32,34 @@ class NavBar extends Component {
         active: this.state.active_about, // only add this class if the state says so
         });
       return (
-        <nav class="navbar navbar-expand-lg navbar-dark text-white" style={{'background':'#545454'}}>
-          <div style={{'padding-left': '5px'}}>
-          <img src={logo} height="32" width="32"/>
-          <a class="navbar-brand" href="/home">
-            Bailarn Library
-          </a>
-          <a href="#menu-toggle" class="btn" style={{'background':'#545454','color':'#fff'}} id="menu-toggle">
-            <i class="fa fa-bars w3-large"></i> 
-          </a>
+        <nav class="navbar navbar-default navbar-expand-lg navbar-dark text-white" style={{'background':'#545454'}}>
+          <div class="row" style={{'padding-left': '5px'}}>
+            <img src={logo} height="32" width="32"/>
+              <div class="col-xs-6">
+                <a class="navbar-brand" href="/home">
+                  Bailarn Library
+                </a>
+                <a href="#menu-toggle" class="btn" style={{'background':'#545454','color':'#fff'}} id="menu-toggle">
+                  <i class="fa fa-bars w3-large"></i> 
+                </a>
+              </div>
+              <div class="col-xs-3" style={{"padding":"0"}}>
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                  </a>
+              <div class="dropdown-menu right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/">Download</a>
+                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/documents">Documentation</a>
+                <div class="dropdown-divider"></div>
+                <Link to={"/about"} activeClassName={"active"} className={"dropdown-item"}>
+
+                  <span class="pad-left">About Us</span>
+                </Link>
+              </div>
+              </div>
+
           </div>
-          <div class="text-white right">
+          <div class="text-white right" id = "nav-item-list" id="navbarButton">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/">
@@ -51,7 +68,7 @@ class NavBar extends Component {
                 </a>
               </li>
 
-              <li className={classes} onClick={() => this.setAPIActive()}>
+              <li className={classes} onClick={() => this.setAPIActive()} id="navbarButton">
                 <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/documents">
                   <i class="fa fa-book w3-large"></i>
                   <span class="pad-left">Documentation</span>
@@ -60,7 +77,7 @@ class NavBar extends Component {
               </li>
 
 
-              <li className={classes2} onClick={() => this.setAboutActive()}>
+              <li className={classes2} onClick={() => this.setAboutActive()} id="navbarButton">
                 <Link to={"/about"} activeClassName={"active"} className={"nav-link"}>
 
                   <i class="fa fa-comments w3-large"></i>

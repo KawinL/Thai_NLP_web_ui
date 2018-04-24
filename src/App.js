@@ -42,7 +42,7 @@ class App extends Component {
           </div>
           <div class="row" id="wrapper">
               <MenuUI head={["Foundation","Application"]} detail={[{ "Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Named Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" },{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }]}/>
-            <div class="col">.
+            <div class="col" style={{"z-index":"-1","position":"relative"}}>.
                 <Route exact path="/tokenization" component={TokenizerUI} />
                 <Route exact path="/word-embedding" component={WordEmbedderUI} />
 

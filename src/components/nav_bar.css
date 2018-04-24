@@ -3,7 +3,6 @@
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
 color: #fff; /* <—– change your color here*/
-background-color: transparent;
 }
 .nav-item .nav-link > .active > a:hover{
 	color: #fff;
@@ -19,3 +18,24 @@ background-color: transparent;
     font-weight: 500;
     letter-spacing: 2px;
 }
+
+.navbar {
+    position: fixed; /* Set the navbar to fixed position */
+    width: 100%; /* Full width */
+    height: 51px;
+}
+
+@media(max-width:1023px) {
+  #navbarButton {
+    display: none;
+  }
+
+}
+@media(min-width:1024px) {
+
+  #navbarDropdown {
+  	display: none;	
+  }
+
+ }
+

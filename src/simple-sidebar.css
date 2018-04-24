@@ -52,7 +52,11 @@ a:not([href]):not([tabindex]){
   margin-right: -250px;
 }
 
-
+#wrapper {
+  margin-top: 50px;
+/*  z-index:-1;
+  position:relative;*/
+}
 /* Sidebar Styles */
 
 .sidebar-nav {
@@ -101,18 +105,19 @@ a:not([href]):not([tabindex]){
   background: none;
 }
 
-@media(min-width:768px) {
+@media(min-width:1024px) {
   #wrapper {
-    padding-left: 0;
-  }
-  #wrapper.toggled {
     padding-left: 250px;
   }
+  #wrapper.toggled {
+    padding-left: 0;
+  }
   #sidebar-wrapper {
-    width: 0;
+    width: 250px;
+    max-width: none !important;
   }
   #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 0 !important;
   }
   #page-content-wrapper {
     padding: 20px;
