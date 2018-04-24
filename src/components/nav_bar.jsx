@@ -49,7 +49,7 @@ class NavBar extends Component {
                   </a>
               <div class="dropdown-menu right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/">Download</a>
-                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/documents">Documentation</a>
+                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/docs">Documentation</a>
                 <div class="dropdown-divider"></div>
                 <Link to={"/about"} activeClassName={"active"} className={"dropdown-item"}>
 
@@ -69,7 +69,7 @@ class NavBar extends Component {
               </li>
 
               <li className={classes} onClick={() => this.setAPIActive()} id="navbarButton">
-                <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/documents">
+                <a class="nav-link" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/docs">
                   <i class="fa fa-book w3-large"></i>
                   <span class="pad-left">Documentation</span>
                   <span class="sr-only ">(current)</span>
