@@ -46,7 +46,7 @@ class NerUI extends Component {
          });
        return <div style={{ lineHeight: "200%" }}>
            {data.token_list.map((w, i) => {
-             return <span data-tip={data.tag_list[i] !== "O" ? data.tag_list[i] : "O"} class={data.tag_list[i] + " rounded"}>
+             return <span data-tip={data.tag_list[i] !== "O" ? data.tag_list[i] + "(" + ner_des[data.tag_list[i]] + ")" : "O"} class={data.tag_list[i] + " rounded"}>
                  {w}{" "}
                </span>;
            })}
@@ -82,7 +82,10 @@ class NerUI extends Component {
                       </div>
                     </div>;
                 })}
-               
+                <div class="col-12">
+                  <p>* B = Beginning word</p>
+                  <p>* I = Following word</p>
+                </div>
               </div>
             </div>
           </div>
