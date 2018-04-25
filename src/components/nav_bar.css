@@ -23,6 +23,8 @@ color: #fff; /* <—– change your color here*/
     position: fixed; /* Set the navbar to fixed position */
     width: 100%; /* Full width */
     height: 51px;
+    position: fixed;
+    z-index: 1000;
 }
 
 @media(max-width:1023px) {

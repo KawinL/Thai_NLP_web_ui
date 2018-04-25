@@ -35,14 +35,14 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <div class="row">
+          <div class="row" style={{"height":"51px"}}>
             <div class="col-md-12">
               <NavBar />
             </div>
           </div>
           <div class="row" id="wrapper">
               <MenuUI head={["Foundation","Application"]} detail={[{ "Tokenization": "/tokenization", "Word Embedding": "/word-embedding", "Named Entity Recognition": "/ner", "Part of Speech Tagging": "/pos" },{ "Sentiment Analysis": "/sentiment-analyzer", "Text Categorization": "/text-categorization", "Keyword Expansion": "/keyword-expansion" }]}/>
-            <div class="col">
+            <div class="col page-content-wrapper" style={{"padding-top":"15px"}}>
                 <Route exact path="/tokenization" component={TokenizerUI} />
                 <Route exact path="/word-embedding" component={WordEmbedderUI} />
 

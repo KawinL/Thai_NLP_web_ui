@@ -20,7 +20,7 @@ class NerUI extends Component {
     this.state = { inputValue: "", 
     isShowOutput: false, 
     isTextFormat: true, 
-    examples: ["สตีฟกินกล้วย", "ฉันอยากรู้จักเธอ", "เช้าวันนี้แดดลมสงบ", "https://www.mockups.com/best", "https://www.thairath.co.th/content/1033805"], 
+    examples: ["สถานที่ที่คุณสมชายชอบไปคือเกาหลีใต้", "รถฟอร์ดราคาแพงแต่ขายดีมาก", "อาหารร้านเซเว่นราคาเพียง 20 บาท ไม่แพ่งเลย", "https://www.khaosod.co.th/breaking-news/news_1005005", "https://www.thairath.co.th/content/1033805"], 
     inputType: "", 
     tagList: ['DTM_B','DTM_I','DES_B','DES_I','TTL_B','TTL_I','BRN_B','BRN_I','PER_B','PER_I','MEA_B','MEA_I','NUM_B','NUM_I','LOC_B','LOC_I','TRM_B','TRM_I','ORG_B','ORG_I','ABB_ORG_B','ABB_ORG_I','ABB_LOC_B','ABB_LOC_I','ABB_DES_B','ABB_DES_I','ABB_PER_B','ABB_PER_I','ABB_TTL_B','ABB_TTL_I','ABB_B','ABB_I'], 
     old_output: null, 

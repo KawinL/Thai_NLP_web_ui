@@ -51,13 +51,10 @@ a:not([href]):not([tabindex]){
   position: absolute;
   margin-right: -250px;
 }
-
 #wrapper {
-  margin-top: 50px;
-/*  z-index:-1;
-  position:relative;*/
+    position: relative;
+    z-index: 0;
 }
-/* Sidebar Styles */
 
 .sidebar-nav {
   position: absolute;
