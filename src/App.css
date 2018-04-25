@@ -76,7 +76,7 @@ background-color:rgba(3,146,207,0.99);
 background-color:rgba(3,146,207,0.7);
 }
 .MEA_B{
-background-color:rgba(19,126,168),0.99;
+background-color:rgba(19,126,168,0.99);
 }
 .MEA_I{
 background-color:rgba(19,126,168,0.7);
@@ -97,7 +97,7 @@ background-color:rgba(0,120,73,0.7);
 background-color:rgba(1,149,131,0.99);
 }
 .TRM_I{
-background-color:rgba(1,149,131,0.7,0.99);
+background-color:rgba(1,149,131,0.99);
 }
 .ORG_B{
 background-color:rgba(229,54,109,0.99);
