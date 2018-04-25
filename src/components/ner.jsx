@@ -76,8 +76,10 @@ class NerUI extends Component {
             <div class="card-body">
               <div class="row">
                 {this.state.tagList.map(e => {
-                  return <div class={e + " rounded col-2 mt-1 mb-1 mr-1 ml-1"} data-tip={ner_des[e]}>
-                      {e}
+                  return <div className="col-lg-3 col-md-3 col-sm-4 pt-1 pb-1 pr-1 pl-1">
+                      <div class={e + " col-12 rounded mt-1 mb-1 mr-1 ml-1"} data-tip={ner_des[e]}>
+                        {e}
+                      </div>
                     </div>;
                 })}
                
