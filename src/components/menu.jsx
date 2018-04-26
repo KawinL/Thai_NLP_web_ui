@@ -13,7 +13,9 @@ export default class Menu extends Component{
                         </span>
                     </li>);
         for (let i in this.props.detail[idx]) {
-            subMenu.push(<li class="active focus" style={{"width":"100%"}}><a  href={this.props.detail[idx][i]}> {i} </a></li>);
+            subMenu.push(<li class="active focus" style={{ width: "100%" }}>
+                <Link to={this.props.detail[idx][i]}> {i} </Link>
+              </li>);
             // subMenu.push(<Link to={this.props.detail[idx][i]} activeClassName={"active"} className={"nav-link"}><a> {i} </a></Link>)
         }
         return subMenu;

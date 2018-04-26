@@ -19,6 +19,7 @@ class SentimentUI extends Component {
   render() {
     return <div class="container" style={{ "margin-left": "0px" }}>
         <h1> Welcome to Bailarn : Thai NLP Platform</h1>
+        <hr />
         <h2> Overview of Bailarn </h2>
         <div class="row">
           <p style={{ "padding-left": "50px" }}>
@@ -33,6 +34,8 @@ class SentimentUI extends Component {
             the experiments.
           </p>
         </div>
+        <hr />
+        <br />
         <h2> Features </h2>
         <div class="row">
           <div class="col-md-3">
@@ -131,13 +134,16 @@ class SentimentUI extends Component {
             </p>
           </div>
         </div>
-
+        <hr />
+        <br />
         <h2> Download Bailarn Library </h2>
         <div class="row" style={{ "padding-left": "50px" }}>
           <a href="https://github.com/KawinL/Thai_NLP_platform/">
             https://github.com/KawinL/Thai_NLP_platform/
           </a>
         </div>
+        <hr />
+        <br />
         <h2> References </h2>
         <div class="row" style={{ "padding-left": "50px" }}>
           <p>
@@ -185,9 +191,10 @@ class SentimentUI extends Component {
         </div>
         <div class="row" style={{ "padding-left": "50px" }}>
           <p>
-            P. Vateekul, and T. Koomsubha. "A study of sentiment analysis using 
-            deep learning techniques on Thai Twitter data." Computer Science and 
-            Software Engineering (JCSSE), 2016 13th International Joint Conference on. IEEE, 2016.
+            P. Vateekul, and T. Koomsubha. "A study of sentiment analysis
+            using deep learning techniques on Thai Twitter data." Computer
+            Science and Software Engineering (JCSSE), 2016 13th
+            International Joint Conference on. IEEE, 2016.
           </p>
         </div>
       </div>;

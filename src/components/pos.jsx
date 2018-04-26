@@ -21,10 +21,10 @@ class PosUI extends Component {
       isShowOutput: false,
       isTextFormat: true,
       examples: [
-        "สตีฟกินกล้วย",
-        "ฉันอยากรู้จักเธอ",
-        "เช้าวันนี้แดดลมสงบ",
-        "https://www.mockups.com/best",
+        "สตีฟชอบกินกล้วยแต่ฉันไม่ชอบ",
+        "ฉันอยากไปห้องพัก",
+        "ฉันอยากพัก",
+        "ที่แห่งนี้ยังคงมีรักอยู่ไหม?",
         "https://www.thairath.co.th/content/1033805"
       ],
       inputType: "",
@@ -59,7 +59,7 @@ class PosUI extends Component {
           old_output: data+this.state.inputValue
         });
       console.log(this.state.outputStatus);
-      return <h1> ERROR {data}</h1>;
+      return <h1> {data}</h1>;
     }
   }
 

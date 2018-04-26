@@ -14,15 +14,7 @@ class KeywordExpansionUI extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      inputValue: "",
-      isShowOutput: false,
-      isTextFormat: true,
-      examples: ["iphone", "note", "ช้า", "แอนดรอย"],
-      inputType: "",
-      old_output: null,
-      outputStatus: 1
-    };
+    this.state = { inputValue: "", isShowOutput: false, isTextFormat: true, examples: ["iphone", "ซัมซุง", "ช้า", "แอนดรอย"], inputType: "", old_output: null, outputStatus: 1 };
 
     this.setInput = this.setInput.bind(this);
   }
@@ -91,11 +83,11 @@ class KeywordExpansionUI extends Component {
           </tbody>
         </table>;
     } else if (status == "ERROR") {
-      if (this.state.old_output != data) this.setState({
-          old_output: data
+      if (this.state.old_output != datao) this.setState({
+          old_output: datao
         });
       console.log(this.state.outputStatus);
-      return <h1> ERROR {data}</h1>;
+      return <h1> {datao}</h1>;
     }
   }
 
@@ -126,7 +118,7 @@ class KeywordExpansionUI extends Component {
                       Keyword Expansion 
                     </div>
               } 
-              dropdown={<DropdownUI style={{'width':'150px'}}options={['mobile','food']} />}
+              dropdown={<DropdownUI style={{'width':'150px'}}options={['mobile']} />}
               explanation={<div class="alert alert-success" role="alert">
                   <div class="text-dark">
                     Put <strong>Thai word </strong>in the box below and hit <strong

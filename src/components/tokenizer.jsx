@@ -79,7 +79,7 @@ class TokenizerUI extends Component{
               old_output: data
             });
           console.log(this.state.outputStatus);
-          return (<h1> ERROR {data}</h1>)
+          return (<h1> {data}</h1>)
         }
     }
 
