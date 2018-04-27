@@ -47,10 +47,10 @@ class NavBar extends Component {
                 More
               </a>
               <div class="dropdown-menu right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform_for_Demoday/">
+                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/">
                   Download
                 </a>
-                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform_for_Demoday/tree/master/docs">
+                <a class="dropdown-item" href="https://github.com/KawinL/Thai_NLP_platform/tree/master/docs">
                   Documentation
                 </a>
                 <div class="dropdown-divider" />
