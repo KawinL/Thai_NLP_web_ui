@@ -83,7 +83,7 @@ a:not([href]):not([tabindex]){
 }
 
 .sidebar-nav li a:active, .sidebar-nav li a:focus {
-  color: #010101 !important;
+  color: #a8f178 !important;
   text-decoration: none;
 }
 
