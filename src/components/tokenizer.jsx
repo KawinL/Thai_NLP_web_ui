@@ -33,7 +33,7 @@ class TokenizerUI extends Component{
         })
         console.log(this.state.outputStatus);
         console.log(this.props.wordList.status);
-        if (this.state.inputValue!=""){
+        if (this.state.inputValue!==""){
            this.props.tokenizeWord(this.state.inputType, this.state.inputValue);
            this.setState({isShowOutput:true})
         };
@@ -43,7 +43,7 @@ class TokenizerUI extends Component{
 
     genDataForCopy(){
       if (this.props.wordList.status){
-        if (this.props.wordList.status=="OK" && this.state.outputStatus==2)
+        if (this.props.wordList.status==="OK" && this.state.outputStatus===2)
             return this.props.wordList.data.join("|");
       
       }
@@ -55,8 +55,8 @@ class TokenizerUI extends Component{
     genTextData(){
       const status = this.props.wordList.status;
       const data = this.props.wordList.data;
-      if (status =='OK') {
-        if (this.state.old_output != data) this.setState({
+      if (status ==='OK') {
+        if (this.state.old_output !== data) this.setState({
             old_output: data
           });
           return <div style={{ lineHeight: "200%" }}>
@@ -74,8 +74,8 @@ class TokenizerUI extends Component{
                 </span>
               ))}
             </div>;
-        } else if(status == 'ERROR'){
-          if (this.state.old_output != data) this.setState({
+        } else if(status === 'ERROR'){
+          if (this.state.old_output !== data) this.setState({
               old_output: data
             });
           console.log(this.state.outputStatus);
@@ -84,7 +84,7 @@ class TokenizerUI extends Component{
     }
 
     genJSONData(){
-      if(this.props.wordList.status=="OK") return this.props.wordList.data
+      if(this.props.wordList.status==="OK") return this.props.wordList.data
       else return {};
     }
 
@@ -106,7 +106,7 @@ class TokenizerUI extends Component{
       if(this.props.wordList.status){
         console.log(status)
         console.log(this.state.old_output)
-        if (this.state.old_output != this.props.wordList.data) {
+        if (this.state.old_output !== this.props.wordList.data) {
           console.log(this.state.old_output);
           console.log(this.props.wordList.data);
           this.setState({ outputStatus: 2 });
@@ -151,7 +151,7 @@ class TokenizerUI extends Component{
                   <ResultUI
                     dataForCopy={this.genDataForCopy()}
                     isTextFormat={true}
-                    textData={this.state.outputStatus == 1 ? this.loading():this.genTextData() }
+                    textData={this.state.outputStatus === 1 ? this.loading():this.genTextData() }
                     jsonData={this.genJSONData()}
                   />
                 ) : (

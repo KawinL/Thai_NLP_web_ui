@@ -37,7 +37,7 @@ class PosUI extends Component {
 
   rawText() {
     if (this.props.posTagList.status)
-      if (this.props.posTagList.status == "OK")
+      if (this.props.posTagList.status === "OK")
         return this.props.posTagList.data.token_list
           .map(
             (w, i) => `${w}/${this.props.posTagList.data.tag_list[i]} `
@@ -49,13 +49,13 @@ class PosUI extends Component {
   textResultComponent() {
     const status = this.props.posTagList.status;
     const data = this.props.posTagList.data;
-    if (status == "OK") {
-      if (this.state.old_output != data) this.setState({
+    if (status === "OK") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
       return <PosResultUI pos={this.props.posTagList.data} />;
-    } else if (status == "ERROR") {
-      if (this.state.old_output != data+this.state.inputValue) this.setState({
+    } else if (status === "ERROR") {
+      if (this.state.old_output !== data+this.state.inputValue) this.setState({
           old_output: data+this.state.inputValue
         });
       console.log(this.state.outputStatus);
@@ -70,7 +70,7 @@ class PosUI extends Component {
       inputType: typeOfInputValue(this.state.inputValue)
     });
     this.setState({ outputStatus: 1 });
-    if (this.state.inputValue!=""){
+    if (this.state.inputValue!==""){
               this.props.POS(this.state.inputType, this.state.inputValue);
               this.setState({isShowOutput:true})
     };
@@ -95,7 +95,7 @@ class PosUI extends Component {
     if (this.props.posTagList.status) {
       console.log(status);
       console.log(this.state.old_output);
-      if (this.state.old_output != this.props.posTagList.data) {
+      if (this.state.old_output !== this.props.posTagList.data) {
         console.log(this.state.old_output);
         console.log(this.props.posTagList.data);
         this.setState({ outputStatus: 2 });
@@ -162,7 +162,7 @@ class PosUI extends Component {
             {this.state.isShowOutput ? (
               <ResultUI
                 isTextFormat={true}
-                textData={this.state.outputStatus == 1
+                textData={this.state.outputStatus === 1
                     ? this.loading()
                     : this.textResultComponent()}
                 dataForCopy={this.rawText()}

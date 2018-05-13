@@ -3,13 +3,12 @@ import React, { Component } from "react";
 import "./App.css";
 import "./simple-sidebar.css";
 
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import TokenizerUI from "./components/tokenizer";
 import WordEmbedderUI from "./components/word-embedder";
 import NERUI from "./components/ner";
 import PosUI from "./components/pos";
 import NavBar from "./components/nav_bar";
-import ExplainUI from "./components/explanation";
 import MenuUI from "./components/menu";
 import KeywordExpansionUI from "./components/keyword_expansion";
 import SentimentUI from "./components/sentiment";

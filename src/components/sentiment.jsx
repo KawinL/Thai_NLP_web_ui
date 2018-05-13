@@ -11,16 +11,11 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
-  Line,
   CartesianGrid,
   ResponsiveContainer,
   Cell,
-  ComposedChart,
-  Area
 } from "recharts";
 
-import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
@@ -55,7 +50,7 @@ class SentimentUI extends Component {
       inputType: typeOfInputValue(this.state.inputValue)
     });
     console.log(this.props.sentimentValue)
-    if (this.state.inputValue != "") {
+    if (this.state.inputValue !== "") {
       this.props.sentiment(this.state.inputType, this.state.inputValue,'MOCK');
       this.setState({ isShowOutput: true });
     }
@@ -77,8 +72,8 @@ class SentimentUI extends Component {
   genGraph() {
     const status = this.props.sentimentValue.status;
     const data = this.props.sentimentValue.data;
-    if (status == "OK") {
-      if (this.state.old_output != data) this.setState({
+    if (status === "OK") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
 
@@ -105,8 +100,8 @@ class SentimentUI extends Component {
             </Bar>
           </BarChart>
         </ResponsiveContainer>;
-    } else if (status == "ERROR") {
-      if (this.state.old_output != data) this.setState({
+    } else if (status === "ERROR") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
       console.log(this.state.outputStatus);
@@ -193,7 +188,7 @@ class SentimentUI extends Component {
               <ResultUI
                 isTextFormat={true}
                 textData={
-                  this.state.outputStatus == 1
+                  this.state.outputStatus === 1
                     ? this.loading()
                     : this.genGraph()
                 }

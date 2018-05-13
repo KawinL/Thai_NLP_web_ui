@@ -46,7 +46,7 @@ class WordEmbedderUI extends Component {
       inputType: typeOfInputValue(this.state.inputValue)
     });
     console.log(this.state.inputValue);
-    if (this.state.inputValue != ""){
+    if (this.state.inputValue !== ""){
       this.props.vectorizeWord(`[${this.state.inputValue}]`); 
       this.setState({ isShowOutput: true });
     } 
@@ -68,8 +68,8 @@ class WordEmbedderUI extends Component {
   genTable() {
     const data = this.props.similarMatrix.data;
     const status = this.props.similarMatrix.status;
-    if (status == "OK") {
-      if (this.state.old_output != data) this.setState({
+    if (status === "OK") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
       console.log(data.distances.length);
@@ -96,8 +96,8 @@ class WordEmbedderUI extends Component {
             </tbody>
           </table>
         </div>;
-    } else if (status == "ERROR") {
-      if (this.state.old_output != data) this.setState({
+    } else if (status === "ERROR") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
       console.log(this.state.outputStatus);
@@ -109,7 +109,7 @@ class WordEmbedderUI extends Component {
     if (this.props.similarMatrix.status) {
       console.log(status);
       console.log(this.state.old_output);
-      if (this.state.old_output != this.props.similarMatrix.data) {
+      if (this.state.old_output !== this.props.similarMatrix.data) {
         console.log(this.state.old_output);
         console.log(this.props.similarMatrix.data);
         this.setState({ outputStatus: 2 });
@@ -174,7 +174,7 @@ class WordEmbedderUI extends Component {
               <ResultUI
                 isTextFormat={true}
                 textData={
-                  this.state.outputStatus == 1
+                  this.state.outputStatus === 1
                     ? this.loading()
                     : this.genTable()
                 }

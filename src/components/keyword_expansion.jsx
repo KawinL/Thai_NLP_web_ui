@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Loading from "react-loading-components";
 
-import { vectorizeWord } from "../action/index";
 import ResultUI from "./result";
 import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
@@ -27,7 +26,7 @@ class KeywordExpansionUI extends Component {
     });
     console.log(this.state.inputValue);
     this.setState({ outputStatus: 1 });
-    if (this.state.inputValue != "") {
+    if (this.state.inputValue !== "") {
       this.props.keywordExpand(this.state.inputType, this.state.inputValue);
       this.setState({ isShowOutput: true });
     }
@@ -51,8 +50,8 @@ class KeywordExpansionUI extends Component {
     const status = this.props.expandedWord.status;
     const datao = this.props.expandedWord.data;
     var data = [];
-    if (status == "OK") {
-      if (this.state.old_output != datao) this.setState({
+    if (status === "OK") {
+      if (this.state.old_output !== datao) this.setState({
           old_output: datao
         });
       console.log(datao.string_list.length);
@@ -82,8 +81,8 @@ class KeywordExpansionUI extends Component {
             })}
           </tbody>
         </table>;
-    } else if (status == "ERROR") {
-      if (this.state.old_output != datao) this.setState({
+    } else if (status === "ERROR") {
+      if (this.state.old_output !== datao) this.setState({
           old_output: datao
         });
       console.log(this.state.outputStatus);
@@ -96,7 +95,7 @@ class KeywordExpansionUI extends Component {
     if (this.props.expandedWord.status) {
       console.log(status);
       console.log(this.state.old_output);
-      if (this.state.old_output != this.props.expandedWord.data) {
+      if (this.state.old_output !== this.props.expandedWord.data) {
         console.log(this.state.old_output);
         console.log(this.props.expandedWord.data);
         this.setState({ outputStatus: 2 });
@@ -151,7 +150,7 @@ class KeywordExpansionUI extends Component {
               <ResultUI
                 isTextFormat={true}
                 textData={
-                  this.state.outputStatus == 1
+                  this.state.outputStatus === 1
                     ? this.loading()
                     : this.genTable()
                 }

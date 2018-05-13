@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DropdownUI from "./dropdown.jsx"
 
 export default class ExplanationUI extends Component{
     render(){

@@ -18,7 +18,7 @@ class SentimentUI extends Component {
         <h2> Project developers </h2>
 	        <div class="row">
 	        	<div class = "col-md-4 text-center">
-	        		<img class="rounded-circle" src={ammarin} width ="200px" height ="200px"/>
+	        		<img class="rounded-circle" src={ammarin} width ="200px" height ="200px" alt=''/>
 	        		<div style={{"padding-top":"10px"}}>
 			        <p class="text-center" ><b>Ammarin Jetthakun</b><br />
 			        <i>Department of Computer Engineering,<br />
@@ -26,7 +26,7 @@ class SentimentUI extends Component {
 			        </div>
 			    </div>
 			    <div class = "col-md-4 text-center">
-			    	<img class="rounded-circle" src={chavisa} width ="200px" height ="200px"/>
+			    	<img class="rounded-circle" src={chavisa} width ="200px" height ="200px" alt=''/>
 			    	<div style={{"padding-top":"10px"}}>
 			        <p class="text-center" ><b>Chavisa Thamjarat</b><br />
 			        <i>Department of Computer Engineering,<br />
@@ -34,7 +34,7 @@ class SentimentUI extends Component {
 			        </div>
 			    </div>
 			    <div class = "col-md-4 text-center">
-			    	<img class="rounded-circle" src={kawin} width ="200px" height ="200px"/>
+			    	<img class="rounded-circle" src={kawin} width ="200px" height ="200px" alt=''/>
 			    	<div style={{"padding-top":"10px"}}>
 			        <p class="text-center" ><b>Kawin Liaowongphuthorn</b><br />
 			        <i>Department of Computer Engineering,<br />
@@ -45,7 +45,7 @@ class SentimentUI extends Component {
         <h2> Advisors </h2>
 	        <div class="row">
 	        	<div class = "col-md-4 text-center">
-	        		<img class="rounded-circle" src={peerapon} width ="200px" height ="200px"/>
+	        		<img class="rounded-circle" src={peerapon} width ="200px" height ="200px" alt=''/>
 	        		<div style={{"padding-top":"10px"}}>
 				        <p class="text-center"><b>Asst. Prof. Peerapon Vateekul, Ph.D.</b><br />
 				        <i>Department of Computer Engineering,<br />
@@ -53,7 +53,7 @@ class SentimentUI extends Component {
 			        </div>
 			    </div>
 			    <div class = "col-md-4 text-center">
-			    	<img class="rounded-circle" src={can} width ="200px" height ="200px"/>
+			    	<img class="rounded-circle" src={can} width ="200px" height ="200px" alt=''/>
 			    	<div style={{"padding-top":"10px"}}>
 			        <p class="text-center"><b>Can Udomcharoenchaikit</b><br />
 			        <i>Department of Computer Engineering,<br />
@@ -61,7 +61,7 @@ class SentimentUI extends Component {
 			        </div>
 			    </div>
 			    <div class = "col-md-4 text-center">
-			    	<img class="rounded-circle" src={prachya} width ="200px" height ="200px"/>
+			    	<img class="rounded-circle" src={prachya} width ="200px" height ="200px" alt=''/>
 			    	<div style={{"padding-top":"10px"}}>
 			        <p class="text-center"><b>Prachya Boonkwan, Ph.D.</b><br />
 			        <i>Language and Semantic Technology Lab (LST),<br />
@@ -72,15 +72,15 @@ class SentimentUI extends Component {
         <h2> Organizations </h2>
         <div class="row">
         	<div class = "col-md-4">
-        		<img src = {lab_logo} height="140" width="320"/>
+        		<img src = {lab_logo} height="140" width="320" alt=''/>
         	</div>
         	<div class = "col-md-4">
-        		<img src = {nectec_logo} height="140" width="489"/>
+        		<img src = {nectec_logo} height="140" width="489" alt=''/>
         	</div>
         </div>
         <div class="row">
             <div class = "col-md-8">
-        		<img src = {cpcu_logo} height="140" width="960"/>
+        		<img src = {cpcu_logo} height="140" width="960" alt=''/>
         	</div>
         </div>
     </div>)

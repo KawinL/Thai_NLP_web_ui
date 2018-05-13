@@ -3,10 +3,6 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 class DropdownUI extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
   setSelected(e){
     const {value} = e.target
     console.log(value)

@@ -33,7 +33,7 @@ class NavBar extends Component {
         });
       return <nav class="navbar navbar-default navbar-expand-lg navbar-dark text-white" style={{ background: "#545454" }}>
           <div class="row" style={{ "padding-left": "5px" }}>
-            <img src={logo} height="32" width="32" />
+            <img src={logo} height="32" width="32"  alt=''/>
             <div class="col-xs-6">
               <a class="navbar-brand" href="/home">
                 Bailarn Library
@@ -43,7 +43,7 @@ class NavBar extends Component {
               </a>
             </div>
             <div class="col-xs-3" style={{ padding: "0" }}>
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 More
               </a>
               <div class="dropdown-menu right" aria-labelledby="navbarDropdown">

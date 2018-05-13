@@ -160,10 +160,6 @@ export default class PosResultUI extends Component{
             </span>
         )
     }
-
-    normalWord(word){
-        <span>{word}</span>
-    }
     
     getWord(word,tag){
         if(this.state[tag]){

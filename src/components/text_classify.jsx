@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {
-  Bar,
-  BarChart,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-  ResponsiveContainer,
-  Cell,
 
-
-
-
-} from "recharts";
 import Loading from "react-loading-components";
 
 import { classify } from "../action/index";
-import Dropdown from "react-dropdown";
+
 import "react-dropdown/style.css";
 
 import ResultUI from "./result";
@@ -101,8 +88,8 @@ class TextClassifierUI extends Component {
             })}
           </tbody>
         </table>;
-    } else if (status == "ERROR") {
-      if (this.state.old_output != data) this.setState({
+    } else if (status === "ERROR") {
+      if (this.state.old_output !== data) this.setState({
           old_output: data
         });
       console.log(this.state.outputStatus);
@@ -115,7 +102,7 @@ class TextClassifierUI extends Component {
     if (this.props.textClasses.status) {
       console.log(status);
       console.log(this.state.old_output);
-      if (this.state.old_output != this.props.textClasses.data) {
+      if (this.state.old_output !== this.props.textClasses.data) {
         console.log(this.state.old_output);
         console.log(this.props.textClasses.data);
         this.setState({ outputStatus: 2 });
@@ -171,7 +158,7 @@ class TextClassifierUI extends Component {
               <ResultUI
                 isTextFormat={true}
                 textData={
-                  this.state.outputStatus == 1
+                  this.state.outputStatus === 1
                     ? this.loading()
                     : this.genGraph()
                 }

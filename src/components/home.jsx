@@ -1,20 +1,6 @@
 import React, { Component } from "react";
 
-import { vectorizeWord } from "../action/index";
-import ResultUI from "./result";
-import ExplainUI from "./explanation";
-import InputUI, { typeOfInputValue } from "./input";
-import ExampleUI from "./example";
-import DropdownUI from "./dropdown";
-
-import lab_logo from "../images/datamind.png"
-import cpcu_logo from "../images/cpcu.png"
-import can from "../images/can.jpg"
-import kawin from "../images/kawin.jpg"
-import ammarin from "../images/ammarin.jpg"
-import chavisa from "../images/chavisa.jpg"
-import nectec_logo from "../images/nectec_logo.jpg"
-class SentimentUI extends Component {
+class HomeUI extends Component {
 
   render() {
     return <div class="container" style={{ "margin-left": "0px" }}>
@@ -201,4 +187,4 @@ class SentimentUI extends Component {
   }
 }
 
-export default (SentimentUI);
+export default (HomeUI);

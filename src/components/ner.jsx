@@ -10,7 +10,7 @@ import ExplainUI from "./explanation";
 import InputUI, { typeOfInputValue } from "./input";
 import ExampleUI from "./example";
 import "./style.css"
-import {ner_tag_list, ner_des} from "./ner_tag_list";
+import { ner_des } from "./ner_tag_list";
 
 
 class NerUI extends Component {
@@ -31,7 +31,7 @@ class NerUI extends Component {
   }
 
   rawText() {
-    if (this.props.nerTagList.status) if (this.props.nerTagList.status == "OK") return this.props.nerTagList.data.token_list
+    if (this.props.nerTagList.status) if (this.props.nerTagList.status === "OK") return this.props.nerTagList.data.token_list
           .map((w, i) => `${w}/${this.props.nerTagList.data.tag_list[i]} `)
           .join("|");
       else return "";
@@ -40,8 +40,8 @@ class NerUI extends Component {
   showTextResult() {
     const status = this.props.nerTagList.status;
     const data = this.props.nerTagList.data;
-     if (status == "OK") {
-       if (this.state.old_output != data) this.setState({
+     if (status === "OK") {
+       if (this.state.old_output !== data) this.setState({
            old_output: data
          });
        return <div style={{ lineHeight: "200%" }}>
@@ -52,8 +52,8 @@ class NerUI extends Component {
            })}
            <ReactTooltip effect="solid" />
          </div>;
-     } else if (status == "ERROR") {
-       if (this.state.old_output != data) this.setState({
+     } else if (status === "ERROR") {
+       if (this.state.old_output !== data) this.setState({
            old_output: data
          });
        console.log(this.state.outputStatus);
@@ -100,7 +100,7 @@ class NerUI extends Component {
       inputType: typeOfInputValue(this.state.inputValue)
     });
     this.setState({ outputStatus: 1 });
-    if (this.state.inputValue!=""){
+    if (this.state.inputValue!==""){
            this.props.NER(this.state.inputType, this.state.inputValue);
            this.setState({isShowOutput:true})
         };
@@ -125,7 +125,7 @@ class NerUI extends Component {
     if (this.props.nerTagList.status) {
       console.log(status);
       console.log(this.state.old_output);
-      if (this.state.old_output != this.props.nerTagList.data) {
+      if (this.state.old_output !== this.props.nerTagList.data) {
         console.log(this.state.old_output);
         console.log(this.props.nerTagList.data);
         this.setState({ outputStatus: 2 });
@@ -194,7 +194,7 @@ class NerUI extends Component {
                 isTextFormat={true}
                 dataForCopy={this.rawText()}
                 textData={
-                  this.state.outputStatus == 1
+                  this.state.outputStatus === 1
                     ? this.loading()
                     : this.showTextResult()
                 }
