@@ -10,7 +10,6 @@ const SENTIMENT = "SENTIMENT";
 const EXPAND = "EXPAND";
 const CATEGORIZE = "CATEGORIZE";
 export function tokenizeWord(type, text) {
-    // const url = "http://demo1079282.mockable.io/tokenizer";
     const url = "/tokenize"
     const mapping = { TEXT: "raw_text", URL: "webpage" };
     let data = { type: mapping[type], url: text, text };
@@ -23,17 +22,11 @@ export function vectorizeWord(word_list){
     const url = "/vector_distance";
     let data = { word_list };
     const request = axios.post(url, data);
-    // const request = axios.post(url,{text: words});
     return { type: VECTORIZE_WORD, payload: request }
 }
 
 export function NER(type, text) {
-  // const url = "http://demo1079282.mockable.io/tokenizer";
-  if(text==="https://www.mockups.com/best"){
-    return {
-      type: MOCK_DATA,
-    }
-  }
+  
   const url = "/ner";
   const mapping = { TEXT: "raw_text", URL: "webpage" };
   let data = { type: mapping[type], url: text, text };
@@ -44,9 +37,10 @@ export function NER(type, text) {
 }
 
 export function POS(type, text) {
-  if (text === "https://www.mockups.com/best") {
-    return { type: MOCK_DATA };
-  }
+  // for testing
+  // if (text === "https://www.mockups.com/best") {
+  //   return { type: MOCK_DATA };
+  // }
   const url = "/pos";
   const mapping = { TEXT: "raw_text", URL: "webpage" };
   let data = { type: mapping[type], url: text, text };
