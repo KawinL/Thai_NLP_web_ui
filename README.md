@@ -1,10 +1,11 @@
-# Usage
+# Installation and Start server
 
 ``` 
 git clone  https://github.com/KawinL/Thai_NLP_web_ui.git
 yarn install
 yarn start
 ```
+the server will listening at port 8000
 
 # File Functional
 - `src`
