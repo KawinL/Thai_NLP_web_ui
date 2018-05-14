@@ -46,7 +46,7 @@ class HomeUI extends Component {
           </div>
           <div>
             <p style={{ "padding-left": "50px" }}>
-              &nbsp;&nbsp;&nbsp;&nbsp; Map a word from the vocabulary to vectors pf real numbers involving a mathematical embedding.<br />
+              &nbsp;&nbsp;&nbsp;&nbsp; Map a word from the vocabulary to vectors of real numbers involving a mathematical embedding.<br />
             </p>
           </div>
         </div>
