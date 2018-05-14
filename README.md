@@ -1,13 +1,20 @@
-# Installation and Start server
+# Installation
 
 ``` 
 git clone  https://github.com/KawinL/Thai_NLP_web_ui.git
+cd Thai_NLP_web_ui
 yarn install
+```
+
+# Start server
+
+```
 yarn start
 ```
 the server will listening at port 3000
 
-# File Functional
+
+# File Functionality
 - `src`
     - `action`
         - Contain all APIs connect to the back-end server
@@ -21,8 +28,3 @@ the server will listening at port 3000
         - Contain data transformer 
         - Receive data from back-end
         - Transfer data to corresponding component
-
-# How to use your back-end 
-
-- Change `proxy` in `package.json` to your hostname 
-- Change `url` in `action/index.json`, according to your API url
